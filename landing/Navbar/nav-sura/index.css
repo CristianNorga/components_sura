@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+}
+
+/* nav-sura */
+
+.brand-sura {
+	width: 100%;
+	padding: 14px 0 14px 20px;
+  display: flex;
+}
+
+.brand-sura img {
+	width: 113px;
+}
+
+.descriptor-negocio {
+	font-family: 'Barlow', sans-serif;
+	font-weight: 500;
+	height: 41px;
+	background-color: #0033a0;
+	width: 100%;
+	color: #ffffff;
+	font-weight: 500;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+	.descriptor-negocio {
+		font-size: 13px;
+		height: 29px;
+		padding-left: 10px;
+	}
+	.brand-sura {
+		padding: 7px 0 7px 10px;
+	}
+}
+
+.separator--brand {
+  width: 1px;
+  background-color: #9d9d9c;
+  margin: 0 25px;
+}
+
+.text-info {
+	color: #0033a0 !important;
+	font-family: Barlow, sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+}

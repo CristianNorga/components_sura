@@ -1,0 +1,46 @@
+body {
+  font-family: 'Barlow', sans-serif;
+}
+
+/* BANNER */
+
+.content-banner {
+  max-width: 100%;
+  position: relative;
+}
+
+.content-banner_img {
+  width: 100%;
+  height: auto;
+}
+
+.content-banner_paragraph {
+  color: #0033a0;
+  position: absolute;
+  top: 15%;
+  left: 7%;
+  max-width: 34%;
+}
+
+.content-banner_paragraph > p:nth-child(1n) {
+  /* font-size: 4rem; */
+  font-size: 6vw;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+}
+.content-banner_paragraph > p:nth-child(2n) {
+  /* font-size: 5rem; */
+  font-size: 7vw;
+  font-weight: 700;
+  line-height: 0.8;
+}
+.content-banner_paragraph > p:nth-child(3n) {
+  /* font-size: 1.1rem; */
+  font-size: 1.7vw;
+  font-weight: 700;
+  line-height: 1.5;
+  padding-top: 5vw;
+}
+
+/* END BANNER */

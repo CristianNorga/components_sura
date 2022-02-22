@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar - toolstips</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <!-- https://seguros.comunicaciones.sura.com/css-tfm-210220222158 -->
+    <!-- https://seguros.comunicaciones.sura.com/JS-ttfm-210220222159 -->
+  <script>
+    var cities = [
+      {
+        name: "Bogotá",
+        id: 'bogota',
+        items: [
+          {
+            resumeCombo: 'Mantén las llantas y los frenos de tu carro en buen estado.',
+            descriCombo: '•Ahorra dinero con este servicio que te entregamos en los Centros de Servicios SURA Alineación + balanceo + nitrógeno + mantenimiento de frenos por sólo:',
+            cost: ' 120.000',
+            disabled: true,
+            urlBtn: 'https://google.com',
+            button: 'Ver más',
+            xl: '2',
+          },
+          {
+            resumeCombo: 'Aprovecha este beneficio para tu carro.',
+            descriCombo: '•Ahorra dinero con los Centros de Servicios SURA Alineación + balanceo + mantenimiento de frenos + líquido de frenos por sólo',
+            cost: ' 180.000',
+          },
+          {
+            resumeCombo: 'Recibe el siguiente beneficio para tu carro en los Centros de Servicios SURA Haz el cambio de aceite a tu carro y te entregamos el siguiente beneficio en los Centros de Servicios SURA:',
+            descriCombo: '•Realiza el cambio de aceite y recibes: Cambio de filtro del aire acondicionado + desinfección del aire acondicionado + alineación de luces por sólo:',
+            cost: ' 90.000',
+            legal: true,
+            xl: '3'
+          },
+          {
+            resumeCombo: 'Cuida los frenos de tu carro en los Centros de Servicios SURA.',
+            descriCombo: '•Ahorra dinero con este beneficio Líquido + mantenimiento de frenos por sólo:',
+            cost: ' 100.000',
+          },
+          {
+            resumeCombo: 'Cuida tu carro con el siguiente beneficio que tenemos en los Centros de Servicios SURA:',
+            descriCombo: '•Lavado motor + polichado por solo:',
+            cost: ' 150.000',
+          },
+        ]
+      },
+      {
+        name: "Cali",
+        id: 'cali',
+        items: [
+          {
+            resumeCombo: 'Mantén las llantas y los frenos de tu carro en buen estado.',
+            descriCombo: 'Ahorra dinero con este servicio que te entregamos en los Centros de Servicios SURA •Alineación + balanceo + nitrógeno + mantenimiento de frenos por sólo:',
+            cost: ' 120.000',
+          },
+          {
+            resumeCombo: 'Aprovecha este beneficio para tu carro.',
+            descriCombo: 'Ahorra dinero con los Centros de Servicios SURA •Alineación + balanceo + mantenimiento de frenos + líquido de frenos por sólo',
+            cost: ' 180.000',
+            infoHighlight: 'Recibe GRATIS lavado',
+          },
+          {
+            resumeCombo: '...',
+            descriCombo: 'Alineación + Balanceo + Alineación de Luces y Calibración con Nitrógeno',
+            cost: ' 99.000',
+          },
+        ]
+      },
+      {
+        name: "Medellín",
+        id: 'medellin',
+        items: [{
+          resumeCombo: 'Mantén las llantas y los frenos de tu carro en buen estado.',
+          descriCombo: '•Ahorra dinero con este servicio que te entregamos en los Centros de Servicios SURA Alineación + balanceo + nitrógeno + mantenimiento de frenos por sólo:',
+          cost: ' 120.000',
+          disabled: true,
+          urlBtn: 'www.google.com',
+          button: 'Ver más',
+          xl: '2',
+        },
+          {
+            resumeCombo: 'Aprovecha este beneficio para tu carro.',
+            descriCombo: '•Ahorra dinero con los Centros de Servicios SURA Alineación + balanceo + mantenimiento de frenos + líquido de frenos por sólo',
+            cost: ' 180.000',
+          },
+          {
+            resumeCombo: 'Recibe el siguiente beneficio para tu carro en los Centros de Servicios SURA Haz el cambio de aceite a tu carro y te entregamos el siguiente beneficio en los Centros de Servicios SURA:',
+            descriCombo: '•Realiza el cambio de aceite y recibes: Cambio de filtro del aire acondicionado + desinfección del aire acondicionado + alineación de luces por sólo:',
+            cost: ' 90.000',
+            legal: true,
+            xl: '3'
+          },
+          {
+            resumeCombo: 'Cuida los frenos de tu carro en los Centros de Servicios SURA.',
+            descriCombo: '•Ahorra dinero con este beneficio Líquido + mantenimiento de frenos por sólo:',
+            cost: ' 100.000',
+          },
+          {
+            resumeCombo: 'Cuida tu carro con el siguiente beneficio que tenemos en los Centros de Servicios SURA:',
+            descriCombo: '•Lavado motor + polichado por solo:',
+            cost: ' 150.000',
+          },],
+      },
+      {
+        name: "Pereira",
+        id: 'pereira',
+        items: [{
+          resumeCombo: 'Mantén las llantas y los frenos de tu carro en buen estado.',
+          descriCombo: '•Ahorra dinero con este servicio que te entregamos en los Centros de Servicios SURA Alineación + balanceo + nitrógeno + mantenimiento de frenos por sólo:',
+          cost: ' 120.000',
+          disabled: true,
+          urlBtn: 'www.google.com',
+          button: 'Ver más',
+          xl: '2',
+        },
+          {
+            resumeCombo: 'Aprovecha este beneficio para tu carro.',
+            descriCombo: '•Ahorra dinero con los Centros de Servicios SURA Alineación + balanceo + mantenimiento de frenos + líquido de frenos por sólo',
+            cost: ' 180.000',
+          },
+          {
+            resumeCombo: 'Recibe el siguiente beneficio para tu carro en los Centros de Servicios SURA Haz el cambio de aceite a tu carro y te entregamos el siguiente beneficio en los Centros de Servicios SURA:',
+            descriCombo: '•Realiza el cambio de aceite y recibes: Cambio de filtro del aire acondicionado + desinfección del aire acondicionado + alineación de luces por sólo:',
+            cost: ' 90.000',
+            legal: true,
+            xl: '3'
+          },
+          {
+            resumeCombo: 'Cuida los frenos de tu carro en los Centros de Servicios SURA.',
+            descriCombo: '•Ahorra dinero con este beneficio Líquido + mantenimiento de frenos por sólo:',
+            cost: ' 100.000',
+          },
+          {
+            resumeCombo: 'Cuida tu carro con el siguiente beneficio que tenemos en los Centros de Servicios SURA:',
+            descriCombo: '•Lavado motor + polichado por solo:',
+            cost: ' 150.000',
+          },],
+      },
+    ];
+  </script>
+</head>
+<body style="background: #c7c7c7;">
+  <div style="width: 100%;height: 800px;margin: auto;">
+    <div style="background: #ffffff;width: 100%;height: 100px;"></div>
+    <div id="nav-tooltips" v-bind:cities="cities">
+
+    </div>
+    <div style="background: #444444;width: 100%;height: 500px;"></div>
+    <div style="background: #ffffff;width: 100%;height: 200px;"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
+
+<!-- <div id="medellin-tooltip" class="row rowCity" @mouseleave="defuseTooltip" idcity="medellin"> -->
+  <!-- <tooltip-item class="col">
+    <template v-slot:content>
+      <tooltip-item-content></tooltip-item-content>
+      <tooltip-item-cost></tooltip-item-cost>
+      <tooltip-item-infoHighlight></tooltip-item-infoHighlight>
+      <tooltip-item-button></tooltip-item-button>
+    </template>
+  </tooltip-item> -->
+<!-- </div> -->
+
+<!-- <tooltip-item class="col">
+  <template v-slot:content>
+    <tooltip-item-content></tooltip-item-content>
+    <tooltip-item-cost></tooltip-item-cost>
+    <tooltip-item-infoHighlight></tooltip-item-infoHighlight>
+    <tooltip-item-button></tooltip-item-button>
+  </template>
+</tooltip-item> -->

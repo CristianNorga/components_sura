@@ -1,0 +1,22 @@
+/* FORM */
+
+label {
+  color: #0033A0 !important;
+}
+
+input, select {
+  border-radius: 30px !important;
+  border-style: solid !important;
+  -webkit-border-radius: 30px !important;
+  -moz-border-radius: 30px !important;
+  border-width: 1px !important;
+  border-color: #05A4E4 !important;
+  max-height: 23px !important;
+}
+
+.stylingblock-content-wrapper tr > .responsive-td:nth-child(1),
+.stylingblock-content-wrapper tr > .responsive-td:nth-child(3) {
+  display: none;
+}
+
+/* END FORM */
