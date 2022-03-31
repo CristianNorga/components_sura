@@ -1,0 +1,225 @@
+<!-- https://seguros.comunicaciones.sura.com/test-csc-202203071715?pl=eyJjdXJzbyI6InRlc3QiLCJub21icmUiOiJwcnVlYmEiLCJpZCI6IjE5IiwiY29ycmVvIjoiY29ycmVvMTlAcHJ1ZWJhLmNvbSJ9&de=dataextensiontest&ae=APIEvent-c7ac27c7-0279-258d-15cb-4587c11e2d56&ck=id -->
+
+  <script>
+    window.suraResult = {};
+    
+    //let url = new URL(document.location.href)
+    //let scriptTraking = document.getElementById('sendingInfo');
+    //if(!scriptTraking){document.location.reload()};
+
+    //scriptTraking = new URL(scriptTraking.attributes.src.value);
+    
+    //if(!scriptTraking.pathname == (url.pathname+'-send')){document.location.reload()};
+    
+                 
+
+    
+  </script>
+  
+  <script runat="server">
+    
+    Platform.Load("Core", "1");
+    
+    var payload = Request.GetQueryStringParameter('pl');
+    var rowsAdd, successfulApi, error, parsed, decoded, msError, keyValue, testrunat;
+    
+    if (payload) {
+  
+      rowsAdd = 0;
+      successfulApi = 'false';
+      error = 'false';
+      msError = "";
+   
+      decoded = Base64Decode(payload);
+      parsed = Platform.Function.ParseJSON(decoded);
+      testrunat = parsed["id"];
+      
+      var extension = Request.GetQueryStringParameter("de");
+      if (extension) {
+        try {
+          var db = DataExtension.Init(extension);
+          db.Rows.Add(parsed);
+        } catch (errde) {
+          error = 'true';
+          msError = errde;
+        }
+        rowsAdd = 1;
+      } else {
+        rowsAdd = 0;
+      }
+    
+      var apiEvent = Request.GetQueryStringParameter("ae");
+      if (apiEvent && error == 'false') {
+        try {
+
+          var contactKey = Request.GetQueryStringParameter("ck");
+          keyValue = parsed[contactKey];
+
+          var authEndpoint = 'https://xxx.auth.marketingcloudapis.com'
+          var credentials = {
+              client_id: "xxx",     
+              client_secret: "xxx",
+              grant_type: "client_credentials"
+          };
+          var url = authEndpoint + '/v2/token'
+          var contentType = 'application/json'
+
+          var accessTokenRequest = HTTP.Post(url, contentType, Stringify(credentials));
+          var accessToken;
+          if (accessTokenRequest.StatusCode == 200) {
+              var tokenResponse = Platform.Function.ParseJSON(accessTokenRequest.Response[0]);
+              accessToken = tokenResponse.access_token;
+              var rest_instance_url = tokenResponse.rest_instance_url;
+          } else {
+            error = 'true';
+            msError = 'statuscode != 200';
+            accessToken = null;
+          };
+
+          if (keyValue != null && accessToken != null) {
+              var headerNames = ["Authorization"];
+              var headerValues = ["Bearer " + accessToken];
+              var jsonBody = {
+                  "ContactKey": keyValue,
+                  "EventDefinitionKey": apiEvent,
+                  "Data": decoded
+              };
+
+              var requestUrl = rest_instance_url + "/interaction/v1/events";
+              var fireEntryEvent = HTTP.Post(requestUrl, contentType, Stringify(jsonBody), headerNames, headerValues);
+              successfulApi = 'true';
+          } else if(keyValue == null) {
+            error = 'true';
+            msError = "no keyvalue";
+            successfulApi = 'false';
+          };
+
+        } catch (err) {
+          successfulApi = 'false';
+          error = 'true';
+          msError = err;
+        }
+    
+      } else {
+        successfulApi = 'false';
+      }
+
+    } else {
+      error = 'true';
+      msError = 'no payload'
+    };  
+  </script>
+<script>
+  
+//error = '<ctrl:var name="error" />';
+//window.suraResult.msError = '<ctrl:var name="msError" />';
+//testrunat = <ctrl:var name="testrunat" />
+// change # 18
+  
+  <script runat="server" language="JavaScript">
+
+    Platform.Load("Core", "1");
+
+    var payload = Request.GetQueryStringParameter('pl');
+    var rowsAdd, successfulApi, error, parsed, decoded, msError, keyValue;
+
+    if (payload) {
+
+      rowsAdd = 0;
+    successfulApi = 'false';
+    error = 'false';
+    msError = "";
+
+    decoded = Base64Decode(payload);
+    parsed = Platform.Function.ParseJSON(decoded);
+
+    var extension = Request.GetQueryStringParameter("de");
+    if (extension) {
+        try {
+          var db = DataExtension.Init(extension);
+    db.Rows.Add(parsed);
+        } catch (errde) {
+      error = 'true';
+    msError = errde;
+        }
+    rowsAdd = 1;
+      } else {
+      rowsAdd = 0;
+      }
+
+    var apiEvent = Request.GetQueryStringParameter("ae");
+    if (apiEvent && error == 'false') {
+        
+        var contactKey = Request.GetQueryStringParameter("ck");
+    keyValue = parsed[contactKey];
+
+    var authEndpoint = 'https://mcvnfh66gf6yqz4x02rld2fvkv98.auth.marketingcloudapis.com'
+    var credentials = {
+      client_id: "hte35zynx931t27e4sws9332",
+    client_secret: "0rHuwD8Yik6RYXFiXSqYHQdJ",
+    grant_type: "client_credentials"
+        };
+    var url = authEndpoint + '/v2/token'
+    var contentType = 'application/json'
+
+    var accessTokenRequest = HTTP.Post(url, contentType, Stringify(credentials));
+    var accessToken, rest_instance_url;
+    if (accessTokenRequest.StatusCode == 200) {
+          var tokenResponse = Platform.Function.ParseJSON(accessTokenRequest.Response[0]);
+    accessToken = tokenResponse.access_token;
+    rest_instance_url = tokenResponse.rest_instance_url;
+        } else {
+      error = 'true';
+    msError = 'statuscode != 200';
+    accessToken = null;
+        };
+
+    if (keyValue != null && accessToken != null) {
+          
+          var requestUrl = rest_instance_url + "interaction/v1/events";
+    var auth = "Bearer " + accessToken;
+    var jsonBody = {
+      ContactKey: keyValue,
+    EventDefinitionKey: apiEvent,
+    Data: parsed
+          }
+
+    var req = new Script.Util.HttpRequest(requestUrl);
+    req.emptyContentHandling = 0;
+    req.retries = 2;
+    req.continueOnError = true;
+    req.contentType = contentType;
+    req.method = "POST";
+    req.setHeader("Authorization", auth);
+    req.postData = Stringify(jsonBody);
+
+    try {
+            var resp = req.send();
+    var resultStatusStr = String(resp.statusCode);
+    var resultContentStr = String(resp.Content);
+    var resultStatusJSON = Platform.Function.ParseJSON(resultStatusStr);
+    var resultContentJSON = Platform.Function.ParseJSON(resultContentStr);
+    Write('<br>resultStatusJSON: ' + Stringify(resultStatusJSON));
+      Write('<br>resultContentJSON: ' + Stringify(resultContentJSON));
+          } catch (err) {
+          successfulApi = 'false';
+        error = 'true';
+        msError = Stringify(err);
+          }
+
+        successfulApi = 'true'
+        } else {
+          error = 'true';
+        msError = "no keyvalue or no accessToken";
+        successfulApi = 'false';
+        };
+        
+      } else {
+          successfulApi = 'false';
+      };
+
+    } else {
+          error = 'true';
+        msError = 'no payload'
+    };  
+</script>

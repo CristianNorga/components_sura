@@ -641,18 +641,18 @@ Vue.component('form-sura', {
 	mounted: function () {
 		if (!this.ScForm.gearID) throw new Error('gearID is required');
 
-		// this.ScForm.appDomain =
-		// 	'<ctrl:eval>Platform.Variable.GetValue("@appDomain")||""</ctrl:eval>';
-		// this.ScForm.contentDetail = (
-		// 	<ctrl:eval>Platform.Variable.GetValue('@contentDetail')||{}</ctrl:eval>
-		// );
+		this.ScForm.appDomain =
+			'<ctrl:eval>Platform.Variable.GetValue("@appDomain")||""</ctrl:eval>';
+		this.ScForm.contentDetail = (
+			<ctrl:eval>Platform.Variable.GetValue('@contentDetail')||{}</ctrl:eval>
+		);
 
-		// this.ScForm.channelOverrides = window.channelOverrides || {};
-		// this.ScForm._useJourneyBuilder =
-		// 	!!this.ScForm.contentDetail.triggerJourneyBuilderEvent;
-		// this.ScForm.smartCapture = document.getElementById(
-		// 	'smartcapture-block-' + this.ScForm.gearID
-		// );
+		this.ScForm.channelOverrides = window.channelOverrides || {};
+		this.ScForm._useJourneyBuilder =
+			!!this.ScForm.contentDetail.triggerJourneyBuilderEvent;
+		this.ScForm.smartCapture = document.getElementById(
+			'smartcapture-block-' + this.ScForm.gearID
+		);
 	},
 	template: `
 		<form @submit.prevent="submit" :id="'smartcapture-block-' + ScForm.gearID" class="smartcapture-content-wrapper" novalidate="novalidate">

@@ -23,7 +23,8 @@
 	/* background: #ffffff; */
 	max-width: 99%;
 	min-height: 200px;
-	right: 7px;
+	/* right: 7px; */
+	top: 100%;
 }
 
 /* box-shadow: -7px 0px 20px -19px rgb(0 0 0 / 75%);     box-shadow: -7px 2px 20px -19px rgb(0 0 0 / 75%); */
@@ -144,11 +145,12 @@
 
 .rowCity {
 	height: 0px;
-	background: #ffffff;
+	/* background: #ffffff; */
 	border-radius: 12px;
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity 0.3s ease-in-out;
+	width: 50vw;
 }
 
 .active-tooltip {

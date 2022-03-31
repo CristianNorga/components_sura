@@ -111,7 +111,7 @@ Vue.component('input-sura_written', {
 							this.state.isError = false;
 							this.state.errorMessage = '';
 						}
-					}, 2000);
+					}, 1400);
 					break;
 				default:
 					if (!this.condition.pattern.test(value)) {
@@ -225,6 +225,7 @@ Vue.component('input-sura_checkbox', {
 			this.$emit('status', state);
 		},
 		doThis: function () {
+			console.log('do this');
 			this.state.isEmpty = !this.state.isEmpty;
 		},
 	},
@@ -236,9 +237,53 @@ Vue.component('input-sura_checkbox', {
 	},
 	template: `
 		<div class="form-input_container--wlh">
-			<label @click="doThis" class="input_label_custom"><slot name="label"></slot>
-				<input type="checkbox" :name="name" class="form-checkbox--sura" required="required" :value="value">
+			<label class="input_label_custom"><slot name="label"></slot>
+				<input @click="doThis" type="checkbox" :name="name" class="form-checkbox--sura" required="required" :value="value">
 				<span class="checkmark--checkbox"></span>
+			</label>
+		</div>`,
+});
+
+Vue.component('input-sura_radio-group', {
+	props: ['pName', 'pRequired', 'verifying', 'items', 'pDx'],
+	data: function () {
+		return {
+			name: this.pName || '',
+			required: this.pRequired || false,
+			directionGroup: this.pDx === 'x' ? 'contents' : 'flex',
+			state: {
+				isEmpty: true,
+			},
+		};
+	},
+	methods: {
+		sendStatus: function (val) {
+			let state = {
+				type: 'radio',
+				isEmpty: this.state.isEmpty,
+				isError: false,
+				isRequired: this.required,
+				name: this.name,
+				value: this.state.isEmpty ? '' : this.value,
+			};
+			this.$emit('status', state);
+		},
+		doThis: function () {
+			// this.value = val;
+			this.state.isEmpty = false;
+		},
+	},
+	watch: {
+		verifying: function () {
+			if (this.verifying) this.sendStatus(this.verifying);
+		},
+	},
+	template: `
+		<div class="form-input_container--wlh" :style="'display: '+directionGroup+';'">
+			<label v-for="item in items" class="input_label_custom">
+				<span>{{ item.text }}</span>
+				<input @click="doThis" type="radio" :name="name" class="form-checkbox--sura" :required="required" :value="item.value">
+				<span class="checkmark--radio"></span>
 			</label>
 		</div>`,
 });
@@ -278,8 +323,8 @@ Vue.component('input-sura_radio', {
 	},
 	template: `
 		<div class="form-input_container--wlh">
-			<label @click="doThis" class="input_label_custom"><slot name="label"></slot>
-				<input type="radio" :name="name" class="form-checkbox--sura" required="required" :value="value">
+			<label class="input_label_custom"><slot name="label"></slot>
+				<input @click="doThis" type="radio" :name="name" class="form-checkbox--sura" required="required" :value="value">
 				<span class="checkmark--radio"></span>
 			</label>
 		</div>`,
@@ -323,14 +368,22 @@ Vue.component('input-sura_select', {
 			type: Boolean,
 			default: false,
 		},
+		zIndex: {
+			type: String,
+			default: '3',
+		},
+		selectedOption: {
+			type: String,
+			// default: '',
+		},
 	},
 	data: function () {
 		return {
 			placeholder: this.pPlaceholder,
 			name: this.pName,
 			required: this.pRequired,
-			search: this.pSearch,
-			fieldSearch: false,
+			search: '',
+			fieldSearch: this.pSearch,
 			options: {
 				origin: this.items,
 				filter: [],
@@ -351,6 +404,15 @@ Vue.component('input-sura_select', {
 	beforeMount: function () {
 		this.options.filter = this.options.origin || [];
 		this.options.selected.text = this.placeholder;
+
+		if (this.selectedOption) {
+			this.options.selected.value = this.selectedOption;
+			this.options.selected.text = this.items.find(
+				(item) => item.value === this.selectedOption
+			).text;
+			this.state.isUnder = false;
+			this.state.isSelected = true;
+		}
 	},
 	methods: {
 		doThis: function () {
@@ -407,9 +469,19 @@ Vue.component('input-sura_select', {
 		verifying: function () {
 			if (this.verifying) this.sendStatus(this.verifying);
 		},
+		selectedOption: function () {
+			if (this.selectedOption) {
+				this.options.selected.value = this.selectedOption;
+				this.options.selected.text = this.items.find(
+					(item) => item.value === this.selectedOption
+				).text;
+				this.state.isUnder = false;
+				this.state.isSelected = true;
+			}
+		}
 	},
 	template: `
-	<div class="form-input_container">
+	<div class="form-input_container" @mouseleave="loseFocus">
 		<transition name="slide-fade">
 			<div v-show="state.isUnder || state.isSelected" class="form-input_description">
 				<span>
@@ -418,8 +490,8 @@ Vue.component('input-sura_select', {
 					<span v-else> (opcional)</span>
 				</span>
 			</div>
-		</transition>
-    <div class="form-input_control zl-3" v-on:mouseleave="loseFocus">
+		</transition> 
+    <div :class="'zl-'+zIndex" class="form-input_control">
 			<div @click="doThis" v-bind:class="classInput" class="form-select--sura">
 			  {{ options.selected.text }}
 			</div>
@@ -466,242 +538,244 @@ Vue.component('input-sura_select', {
   </div>`,
 });
 
-Vue.component('form-sura', {
-	props: ['pGearId', 'pOnSubmitType', 'pOnSubmitGotoUrl'],
+Vue.component('input-sura_select-mple', {
+	props: {
+		pPlaceholder: {
+			type: String,
+			default: 'Seleccione una opción',
+		},
+		pName: {
+			type: String,
+			default: 'seleccionMultiple',
+		},
+		pRequired: {
+			type: Boolean,
+			default: false,
+		},
+		icons: {
+			default: () => ({
+				error: '',
+				arrow: '',
+			}),
+		},
+		pSearch: {
+			type: Boolean,
+			default: false,
+		},
+		items: {
+			type: Array,
+			default: function () {
+				return [
+					{ value: 1, text: 'Item 1' },
+					{ value: 2, text: 'Item 2' },
+					{ value: 3, text: 'Item 3' },
+				];
+			},
+		},
+		verifying: {
+			type: Boolean,
+			default: false,
+		},
+		zIndex: {
+			type: String,
+			default: '3',
+		},
+	},
 	data: function () {
 		return {
-			ScForm: {
-				gearID: this.pGearId || null,
-				smartCaptureFormID: 425,
-				sourceKey: 'dataextensiontest',
-				source: 'dataExtension',
-				triggeredSend: '',
-				onSubmitType: 'redirect',
-				onSubmitGotoUrl: 'http://google.com',
-				onSubmitComponent: false,
-				appDomain: '',
-				contentDetail: '',
-				channelOverrides: '',
-				useJourneyBuilder: false,
-				smartCapture: '',
-				loadCore: undefined,
-				DB: undefined,
+			placeholder: this.pPlaceholder,
+			name: this.pName,
+			required: this.pRequired,
+			search: '',
+			fieldSearch: this.pSearch,
+			options: {
+				origin: this.items,
+				selections: [],
+				filter: [],
+				isOther: false,
+				otherFocus: false,
+				other: 'Otro',
+				selected: {
+					value: '',
+					text: '',
+				},
 			},
 			state: {
-				verifying: false,
-				counting: false,
+				isSelected: false,
+				isFocused: false,
+				isUnder: false,
 				isError: false,
-				porcentProgress: 0,
-				inputs: [],
-				timeOut: setTimeout,
-				message: '',
-			},
-			basicIcons: {
-				error: `https://comunicaciones.segurossura.com.co/MercadeoPersonas/recursos/icon-error-25012022.svg`,
-				arrow: `https://comunicaciones.segurossura.com.co/MercadeoPersonas/recursos/icon-arrow-26012022.svg`,
-			},
-			lists: {
-				names: [
-					{ value: 'Juan Guillermo', text: 'Juan Guillermo' },
-					{ value: 'Mauricio Lopez', text: 'Mauricio Lopez' },
-					{ value: 'resolviendo problema resolve', text: 'Cristian Noreña' },
-				],
+				errorMessage: '',
 			},
 		};
 	},
+	beforeMount: function () {
+		this.options.filter = this.options.origin || [];
+		this.options.selected.text = this.placeholder;
+	},
 	methods: {
-		submit: function () {
-			if (!this.state.isError) this.startVerify();
+		doThis: function () {
+			this.state.isUnder = !this.state.isUnder;
 		},
-		startVerify: function () {
-			this.state.inputs = [];
-			this.state.verifying = true;
-			this.state.message = 'Verificando ...';
-			this.state.porcentProgress = 20;
-		},
-		getStatus: function (status) {
-			clearTimeout(this.state.timeOut);
-			this.state.inputs.push(status);
-			this.state.timeOut = setTimeout(() => {
-				this.state.counting = true;
-				this.state.porcentProgress = 50;
-				this.readInputs();
-			}, 2000);
-		},
-		readInputs: function () {
-			this.state.porcentProgress = 75;
-			let problems = this.state.inputs.filter((item) => {
-				if (item.isError) return true;
-				if (item.isRequired) return item.isEmpty;
-				return false;
-			});
-			if (problems.length > 0) {
-				this.error(problems.length);
+		selectOption: function (event) {
+			this.options.isOther = false;
+			if (!event.target.classList.contains('select-option--actived')) {
+				let option = {
+					value: event.target.getAttribute('value'),
+					text: event.target.innerText,
+				};
+				this.options.selections.push(option);
+				// this.options.selected.value = event.target.attributes.value.value;
+				// this.options.selected.text = event.target.innerText;
+				this.state.isUnder = false;
+				this.state.isSelected = true;
+
+				event.target.classList.add('select-option--actived');
 			} else {
-				this.state.porcentProgress = 100;
-				this.state.message = 'Ok';
-				this.state.timeOut = setTimeout(() => {
-					this.success();
-					clearTimeout(this.state.timeOut);
-				}, 1000);
+				this.options.selections = this.options.selections.filter(
+					(item) => item.value !== event.target.getAttribute('value')
+				);
+				event.target.classList.remove('select-option--actived');
 			}
 		},
-		createTag: function (tag, id, attributes) {
-			let el;
-			let prop;
-			let document = window.document;
-			let head = document.getElementsByTagName('head')[0];
-			let tagEl = document.getElementById(id);
-
-			if (!tagEl) {
-				el = document.createElement(tag);
-				el.id = id;
-
-				for (prop in attributes) {
-					el[prop] = attributes[prop];
-				}
-				head.appendChild(el);
-			} else if (attributes && attributes.onload) {
-				if (tagEl.addEventListener) {
-					// For all major browsers, except IE 8 and earlier
-					tagEl.addEventListener('load', attributes.onload);
-				} else if (tagEl.attachEvent) {
-					// For IE 8 and earlier versions
-					tagEl.attachEvent('onload', attributes.onload);
-				}
-			}
-		},
-		createScript: function (id, src, onload, async) {
-			this.createTag('script', id, {
-				src: src,
-				onload: onload,
-				async: !!async,
-			});
-		},
-		success: async function () {
-			let payload = {};
-			this.state.inputs.forEach((item) => {
-				payload[item.name] = item.value;
-			});
-			let base64 = window.btoa(
-				unescape(encodeURIComponent(JSON.stringify(payload)))
+		removeOption: function (event) {
+			let value = event.target.getAttribute('value');
+			let index = this.options.selections.findIndex(
+				(item) => item.value === value
 			);
-
-			let url = ` https://seguros.comunicaciones.sura.com/SSJS-tcde-08022022?isSending=true&d=${base64}&e=${this.ScForm.sourceKey}`;
-			console.log(base64);
-			
-			this.createScript('ssjsutils', url, this.redirect, true);
-		},
-		redirect: function () {
-			// example of promise in vue with then
-			switch (this.ScForm.onSubmitType) {
-				case 'redirect':
-					window.location.href = this.ScForm.onSubmitGotoUrl;
-					break;
-				case 'redirect-blank':
-					window.open(this.ScForm.onSubmitGotoUrl, '_blank');
-					break;
-				case 'ShowComponent':
-					// this.ScForm.onSubmitMessage.show();
-					this.ScForm.onSubmitComponent = true;
-					break;
-				default:
-					console.log('default switch success');
-					break;
+			this.options.selections.splice(index, 1);
+			document.getElementById(value).classList.remove('select-option--actived');
+			if (this.options.selections.length === 0) {
+				this.state.isSelected = false;
 			}
 		},
-		error: function (problems) {
-			this.state.isError = true;
-			this.state.porcentProgress = 100;
-			if (problems === 1) {
-				this.state.message = `${problems} error encontrado`;
-			} else {
-				this.state.message = `${problems} errores encontrados`;
-			}
-			this.state.timeOut = setTimeout(() => {
-				this.state.porcentProgress = 0;
-				this.state.verifying = false;
-				this.state.counting = false;
-				this.state.isError = false;
-				this.state.message = '';
-				this.state.inputs = [];
-				clearTimeout(this.state.timeOut);
-			}, 3000);
+		openOptionOther: function () {
+			this.options.isOther = true;
 		},
-		
+		selectOptionOther: function () {
+			let option = {
+				value: this.options.other,
+				text: this.options.other,
+			};
+			this.options.selections.push(option);
+			this.options.other = 'Otro';
+			this.options.isOther = false;
+		},
+		loseFocus: function () {
+			this.state.isUnder = false;
+		},
+		sendStatus: function (val) {
+			let state = {
+				type: 'select',
+				isEmpty: !this.state.isSelected,
+				isError: this.state.isError,
+				isRequired: this.required,
+				name: this.name,
+				value: this.options.selected.value,
+			};
+			this.$emit('status', state);
+		},
 	},
 	computed: {
-		classProgress: function () {
+		classInput: function () {
 			return {
-				'success-verificaton': this.state.message === 'Ok',
-				'error-verificaton': this.state.isError,
+				'input-error': this.state.isError,
+				'focus-select': this.state.isUnder,
+			};
+		},
+		classIconArrowSelect: function () {
+			return {
+				'arrow-actived-select': this.state.isUnder,
 			};
 		},
 	},
-	mounted: function () {
-		if (!this.ScForm.gearID) throw new Error('gearID is required');
-
-		// this.ScForm.appDomain =
-		// 	'<ctrl:eval>Platform.Variable.GetValue("@appDomain")||""</ctrl:eval>';
-		// this.ScForm.contentDetail = (
-		// 	<ctrl:eval>Platform.Variable.GetValue('@contentDetail')||{}</ctrl:eval>
-		// );
-
-		// this.ScForm.channelOverrides = window.channelOverrides || {};
-		// this.ScForm._useJourneyBuilder =
-		// 	!!this.ScForm.contentDetail.triggerJourneyBuilderEvent;
-		// this.ScForm.smartCapture = document.getElementById(
-		// 	'smartcapture-block-' + this.ScForm.gearID
-		// );
+	watch: {
+		search: function () {
+			this.options.filter = this.options.origin
+				.filter((item) => {
+					const decomposed = item.text
+						.toLowerCase()
+						.normalize('NFD')
+						.replace(/[\u0300-\u036f]/g, '');
+					return decomposed.indexOf(this.search.toLowerCase()) > -1;
+				})
+				.sort((a, b) => {
+					return a.text.localeCompare(b.text);
+				});
+		},
+		verifying: function () {
+			if (this.verifying) this.sendStatus(this.verifying);
+		},
 	},
 	template: `
-		<form @submit.prevent="submit" :id="'smartcapture-block-' + ScForm.gearID" class="smartcapture-content-wrapper" novalidate="novalidate">
-
-			<div class="row">
-
-				<div class="col-12 col-lg-6">
-					<input-sura_written p-placeholder="Curso" p-name="curso" :p-required="true" p-limit="50" :icons="basicIcons" :verifying="state.verifying" @status="getStatus"></input-sura_written>
+		<div class="form-input_container" @mouseleave="loseFocus">
+			<transition name="slide-fade">
+				<div v-show="state.isUnder || state.isSelected" class="form-input_description">
+					<span>
+						{{ placeholder }}
+						<span v-if="required">*</span>
+						<span v-else> (opcional)</span>
+					</span>
 				</div>
-
-				<div class="col-12 col-lg-6">
-					<input-sura_select :icons="basicIcons" :p-required="true" p-name="nombre" :items="lists.names" :verifying="state.verifying" @status="getStatus"></input-sura_select>
+			</transition> 
+			<div :class="'zl-'+zIndex" class="form-input_control">
+				<div @click="doThis" v-bind:class="classInput" class="form-select--sura select-multiple--sura">
+					<span class="col-12" v-show="options.selections.length == 0">{{ placeholder }}</span>
+					<span v-show="options.selections.length >= 0" class="select-multiple-container">
+						<span>
+							<span class="select-multiple-selection">
+								<ul class="sct-mlple-selection_rendered">
+									<li v-for="item in options.selections" :value="item.value" class="sct-mlple-selection__choice"><span @click="removeOption" :value="item.value">x</span>{{ item.text }}</li>
+								</ul>
+							</span>
+						</span>
+					</span>
 				</div>
-
-				<div class="col-12">
-					<input-sura_written p-type="email" p-placeholder="Correo" p-name="correo" :p-required="true" p-limit="250" :icons="basicIcons" :verifying="state.verifying" @status="getStatus"></input-sura_written>
+				<div class="input-container-icon--xs">
+					<transition name="slide-fade">
+						<div class="icon-svg--error" v-bind:class="classIconArrowSelect">
+							<img :src="this.icons.arrow" alt="icon arrow" @click="doThis" style="cursor: pointer;">
+						</div>
+					</transition>
 				</div>
-
-				<div class="col-12">
-					<input-sura_radio p-value="11" p-name="id" :p-required="true" :verifying="state.verifying" @status="getStatus">
-						<template #label>
-							<span>Id Autorizo ek tratamiento de mis datos personales</span>
-						</template>
-					</input-sura_radio>
-				</div>
-				
-				<div class="col-12">
-					<div class="form-input_button">
-						<button type="submit">
-							<progress :class="classProgress" id="progresa-form" max="100" :value="state.porcentProgress"></progress>
-							<span v-show="!state.verifying">¡ESTOY INTERESADO!</span>
-							<span v-show="state.verifying">{{ state.message }}</span>
-						</button>
+				<transition name="slide-fade-down">
+					<div v-show="state.isUnder" class="input-container-items">
+						<!-- input filter -->
+						<div v-if="fieldSearch" class="input-container-filter">
+							<input v-model="search" type="text" class="input-filter" placeholder="Buscar...">
+						</div>
+						<ul class="container-options">
+							<li v-for="item in options.filter" :value="item.value" :id="item.value" class="select-option" @click="selectOption">
+								{{ item.text }}
+							</li>
+							<li id="sltedMpleOther1" class="select-option option-other" @mouseleave="function(){options.otherFocus = false;}" @mouseenter="function(){options.otherFocus = true;}">
+								<input v-model="options.other" @click="openOptionOther">
+								<span @click="selectOptionOther" v-show="options.isOther && options.otherFocus">✔</span>
+							</li>
+						</ul>
 					</div>
-				</div>
-				<div class="col-12">
-					<div class="form-input_button">
-						<button type="submit">
-							Enviar (1)
-						</button>
-					</div>
-				</div>
-
+				</transition>
+				<input type="hidden" :name="name" :value="options.selected.value">
 			</div>
-		</form>
+			<div class="form-input_auxiliary">
+				<div class="row">
+					<div class="col-10">
 
-		`,
+						<transition-group name="slide-fade">
+							<span style="position:absolute;" :key="1" v-show="required && !state.isError && !state.isUnder && !state.isSelected">
+								Requerido*
+							</span>
+							<span style="position:absolute;" :key="2" v-show="!required && !state.isError && !state.isUnder && !state.isSelected">
+								Opcional
+							</span>
+							<span :key="4" class="input_auxiliary--error" v-show="state.isError">
+								{{ state.errorMessage }}
+							</span>
+						</transition-group>
+						
+					</div>
+				</div>
+			</div>
+  	</div>`,
 });
 
-new Vue({
-	el: '#app',
-});

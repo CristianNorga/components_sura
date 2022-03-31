@@ -1,0 +1,35 @@
+:root {
+  /* ##### background ##### */
+  --bg-primary: #ffffff;
+  --bg-secondary: #022040;
+  --bg-tertiary: #fdc844;
+  --bg-quaternary: #606060;
+	/* ##### txt ##### */
+	--txt-primary: #022040;
+  --txt-secondary: #ffffff;
+	--txt-tertiary: #fdc844;
+  --txt-quaternary: #9b9b9b;
+  /* ##### opacity ##### */
+  --opacity-primary: #fdc9444b;
+  --opacity-secondary: #0220404f;
+  --opacity-tertiary: #fdc94400;
+  --opacity-quaternary: #0220402c;
+  /* ##### progress ##### */
+  --progress-primary: #a17a17;
+  --progress-success-value: #00724c;
+  --progress-error-value: #750000;
+  --progress-success-bar: #00a56e;
+  --progress-error-bar: #b40000;
+  /* ##### shadow ##### */
+  --shadow-primary: rgb(0 0 0 / 15%);
+
+  /* general */
+	--color-white1: #ffffff;
+	--color-white2: #f2f2f2;
+	--color-gray1: #9d9d9c;
+  --color-gray2: #9b9b9b;
+  --color-error: #ff0000;
+  --opacity-error: rgba(255,0,0,0.30);
+  /* venti adicional */
+  --color-black2: #0e1111;
+}

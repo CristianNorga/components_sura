@@ -1,0 +1,1 @@
+funciona enviando desde gmail, mas no funciona enviandolo desde outlook

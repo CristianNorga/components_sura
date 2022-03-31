@@ -144,7 +144,6 @@ Vue.component('input-sura_written', {
 		},
 	},
 	watch: {
-		// whenever question changes, this function will run
 		value: function () {
 			this.doThis(this.value);
 		},
@@ -639,7 +638,7 @@ Vue.component('form-sura', {
 		},
 	},
 	mounted: function () {
-		if (!this.ScForm.gearID) throw new Error('gearID is required');
+		// if (!this.ScForm.gearID) throw new Error('gearID is required');
 
 		// this.ScForm.appDomain =
 		// 	'<ctrl:eval>Platform.Variable.GetValue("@appDomain")||""</ctrl:eval>';

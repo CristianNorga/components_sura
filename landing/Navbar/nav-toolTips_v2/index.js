@@ -113,13 +113,15 @@ var app = new Vue({
 				rowCityclass[i].classList.remove('active-tooltip');
 				rowCityclass[i].classList.remove('active-arrow');
 			}
-
 			let id = x.target.id;
+			console.log(id);
 			let arrow = id + '-arrow';
 			let city = id + '-tooltip';
-
+			console.log(1);
 			document.getElementById(arrow).classList.add('active-arrow');
+			console.log(2);
 			document.getElementById(city).classList.add('active-tooltip');
+			console.log(3);
 		},
 		defuseTooltip: function (x) {
 			console.log(x);
@@ -148,7 +150,7 @@ var app = new Vue({
 			let allTooltips = '';
 			element.items.forEach((item) => {
 				let content;
-				if(!item.isFilling){
+				if (!item.isFilling) {
 					content = this.getCodeResumeCombo(item.resumeCombo);
 					content += this.getCodeDescriCombo(item.descriCombo);
 					if (item.cost) content += this.getCodeCost(item.cost);
@@ -159,7 +161,7 @@ var app = new Vue({
 					if (item.legal) {
 						content += this.getCodeLegal();
 					}
-	
+
 					if (item.disabled) {
 						content += this.getCodeHighlightCombo('Actualmente no disponible');
 					}
@@ -175,7 +177,9 @@ var app = new Vue({
 
 				let itemTooltip = `<div class="tooltip-item col-${item.xs} col-sm-${
 					item.sm
-				} col-md-${item.md} col-lg-${item.lg} col-xl-${item.xl} col-xxl-${item.xxl} ${
+				} col-md-${item.md} col-lg-${item.lg} col-xl-${item.xl} col-xxl-${
+					item.xxl
+				} ${
 					item.isFilling ? 'd-' + item.breakpointFilling + '-block' : ''
 				}" style="${item.disabled ? 'background: #e2e2e2;' : ''} ${
 					item.isFilling ? 'display: none;' : ''
@@ -204,8 +208,9 @@ var app = new Vue({
 		// }
 	},
 	mounted: function () {
-		let divCities = document.getElementById('cities');
 		this.tooltipCities.forEach((element) => {
+			let idcontainer = element.attributes.idcity.value + '-cities';
+			let divCities = document.getElementById(idcontainer);
 			divCities.appendChild(element);
 		});
 	},
@@ -224,6 +229,11 @@ var app = new Vue({
                   <div @click="activeTooltip" :id="city.id" class="tooltip-city">
                       {{ city.name }}
                     <div :id="city.id + '-arrow'" class="tooltip-arrow el-animated-tooltip"></div>
+										<div class="tooltip-container">
+											<div :id="city.id + '-cities'" class="container-fluid" style="color:#0033a0">
+
+											</div>
+										</div>
                     <div style="position: absolute;max-width: 80vw;background: #ffffff;top: 81%;"></div>
                   </div>
                 </div>
