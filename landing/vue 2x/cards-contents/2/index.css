@@ -1,0 +1,210 @@
+.backInDown-enter-active {
+  animation: backInDown .8s ease-in-out;
+}
+.backInDown-leave-active {
+  animation: backInDown .8s ease-in-out reverse;
+}
+
+.container-main--drop-info > .drop-info-img > p {
+  /* animation: backInDown .8s ease-in-out; */
+  width: 50%;
+  /* opacity: 1; */
+  /* top: 10px; */
+  left: 48%;
+}
+
+/* .container-main--drop-info:hover > .drop-info-img > p {
+  animation: backInDown .8s ease-in-out;
+  opacity: 1;
+} */
+
+.container-main--drop-info > .drop-info-img > .drop-info-toogle > button {
+	/* animation: rotateInUpLeft 1.5s linear; */
+  /* opacity: 0; */
+  bottom: -40px;
+  left: 50%;
+  background: #0033a0;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  margin-left: 0px;
+  inline-size: max-content;
+}
+
+/* .container-main--drop-info:hover > .drop-info-img > .drop-info-toogle > button {
+	animation: rotateInUpLeft 1.5s linear;
+	transform-origin: left bottom;
+} */
+
+.rotateInUpLeft-enter-active {
+  animation: rotateInUpLeft 1.5s linear;
+	transform-origin: left bottom;
+}
+.rotateInUpLeft-leave-active {
+  animation: rotateInUpLeft 1.5s linear reverse;
+	transform-origin: left bottom;
+}
+
+/* .container-main--drop-info:hover > .drop-info-img > .drop-info-toogle {
+  display: none;
+} */
+
+.drop-info-toogle {
+  animation: flicker 2s linear infinite;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.img-main-actived--center-enter-active, .img-main-actived--left-leave-active {
+  animation: move-left 1s ease-in-out reverse;
+	/* left: 0% !important;
+  margin-left: 0px !important; */
+
+}
+
+.img-main-actived--center-leave-active, .img-main-actived--left-enter-active {
+  animation: move-left 1s ease-in-out;
+}
+
+.container-main--drop-info > .drop-info-img > img {
+  display: block;
+  padding: 0px;
+  /* text-align: center; */
+  height: 156px;
+  width: 150px;
+  border: 0px;
+  position:absolute;
+  cursor: pointer;
+  /* left: 50%; */
+  /* margin-left: -75px; */
+
+}
+
+/* .container-main--drop-info:hover > .drop-info-img > img {
+  left: 0%;
+  margin-left: 0px;
+  animation: move-left 1s ;
+} */
+
+.img-main--center {
+  /* transition-property: left, margin-left; */
+  /* animation: move-left 1s linear reverse; */
+  left: 50%;
+  margin-left: -75px;
+}
+
+/* .img-main--left { */
+  /* transition-property: left, margin-left; */
+  /* animation: move-left 1s ; */
+  /* left: 0% !important;
+  margin-left: 0px !important; */
+/* } */
+
+@keyframes move-left {
+  0% {
+    left: 50%;
+    margin-left: -75px;
+  }
+  100% {
+    left: 0%;
+    margin-left: 0px;
+  }
+}
+@keyframes opacity-change {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes backInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-120%) scale(0.8);
+  }
+  25% {
+    opacity: 0.6;
+    transform: translateY(-100%) scale(0.8);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translateY(0) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rotateInUpLeft {
+	0% {
+		transform: rotate(45deg);
+		opacity: 0;
+	}
+  75% {
+    transform: rotate(45deg);
+    opacity: 0;
+  }
+	100% {
+		transform: translateZ(0);
+		opacity: 1;
+	}
+}
+
+.display-none {
+  display: none;
+}
+
+.container-main--drop-info > .drop-info-content {
+  transform: scaleY(0);
+  opacity: 0;
+  display: none;
+}
+
+.drop-info-item-actived {
+  animation: drop-info-item-actived 1s ease-in-out;
+  transform: scaleY(1) !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+@keyframes drop-info-item-actived {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  25% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.drop-info-title {
+  width: 100%;
+  padding: 12px 0 0 0;
+}
+
+/* media menor to 420 */
+@media screen and (max-width: 425px) {
+  .container-main--drop-info>.drop-info-img>p {
+    top: 10px !important;
+  }
+}

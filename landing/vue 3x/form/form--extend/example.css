@@ -1,0 +1,43 @@
+	/* OPTION #1 */
+
+/* .test {
+	transition: all 0.5s;
+}
+
+.test-enter-from,
+.test-leave-to {
+	opacity: 0;
+	color: rgb(0, 0, 255);
+}
+
+.test-leave-from,
+.test-enter-to {
+	opacity: 1;
+} */
+
+/* OPTION #2 */
+
+.test-enter-active {
+	animation: bounce-in 0.5s;
+}
+
+.test-leave-active {
+	animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+		color: rgb(255, 0, 0);
+	}
+
+	50% {
+		transform: scale(1.25);
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}

@@ -1,0 +1,36 @@
+:root {
+  /* ##### background ##### */
+  /* --bg-primary: #ffffff; */
+  /* --bg-secondary: #0033A0; */
+  /* --bg-tertiary: #00AEC7; */
+  /* --bg-quaternary: #E3E829; */
+	/* ##### txt ##### */
+	/* --txt-primary: #0033A0; */
+  /* --txt-secondary: #ffffff; */
+	/* --txt-tertiary: #00AEC7; */
+  /* --txt-quaternary: #E3E829; */
+  /* ##### opacity ##### */
+  --opacity-primary: #00acc73f;
+  --opacity-secondary: #00acc721;
+  --opacity-tertiary: #00acc700;
+  --opacity-quaternary: #0033a02a;
+  /* ##### progress ##### */
+  /* --progress-primary: #006372; */
+  /* --progress-success-value: #00724c; */
+  /* --progress-error-value: #750000; */
+  /* --progress-success-bar: #00a56e; */
+  /* --progress-error-bar: #b40000; */
+  /* ##### shadow ##### */
+  /* --shadow-primary: rgb(0 0 0 / 15%); */
+
+  /* general */
+	/* --color-white1: #ffffff;
+	--color-white2: #f2f2f2;
+	--color-gray1: #9d9d9c;
+  --color-gray2: #9b9b9b;
+  --color-error: #ff0000;
+  --opacity-error: rgba(255,0,0,0.30); */
+  /* sura adicional */
+  /* --color-yellow2: #FFE946; */
+  /* --color-blue2: #4EC3E0; */
+}
