@@ -27,19 +27,19 @@
             :smartcapture-form-id="439" source-key="dataextensiontest">
             <template v-slot:content="{verifying, getStatus}">
               <div class="col-12 col-lg-6">
-                <input-sura p-placeholder="Curso" p-name="curso" :p-required="true" :p-limit="50" :verifying="verifying"
+                <input-sura p-placeholder="Curso" p-name="curso" :p-required="true" :verifying="verifying"
                   @status="getStatus"></input-sura>
               </div>
               <div class="col-12 col-lg-6">
-                <input-sura p-placeholder="Nombre" p-name="nombre" p-type="text" :p-required="true" :p-limit="50"
+                <input-sura p-placeholder="Nombre" p-name="nombre" p-type="text" :p-required="true"
                   :verifying="verifying" @status="getStatus"></input-sura>
               </div>
               <div class="col-12 col-lg-6">
-                <input-sura p-placeholder="id" p-name="id" p-type="number" :p-required="true" :p-limit="2"
+                <input-sura p-placeholder="id" p-name="id" p-type="number" :p-required="true"
                   :verifying="verifying" @status="getStatus"></input-sura>
               </div>
               <div class="col-12 col-lg-6">
-                <input-sura p-placeholder="Correo" p-name="correo" p-type="email" :p-required="true" :p-limit="250"
+                <input-sura p-placeholder="Correo" p-name="correo" p-type="email" :p-required="true"
                   :verifying="verifying" @status="getStatus"></input-sura>
               </div>
             </template>

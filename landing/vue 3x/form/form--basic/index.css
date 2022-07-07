@@ -1,96 +1,20 @@
-/* https: //seguros.comunicaciones.sura.com/css-b52f-20052022 */
-:root {
-  --bs-blue: #0d6efd;
-  --bs-indigo: #6610f2;
-  --bs-purple: #6f42c1;
-  --bs-pink: #d63384;
-  --bs-red: #dc3545;
-  --bs-orange: #fd7e14;
-  --bs-yellow: #ffc107;
-  --bs-green: #198754;
-  --bs-teal: #20c997;
-  --bs-cyan: #0dcaf0;
-  --bs-black: #000;
-  --bs-white: #fff;
-  --bs-gray: #6c757d;
-  --bs-gray-dark: #343a40;
-  ---bs-gray-100: #f8f9fa;
-  --bs-gray-200: #e9ecef;
-  --bs-gray-300: #dee2e6;
-  --bs-gray-400: #ced4da;
-  --bs-gray-500: #adb5bd;
-  --bs-gray-600: #6c757d;
-  --bs-gray-700: #495057;
-  --bs-gray-800: #343a40;
-  --bs-gray-900: #212529;
-  --bs-primary: #0033A0;
-  --bs-secondary: #00AEC7;
-  --bs-tertiary: #E3E829;
-  --bs-success: #198754;
-  --bs-info: #0dcaf0;
-  --bs-warning: #ffc107;
-  --bs-danger: #dc3545;
-  --bs-light: #f8f9fa;
-  --bs-dark: #212529;
-  --bs-primary-rgb: 13, 110, 253;
-  --bs-secondary-rgb: 108, 117, 125;
-  --bs-success-rgb: 25, 135, 84;
-  --bs-info-rgb: 13, 202, 240;
-  --bs-warning-rgb: 255, 193, 7;
-  --bs-danger-rgb: 220, 53, 69;
-  --bs-light-rgb: 248, 249, 250;
-  --bs-dark-rgb: 33, 37, 41;
-  --bs-white-rgb: 255, 255, 255;
-  --bs-black-rgb: 0, 0, 0;
-  --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg-rgb: 255, 255, 255;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: var(--bs-font-sans-serif);
-  --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
-  --bs-body-line-height: 1.5;
-  --bs-body-color: #212529;
-  --bs-body-bg: #fff;
-  --bs-border-width: 1px;
-  --bs-border-style: solid;
-  --bs-border-color: #dee2e6;
-  --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  --bs-border-radius: 0.375rem;
-  --bs-border-radius-sm: 0.25rem;
-  --bs-border-radius-lg: 0.5rem;
-  --bs-border-radius-xl: 1rem;
-  --bs-border-radius-2xl: 2rem;
-  --bs-border-radius-pill: 50rem;
-  --bs-heading-color: ;
-  --bs-link-color: #0d6efd;
-  --bs-link-hover-color: #0a58ca;
-  --bs-code-color: #d63384;
-  --bs-highlight-bg: #fff3cd;
-  --bs-progress-basic: #006372;
-  --bs-shadow-primary: rgb(0 0 0 / 15%);
-  --bs-primary-light: #0245d4;
-  --bs-secondary-light: #02d6f7;
-  --bs-tertiary-light: #f8ff2e;
-  --bs-success-light: #23b872;
-  --bs-info-light: #22daff;
-  --bs-warning-light: #ffcb31;
-  --bs-danger-light: #ff3c50;
-  --bs-primary-light: #0145d8;
-  --bs-secondary-dark: #007c8f;
-  --bs-tertiary-dark: #a7ac1f;
-  --bs-success-dark: #0e4d2f;
-  --bs-info-dark: #0ba1be;
-  --bs-warning-dark: #c99805;
-  --bs-danger-dark: #9c2834;
-  /* --bs-progress-basic: #006372; */
-  /* --bs-progress-basic: #006372; */
-  /* --bs-progress-basic: #006372; */
+/* https: //seguros.comunicaciones.sura.com/css-b52f-20052022
+retail: https://seguros.comunicaciones.sura.com/css-f@4.2-basic
+ */
+
+/* bootstrap */
+
+.btn-outline-primary[actived=true] {
+  color: #fff;
+  background-color: var(--bs-primary);
 }
 
-*, ::after, ::before {
-    box-sizing: border-box;
+/* end bootstrap */
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
 }
 
 body {
@@ -100,22 +24,6 @@ body {
 
 ::placeholder {
   color: #8b8b8b;
-}
-
-.zl-1 {
-  z-index: 1 !important;
-}
-
-.zl-3 {
-  z-index: 3 !important;
-}
-
-.zl-4 {
-  z-index: 4 !important;
-}
-
-.zl-5 {
-  z-index: 5 !important;
 }
 
 .formSura {
@@ -146,38 +54,48 @@ body {
   z-index: 2;
 }
 
-.form-input_control .form-input--sura:hover, .form-input_control .form-select--sura:hover {
-  -webkit-box-shadow: 0px 0px 16px 0px var(--bs-secondary-dark);
-  -moz-box-shadow: 0px 0px 16px 0px var(--bs-secondary-dark);
-  box-shadow: 0px 0px 16px 0px var(--bs-secondary-dark);
-
+.form-input_control .form-input--sura,
+.form-input_control .form-select--sura {
+  border: transparent solid 2px;
 }
 
-.form-input_control .form-input--sura:focus, .form-input_control .form-select--sura:focus, .form-input_control .focus-select {
-  outline: var(--bs-secondary) solid 2px;
-  -webkit-box-shadow: 0px 0px 16px 0px var(--bs-secondary-dark);
-  -moz-box-shadow: 0px 0px 16px 0px var(--bs-secondary-dark);
-  box-shadow: 0px 0px 16px 0px var(--bs-secondary-dark);
+.form-input_control .form-input--sura:hover,
+.form-input_control .form-select--sura:hover {
+  -webkit-box-shadow: 0px 0px 16px 0px rgb(var(--bs-info-rgb));
+  -moz-box-shadow: 0px 0px 16px 0px rgb(var(--bs-info-rgb));
+  box-shadow: 0px 0px 16px 0px rgb(var(--bs-info-rgb));
+}
+
+.form-input_control .form-input--sura:focus,
+.form-input_control .form-select--sura:focus,
+.form-input_control .focus-select {
+  border: var(--bs-aqua) solid 2px;
+  -webkit-box-shadow: 0px 0px 16px 0px rgb(var(--bs-info-rgb));
+  -moz-box-shadow: 0px 0px 16px 0px rgb(var(--bs-info-rgb));
+  box-shadow: 0px 0px 16px 0px rgb(var(--bs-info-rgb));
+  outline: none;
 }
 
 .input-warn {
-  outline: var(--bs-warning) solid 2px !important;
+  border: var(--bs-warning) solid 2px !important;
 }
 
 .input-error {
-  outline: var(--bs-danger) solid 2px !important;
+  border: var(--bs-danger) solid 2px !important;
 }
 
-.input-warn:focus, .input-warn:hover {
-  -webkit-box-shadow: 0px 0px 16px 0px var(--bs-warning-dark) !important;
-  -moz-box-shadow: 0px 0px 16px 0px var(--bs-warning-dark) !important;
-  box-shadow: 0px 0px 16px 0px var(--bs-warning-dark) !important;
+.input-warn:focus,
+.input-warn:hover {
+  -webkit-box-shadow: 0px 0px 16px 0px var(--bs-warning) !important;
+  -moz-box-shadow: 0px 0px 16px 0px var(--bs-warning) !important;
+  box-shadow: 0px 0px 16px 0px var(--bs-warning) !important;
 }
 
-.input-error:focus, .input-error:hover {
-  -webkit-box-shadow: 0px 0px 16px 0px var(--bs-danger-dark) !important;
-  -moz-box-shadow: 0px 0px 16px 0px var(--bs-danger-dark) !important;
-  box-shadow: 0px 0px 16px 0px var(--bs-danger-dark) !important;
+.input-error:focus,
+.input-error:hover {
+  -webkit-box-shadow: 0px 0px 16px 0px rgb(var(--bs-danger-rgb)) !important;
+  -moz-box-shadow: 0px 0px 16px 0px rgb(var(--bs-danger-rgb)) !important;
+  box-shadow: 0px 0px 16px 0px rgb(var(--bs-danger-rgb)) !important;
 }
 
 .form-input_container {
@@ -198,21 +116,22 @@ body {
 .form-input--sura {
   width: 100%;
   height: 50px;
-  border-radius: 25px;
+  border-radius: var(--bs-border-radius-2xl);
   padding: 0px 52px 0px 25px;
   border: none;
 }
 
 
-.container-range--sura > div {
+.container-range--sura>div {
   width: 100%;
   height: 9px;
   background: rgb(232, 232, 232);
   position: absolute;
   top: calc(50% - 7px);
   z-index: -1;
-  border-radius: 25px;
+  border-radius: 2rem;
 }
+
 .form-range--sura {
   /* width: 100%;
   height: 1.5rem;
@@ -264,18 +183,18 @@ input[type=range]:focus::-ms-fill-upper {
   width: 100%;
 }
 
-.group-input--sura > .form-input--sura {
+.group-input--sura>.form-input--sura {
   position: relative;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   width: 1%;
   min-width: 0;
   margin-bottom: 0;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0rem;
+  border-bottom-right-radius: 0rem;
 }
 
-.group-input--sura > span {
+.group-input--sura>span {
   display: -ms-flexbox;
   display: flex;
   margin-left: -1px;
@@ -286,30 +205,33 @@ input[type=range]:focus::-ms-fill-upper {
   font-weight: bold;
   cursor: pointer;
   border: none;
-  outline: none;
-  border-radius: 0px;
+  border: none;
+  border-radius: 0rem;
 }
 
 .group-input--sura .cancel {
   background-color: var(--bs-danger);
   color: var(--bs-secondary);
+  font-family: initial;
 }
 
 .group-input--sura .confirm {
   background-color: var(--bs-success);
   color: var(--bs-secondary);
+  font-family: initial;
 }
+
 /* aply last child .group */
 .group-input--sura span:last-child button {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .form-select--sura {
   appearance: none;
   width: 100%;
-  height: 50px;
-  border-radius: 25px;
+  min-height: 50px;
+  border-radius: 2rem;
   padding: 0px 52px 0px 25px;
   border: none;
   cursor: pointer;
@@ -334,13 +256,14 @@ input[type=range]:focus::-ms-fill-upper {
   /* top: 27px; */
   top: 73%;
   z-index: -1;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 1.6rem 1.6rem;
   -webkit-box-shadow: 0px 12px 14px 12px --shadow-primary;
   -moz-box-shadow: 0px 12px 14px 12px --shadow-primary;
   box-shadow: 0px 12px 14px 4px --shadow-primary;
-  outline: 2px solid white;
+  border: 2px solid white;
 }
-.container-options{
+
+.container-options {
   padding: 0px;
   width: 100%;
   max-height: 165px;
@@ -352,41 +275,44 @@ input[type=range]:focus::-ms-fill-upper {
   align-items: center;
   list-style: none;
   width: 100%;
-	padding: 0px 25px;
+  padding: 0px 25px;
   min-height: 40px;
   cursor: pointer;
+  border-top: 1px solid var(--bs-gray-200);
 }
 
 .select-option:hover {
-	background: var(--bs-gray-400);
+  background: var(--bs-gray-400);
 }
 
 .select-option--actived {
-	background: #52626542;
+  background: #52626542;
 }
 
 .select-option--actived:hover {
   background: #52626542;
-	opacity: 0.8;
+  opacity: 0.8;
 }
 
 .option-other input {
-	border: none; cursor: pointer;background: transparent;
+  border: none;
+  cursor: pointer;
+  background: transparent;
   width: 100%;
 }
 
 .option-other input:focus {
-  outline: none;
+  border: none;
 }
 
 .option-other span {
-	background: var(--bs-success);
-	border-radius: 50%;
-	padding: 0 8px;
+  background: var(--bs-success);
+  border-radius: 50%;
+  padding: 0 8px;
 }
 
 .option-other span:active {
-	opacity: 0.9;
+  opacity: 0.9;
 }
 
 .arrow-actived-select {
@@ -400,63 +326,66 @@ input[type=range]:focus::-ms-fill-upper {
 
 .input-filter {
   width: 100%;
-  border-radius: 3px;
+  border-radius: 0.24rem;
   padding-left: 13px;
-  outline: 2px solid var(--bs-gray-100);
+  border: 2px solid var(--bs-gray-100);
   border: none;
   height: 38px;
 }
 
 .input-filter:focus {
-  outline: 2px solid var(--bs-gray-200);
+  border: 2px solid var(--bs-gray-200);
 }
 
 /* select multiple */
 .select-multiple--sura {
-	padding: 6px 25px 6px 25px;
+  padding: 6px 25px 6px 25px;
   height: auto !important;
   min-height: 50px;
 }
+
 .select-multiple-container {
-	flex: 0 0 auto;
-	width: 100%;
-	display: block;
-	box-sizing: border-box;
-	margin: 0;
-	position: relative;
-	vertical-align: middle;
+  flex: 0 0 auto;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
 }
+
 .select-multiple-selection {
-	min-height: calc(2.25rem + 2px);
-	/* cursor: text; */
-	box-sizing: border-box;
-	display: flex;
+  min-height: calc(2.25rem + 2px);
+  /* cursor: text; */
+  box-sizing: border-box;
+  display: flex;
   user-select: none;
-	-webkit-user-select: none;
+  -webkit-user-select: none;
 }
+
 .sct-mlple-selection_rendered {
-	padding: 0px 0px 3px 0px;
-	margin-bottom: -0.375rem;
-	box-sizing: border-box;
-	list-style: none;
-	margin: 0;
-	width: 100%;
-	display: inline-block;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  padding: 0px 0px 3px 0px;
+  margin-bottom: -0.375rem;
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .sct-mlple-selection__choice {
-	float: left;
-	list-style: none;
-	margin-right: 5px;
-	padding: 0px 10px;
-	background-color: #e4e4e4;
-	border: 1px solid #aaa;
-	border-radius: 4px;
-	cursor: default;
-	margin-top: 0.31rem;
+  float: left;
+  list-style: none;
+  margin-right: 5px;
+  padding: 0px 10px;
+  background-color: #e4e4e4;
+  border: 1px solid #aaa;
+  border-radius: 0.32rem;
+  cursor: default;
+  margin-top: 0.31rem;
 }
 
 .sct-mlple-selection__choice span {
@@ -469,7 +398,7 @@ input[type=range]:focus::-ms-fill-upper {
 .form-checkbox--sura {
   width: 25px;
   height: 25px;
-  border-radius: 10px;
+  border-radius: 0.8rem;
   border: 2px solid var(--bs-primary);
 }
 
@@ -498,7 +427,7 @@ input[type=range]:focus::-ms-fill-upper {
 .form-input_button button {
   position: relative;
   overflow: hidden;
-  border-radius: 25px;
+  border-radius: 2rem;
   padding: 11px 33px;
   color: var(--bs-white);
   font-weight: 800;
@@ -525,36 +454,43 @@ input[type=range]:focus::-ms-fill-upper {
   width: 100%;
   height: 100%;
   background: var(--bs-secondary);
-  border-radius: 0px;
+  border-radius: 0rem;
   border: none;
-  outline: none;
+  border: none;
   z-index: -1;
 }
+
 .progressForm::-webkit-progress-bar {
   background: var(--bs-primary);
   transition: all 1.5s linear
 }
+
 .progressForm::-webkit-progress-value {
   background-color: var(--bs-gray-800);
   opacity: 0.5;
   transition: all 1.5s linear
 }
+
 .progressForm::-moz-progress-bar {
   background-color: var(--bs-gray-800);
   opacity: 0.5;
   transition: all 1.5s linear
 }
+
 .success-verificaton::-webkit-progress-value {
-  background-color: var(--bs-success-dark);
+  background-color: var(--bs-success);
 }
+
 .error-verificaton::-webkit-progress-value {
-  background-color: var(--bs-danger-dark);
+  background-color: var(--bs-danger);
 }
+
 .success-verificaton::-webkit-progress-bar {
-  background: var(--bs-success-dark);
+  background: var(--bs-success);
 }
+
 .error-verificaton::-webkit-progress-bar {
-  background: var(--bs-danger-dark);
+  background: var(--bs-danger);
 }
 
 .input-container-icon--md {
@@ -595,6 +531,7 @@ input[type=range]:focus::-ms-fill-upper {
   color: var(--bs-secondary);
   font-size: inherit;
 }
+
 /* Hide the browser's default checkbox */
 .input_label_custom input {
   position: absolute;
@@ -603,6 +540,7 @@ input[type=range]:focus::-ms-fill-upper {
   height: 0;
   width: 0;
 }
+
 /* Create a custom checkbox */
 .checkmark--checkbox {
   position: absolute;
@@ -611,12 +549,14 @@ input[type=range]:focus::-ms-fill-upper {
   height: 20px;
   width: 20px;
   background-color: transparent;
-  border-radius: 4px;
+  border-radius: 0.32rem;
   border: 3px solid var(--bs-primary);
 }
+
 .radio-warn {
   border: 3px solid var(--bs-warning);
 }
+
 /* Create a custom radio */
 .checkmark--radio {
   position: absolute;
@@ -628,28 +568,34 @@ input[type=range]:focus::-ms-fill-upper {
   border-radius: 50%;
   border: 3px solid var(--bs-secondary);
 }
+
 /* On mouse-over, add a grey background color */
-.input_label_custom:hover input ~ .checkmark--checkbox,
-.input_label_custom:hover input ~ .checkmark--radio {
+.input_label_custom:hover input~.checkmark--checkbox,
+.input_label_custom:hover input~.checkmark--radio {
   background-color: #b3b3b3;
   opacity: 0.94;
 }
+
 /* When the checkbox is checked, add a blue background */
 /* .input_label_custom input:checked ~ .checkmark--checkbox, */
 /* .input_label_custom input:checked ~ .checkmark--radio { */
-  /* background-color: #b3b3b3; */
-  /* opacity: 0.5; */
+/* background-color: #b3b3b3; */
+/* opacity: 0.5; */
 /* } */
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark--checkbox:after, .checkmark--radio:after {
+.checkmark--checkbox:after,
+.checkmark--radio:after {
   content: "";
   position: absolute;
   display: none;
 }
+
 /* Show the checkmark when checked */
-.input_label_custom input:checked ~ .checkmark--checkbox:after, .input_label_custom input:checked ~ .checkmark--radio:after {
+.input_label_custom input:checked~.checkmark--checkbox:after,
+.input_label_custom input:checked~.checkmark--radio:after {
   display: block;
 }
+
 /* Style the checkmark(CHECKBOX)/indicator */
 .input_label_custom .checkmark--checkbox:after {
   left: 3px;
@@ -662,6 +608,7 @@ input[type=range]:focus::-ms-fill-upper {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
 /* Style the checkmark(RADIO)/indicator */
 .input_label_custom .checkmark--radio:after {
   top: -1px;
@@ -708,26 +655,30 @@ input[type=range]:focus::-ms-fill-upper {
   transform: translateY(30px);
 }
 
-.slide-fade-enter, .slide-fade-leave-to
-{
+.slide-fade-enter,
+.slide-fade-leave-to {
   transform: translateY(10px);
   opacity: 0;
 }
 
-.slide-fade-down-enter, .slide-fade-down-leave-to
-{
+.slide-fade-down-enter,
+.slide-fade-down-leave-to {
   transform: translateY(-10px);
   opacity: 0;
 }
+
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
+
 .slide-fade-leave-active {
   transition: all .3s ease;
 }
+
 .slide-fade-down-enter-active {
   transition: all .7s ease;
 }
+
 .slide-fade-down-leave-active {
   transition: all .3s ease;
 }

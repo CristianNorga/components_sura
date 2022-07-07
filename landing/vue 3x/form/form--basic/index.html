@@ -5,10 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FORM VUE@3 BOOTSTRAP@5.2</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="../../bootstrap.css" rel="stylesheet">
   
   <!-- root -->
   <link rel="stylesheet" href="./index.css">
@@ -21,46 +18,64 @@
       <div class="row">
         <div class="col-12">
           <!-- formulario formSura -->
-            <form-sura gear-id="m5qe6tud0ei" on-submit-type="executeAction" on-submit-goto-Url="https://google.com" :smartcapture-form-id="439" source-key="dataextensiontest">
-              <template v-slot:content="{verifying, getStatus}">
+            <form-sura p-gear-id="m5qe6tud0ei" p-on-submit-type="executeAction" p-on-submit-goto-Url="https://google.com" :p-smartcapture-form-id="439" p-source-key="dataextensiontest">
+              <template v-slot:content="{verifying, getStatus, changeFamilyData, familyData, familyListener}">
                 <div class="col-12">
-                  <input-sura p-placeholder="texto general" p-name="texto" :p-required="true" :verifying="verifying" @status="getStatus"></input-sura>
+                  <input-sura p-placeholder="texto general" p-name="texto" :p-is-required="true" :p-is-verifying="verifying" @status="getStatus"></input-sura>
                 </div>
                 <div class="col-12">
-                  <input-sura p-placeholder="correo general" p-type="email" p-name="correo" :p-required="true"
-                    :verifying="verifying" @status="getStatus"></input-sura>
+                  <input-sura p-placeholder="correo general" p-type="email" p-name="correo" :p-is-required="true"
+                    :p-is-verifying="verifying" @status="getStatus"></input-sura>
                 </div>
                 <div class="col-12">
-                  <input-sura p-placeholder="number general" p-type="number" p-name="number" :p-required="true" :verifying="verifying"
+                  <input-sura p-placeholder="number general" p-type="number" p-name="number" :p-is-required="true" :p-is-verifying="verifying"
                     @status="getStatus"></input-sura>
                 </div>
                 <!-- <div class="col-12">
-                  <input-sura p-placeholder="number mask phone" p-type="phone" p-name="number" :p-required="true" :verifying="verifying"
+                  <input-sura p-placeholder="number mask phone" p-type="phone" p-name="number" :p-is-required="true" :p-is-verifying="verifying"
                     @status="getStatus"></input-sura>
                 </div> -->
                 <div class="col-12">
-                  <input-sura p-placeholder="measures general" p-type="measures" p-name="measures" :p-required="true" :verifying="verifying"
+                  <input-sura p-placeholder="measures general" p-type="measures" p-name="measures" :p-is-required="true" :p-is-verifying="verifying"
                     @status="getStatus"></input-sura>
                 </div>
                 <div class="col-12">
-                  <!-- :selected-option="'si'" -->
+                  <!-- :p-selected-option="'si'" -->
                   <btns-group-sura p-name="ccqtn3" 
-                    :p-required="true" p-align="center" :selected-option="'si'" :status-after="false" @status="getData"></btns-group-sura>
+                    :p-is-required="true" p-align="center" :p-selected-option="'si'" :p-is-status-after="false" @status="getData"></btns-group-sura>
                 </div>
                 <div class="col-12">
-                  <range-sura p-name="rangebtns" :p-required="true" p-align="center"></range-sura>
+                  <range-sura p-name="rangebtns" :p-is-required="true" p-align="center"></range-sura>
                 </div>
                 <div class="col-12">
-                  <select-sura p-name="typeId" :p-required="true" p-placeholder="tipo de identificacion"
-                    :verifying="verifying" @status="getStatus" z-index="4" :extra-field="{has: true, type: 'anything-but', boundValue: 'item2', placeholder: 'en base a la primera pregunta, cual...', 
-fieldRestrictedTo: 'number'}"></select-sura>
+                  <select-sura p-name="typeId" :p-is-required="true" p-placeholder="tipo de identificacion"
+                    :p-is-verifying="verifying" @status="getStatus" :p-z-index="4" :p-emit-family-data="true" @change-family-data="changeFamilyData" :p-items="[{text: 'CEDULA', value: 'C'},{text: 'CEDULA EXTRANJERA', value:'E'}]"></select-sura>
                 </div>
                 <div class="col-12">
-                  <btns-group-sura :is-radio="false" p-name="checkbtns" :p-required="true" p-align="center"></btns-group-sura>
+                  <input-sura p-placeholder="id" p-type="alpha" p-name="id" :p-is-required="true"
+                    :p-is-verifying="verifying" @status="getStatus" :p-family-receive="[{from: 'typeId', change: 'type'}]" :p-family-data="familyData" :p-family-listener="familyListener"></input-sura>
                 </div>
                 <div class="col-12">
-                  <scale-sura :is-radio="false" p-name="scaleBtns" :p-required="true"></scale-sura>
-                </div>                
+                  <btns-group-sura :p-is-radio="false" p-name="checkbtns" :p-is-required="true" p-align="center"></btns-group-sura>
+                </div>
+                <div class="col-12 pb-3">
+                  <scale-sura :p-is-radio="false" p-name="scaleBtns" :p-is-required="true"></scale-sura>
+                </div>
+                <div class="col-12">
+                  <radio-group-sura p-value="si" p-name="radioGroup" :p-is-required="true" :p-is-verifying="verifying"
+                    @status="getStatus"></radio-group-sura>
+                </div>
+                <div class="col-12 pb-5">
+                  <checkbox-sura p-value="Si" :p-is-check="'si' != ''" p-name="checkbox" :p-is-required="true" :p-is-verifying="verifying" @status="getStatus">
+                    <!-- template -->
+                  </checkbox-sura>
+                </div>
+                <div class="col-12">
+                  <!-- p-value="1,2" -->
+                  <select-mple-sura p-name="selectMultiple" :p-is-required="true" :p-is-verifying="verifying" @status="getStatus">
+                  </select-mple-sura>
+                </div>
+                
               </template>
               <template v-slot:tkcomponent>
                 <!-- message of thank you for submision -->
