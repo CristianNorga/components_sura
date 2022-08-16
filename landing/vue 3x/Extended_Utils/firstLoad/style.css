@@ -1,0 +1,114 @@
+body {
+  background-color: rgb(152, 75, 75);
+}
+
+.btn-primary {
+  background: #4a4a4a;
+}
+
+/* transition1 */
+.transition1 {
+  top: 0;
+  left: 0;
+}
+
+.transition1 > #firstLayer, .layers[layer="yellow"] {
+  background-color: #E3E829;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+.transition1 > #SecondLayer, .layers[layer="blue"] {
+  background-color: #0033A0;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+.transition1 > #ThirdLayer, .layers[layer="white"] {
+  background-color: #ffffff;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 0;
+}
+
+.layers[group="ctnbrand"] {
+  /* background-color: #ffffff; */
+  height: 100vh;
+  left: 0;
+  top: 0;
+  width: 100vw;
+}
+
+.transition1 #logoSura {
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4990371148459384) 10%, rgba(255,255,255,1) 50%);
+}
+/* .layers[layer="brandText"] > path {
+  
+} */
+/* .layers[layer="brandLogo"] {
+}
+
+.layers[layer="separator"] {
+}
+
+ */
+.layers[layer="text"] {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.separator-text{
+  width: 4rem;
+  height: .45rem;
+  background-color: var(--bs-aqua);
+}
+
+@media (min-width: 576px){
+  .separator-text{
+    height: .55rem;
+  }
+}
+
+@media (min-width: 1400px){
+  .separator-text{
+    height: .65rem;
+    width: 5rem;
+  }
+}
+
+
+/* .transition1[state='init'] >  #firstLayer {
+  animation-name: expandRight;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(.545,0,.3,1);
+}
+
+.transition1[state='init'] > #SecondLayer {
+  animation-name: expandRight;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(.545,0,.3,1);
+  animation-delay: 0.049s;
+}
+
+.transition1[state='init'] > #ThirdLayer {
+  animation-name: expandRight;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(.545,0,.3,1);
+  animation-delay: 0.098s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes expandRight {
+  0% {
+    width: 0vw;
+  }
+  100%{
+    width: 100vw;
+  }
+} */

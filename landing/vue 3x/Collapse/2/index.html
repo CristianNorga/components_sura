@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collapse 1</title>
+  <link href="https://seguros.comunicaciones.sura.com/css-btp@5.2-seguros-sura" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <cpse-3>
+      <template v-slot:transmitters="{showDropInfo, actionRouter, actionForm}">
+        <cpse-transmitter-item :action-change-plan="pActionForm" v-bind:el-actived="elActived"
+          v-bind:transmitter-action="showDropInfo" transmitter-name="5" img-name="icon-plan-vida-mas"
+          text-primary="Vida + Enfermedades Graves"></cpse-transmitter-item>
+        
+        <cpse-transmitter-item :action-change-plan="pActionForm" v-bind:el-actived="elActived"
+          v-bind:transmitter-action="showDropInfo" img-name="icon-combo-vida" text-primary="Combo Vida" transmitter-name="6">
+        </cpse-transmitter-item>
+      </template>
+      
+      <template v-slot:content="{actionRouter, actionForm}">
+        <cpse-content-item title="Vida + Enfermedades Graves" key="5" imgName="vida+enfermedades.jpg"
+          :class="{'position-absolute': elActived != '5'}" v-show="elActived == '5'" v-bind:receiver-action="showDropInfo">
+          <template v-slot:content>
+            <p style="margin-top:15px;">
+        
+              Cuidar de los que más quieres es tu prioridad. Por eso con la alianza Vanti y SURA te acompañamos en momentos en
+              los que tu estabilidad económica o la de tu familia pueden verse comprometidas. Te respaldamos en caso de
+              fallecimiento o diagnóstico de una enfermedad grave.
+            </p>
+            <p>
+              <span class="subtitle">Conoce más sobre las coberturas.</span>
+            </p>
+            <p class="muted">
+              <span class="subtitle">Muerte por cualquier causa</span> <br />
+              Si llegas a fallecer, a quien hayas elegido como beneficiario contará con un respaldo económico. Además, si
+              contrataste el anexo de auxilio de exequias, este respaldo cubrirá los gastos funerarios.
+        
+            </p>
+            <p class="muted">
+              <span class="subtitle">Enfermedades graves</span> <br />
+              Si te diagnostican una enfermedad de alto costo, te entregaremos un respaldo económico para que asumas esta
+              situación y los gastos adicionales que se presenten.
+            </p>
+          </template>
+        </cpse-content-item>
+        
+        <cpse-content-item title="Combo Vida" key="6" imgName="combovida400x400.jpg"
+          :class="{'position-absolute': elActived != '6'}" v-show="elActived == '6'" v-bind:receiver-action="showDropInfo">
+          <template v-slot:content>
+            <p style="margin-top:15px;">
+        
+              Asegurar el presente y futuro de tu familia es posible si cuentas con una solución que los respalde económicamente
+              ante una situación inesperada. Con este plan, te damos una alternativa completa para que disfrutes con la
+              tranquilidad de estar protegido.
+            </p>
+            <p>
+              <span class="subtitle">Conoce nuestras coberturas</span> en caso de accidente, hospitalización o fallecimiento.
+            </p>
+            <p class="muted">
+              <span class="subtitle">Vida</span> <br />
+              Si llegas a fallecer por cualquier causa, garantizas el bienestar de tus seres queridos con un respaldo económico.
+            </p>
+            <p class="muted">
+              <span class="subtitle">Accidentes personales</span> <br />
+              Podrás contar con un apoyo financiero en caso de sufrir algún tipo de accidente y requerir atención de urgencias
+              en algún servicio medico. Cubre 1 evento durante la vigencia.
+            </p>
+            <p class="muted">
+              <span class="subtitle">Pagos por hospitalización</span> <br />
+              Recibirás un apoyo económico en caso de ser hospitalizado por más de 48 horas. Cubre 1 evento durante la vigencia.
+            </p>
+          </template>
+        </cpse-content-item>
+      </template>
+    </cpse-3>
+  </div>
+  <script src="https://unpkg.com/vue@3.2.36"></script>
+  <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+:root {
+	/* ##### background ##### */
+  --color-primary: #022040;
+  --color-secondary: #fdc844;
+  --color-tertiary: #0e1111;
+  --color-quaternary: #606060;
+	/* ##### color ##### */
+	--color-txt-primary: #ffffff;
+  --color-txt-secondary: #0e1111;
+	--color-txt-tertiary: #fdc844;
+  /* general */
+	--color-white1: #ffffff;
+	--color-white2: #f2f2f2;
+	--color-gray1: #9d9d9c;
+  /* sura */
+	--color-surablue: #0033A0;
+	--color-surayellow: #E3E829;
+	--color-suramediumyellow: #FFE946;
+	--color-suraaqua: #00AEC7;
+	--color-surabrightaqua: #4EC3E0;
+  /* venti */
+  --color-ventiblue: #022040;
+  --color-ventiyellow: #fdc844;
+  --color-ventiblack: #0e1111;
+  --color-ventigray: #606060;
+}
+
+.cpse_transmitter-itemCt {
+	width: 100%;
+	text-align: center;
+	text-align: -webkit-center;
+}
+.cpse_transmitter-itemImgCt {
+	width: 90px;
+	height: 90px;
+	background: var(--color-secondary);
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.transmitter-itemImgCt--actived {
+	background: var(--color-primary);
+}
+
+.cpse_transmitter-itemTxtP {
+	font-weight: 700;
+	margin-top: 10px;
+}
+.cpse_transmitter-itemLk {
+	font-weight: 400;
+	margin-top: 10px;
+	background: var(--color-white1);
+	cursor: pointer;
+	box-shadow: rgb(0 0 0 / 25%) 0px -1px 13px -9px;
+	border-radius: 3px;
+}
+
+/* cpse_content */
+/* .cpse-content-item { */
+	/* position: absolute; */
+/* } */
+.cpse_content-itemCt {
+	width: 100%;
+	margin-top: 30px;
+  position: relative;
+}
+.cpse_content-itemImgCt {
+	background: var(--color-quaternary);
+  width: 100%;
+  min-height: 125px;
+  border-radius: 0px 25px 25px 0px;
+  max-height: 200px;
+}
+.cpse_content-itemClseCt--x {
+	position: relative;
+	width: 100%;
+}
+.cpse_content-itemClse--x {
+	color: var(--color-txt-secondary);
+	position: absolute;
+	right: 5px;
+	top: 0px;
+	cursor: pointer;
+}
+.cpse_content-itemTxt--title {
+	background: var(--color-primary);
+	padding: 0px 18px;
+	font-weight: 600;
+	font-size: 24px;
+	color: var(--color-txt-primary);
+	border-radius: 25px;
+}
+.cpse_content-itemClse--btn {
+	text-align: center;
+	background: var(--color-white2);
+	padding: 2px 0px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+/* animations */
+.slide-fade-item {
+  transition: all 1s;
+  display: inline-block;
+  margin-right: 10px;
+}
+.slide-fade-enter, .slide-fade-leave-to
+{
+  transform: translateY(10px);
+  opacity: 0;
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s ease;
+	position: absolute;
+}

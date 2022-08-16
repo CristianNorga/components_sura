@@ -1,0 +1,110 @@
+/* LOADER */
+
+.loader {
+  visibility: hidden;
+  background: #f4f6f9;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.loader > #content {
+  -webkit-box-shadow: 0px 0px 56px 1px rgb(127 127 127);
+  -moz-box-shadow: 0px 0px 56px 1px rgb(127 127 127);
+  box-shadow: 0px 0px 56px 1px rgb(127 127 127);
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 4;
+  background: white;
+}
+
+.loader > #loader--circle {
+  position: absolute;
+  z-index: 3;
+}
+
+
+.show {
+  visibility: visible;
+}
+
+#part1 {
+  animation: zoom 1.8s infinite ease-in-out .1s;
+  transform-origin: center;
+  /* transform-box: fill-box; */
+}
+
+#part2 {
+  animation: zoom 1.8s infinite ease-in-out;
+  transform-origin: center;
+  /* transform-box: fill-box; */
+}
+
+#part3 {
+  animation: zoom 1.8s infinite ease-in-out;
+  transform-origin: center;
+  /* transform-box: fill-box; */
+}
+
+#part4 {
+  animation: zoom 1.8s infinite ease-in-out;
+  transform-origin: center;
+  /* transform-box: fill-box; */
+}
+
+#part5 {
+  animation: zoom 1.8s infinite ease-in-out .1s;
+  transform-origin: center;
+}
+
+#part6 {
+  animation: zoom 1.8s infinite ease-in-out .2s;
+  transform-origin: center;
+  /* transform-box: fill-box; */
+}
+
+#part7 {
+  animation: zoom 1.8s infinite ease-in-out .3s;
+  transform-origin: center;
+}
+
+#part8 {
+  animation: zoom 1.8s infinite ease-in-out .4s;
+  transform-origin: center;
+  /* transform-box: fill-box; */
+}
+
+#part9 {
+  animation: zoom 1.8s infinite ease-in-out .5s;
+  transform-origin: center;
+  /* transform-box: fill-box; */
+}
+
+#part10 {
+  animation: zoom 1.8s infinite ease-in-out .6s;
+  transform-origin: center;
+  /* transform-box: fill-box; */
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* END LOADER */

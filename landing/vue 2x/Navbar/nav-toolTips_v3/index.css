@@ -1,0 +1,374 @@
+.tooltip-tittle {
+	font-weight: 700;
+	font-size: 26px;
+	margin: 0px;
+}
+
+.tooltip-city {
+	max-width: 200px;
+	min-height: 81px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+	margin: 0px;
+	font-weight: 500;
+	font-size: 28px;
+	overflow: hidden;
+}
+
+.tooltip-container {
+  z-index: 1;
+	position: absolute;
+	/* background: #ffffff; */
+	max-width: 100%;
+	/* min-height: 200px; */
+	/* right: 7px; */
+}
+
+/* box-shadow: -7px 0px 20px -19px rgb(0 0 0 / 75%);     box-shadow: -7px 2px 20px -19px rgb(0 0 0 / 75%); */
+
+.tooltip-item {
+	background: #ffffff;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	box-shadow: -7px 0px 20px -19px rgb(0 0 0 / 75%);
+	/* max-width: 250px; */
+	min-width: 285px;
+}
+
+.tooltip-item p {
+	margin: 0px;
+}
+
+.tooltip-item-content {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/* text-transform: uppercase; */
+	font-weight: 500;
+	font-size: 15px;
+	text-align: center;
+}
+
+.tooltip-item-DescriCombo {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/* text-transform: uppercase; */
+	font-weight: 400;
+	font-size: 14px;
+	text-align: center;
+}
+
+.tooltip-item-cost {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.tooltip-item-cost div {
+	position: relative;
+	padding-top: 5px;
+}
+
+/* .tooltip-item-cost div p:nth-child(1) {
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 14px;
+	font-style: italic;
+	position: absolute;
+	top: -1px;
+	left: 33px;
+} */
+
+.tooltip-item-cost div p {
+	font-weight: 700;
+	font-size: 38px;
+	color: #0033a0;
+}
+
+.tooltip-item-infoHighlight {
+	background-color: #e3e829;
+	border-radius: 8px;
+	padding: 10px 10px;
+	text-align: center;
+	margin: 5px 0px;
+}
+
+.tooltip-item-button {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.tooltip-item-button button {
+	background-color: #e3e829;
+	color: #0033a0;
+	border-radius: 50px;
+	padding: 12px 30px;
+	font-weight: 700;
+	font-size: 13px;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.tooltip-item-legal {
+  color: #0033a0;
+	font-size: 13px;
+	font-weight: 300;
+	padding: 5px 0px;
+  text-align: center;
+}
+
+.tooltip-item-close {
+	position: absolute;
+	top: 11px;
+	right: 11px;
+	width: 20px;
+	cursor: pointer;
+}
+
+
+.tooltip-arrow {
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	background: #ffffff;
+	top: 90%;
+	border-radius: 10px 0px 0px 0px;
+	transform: rotate(45deg);
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.1s ease-in-out;
+}
+
+.rowCity {
+	height: 0px;
+	background: #ffffff;
+	border-radius: 12px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.active-tooltip {
+	/* height: max-content; */
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.1s ease-in-out;
+}
+
+.active-arrow {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.4s ease-in-out;
+}
+@media (max-width: 330px) {
+	.active-arrow {
+		display: none;
+	}
+}
+
+/* query menor to 575 */
+
+@media (max-width: 575px) {
+	.tooltip-tittle {
+		font-size: 22px;
+		padding: 30px 0px 5px 0px;
+	}
+
+  .tooltip-city {
+    font-size: 22px;
+  }
+
+	.tooltip-item {
+		padding: 40px 50px;
+	}
+
+	/* .tooltip-item-content {
+		font-size: 50px;
+	} */
+	/* .tooltip-item-DescriCombo {
+		font-size: 42px;
+	} */
+
+	.tooltip-item-infoHighlight {
+		/* font-size: 42px; */
+		font-weight: 500px;
+		margin: 30px 0px;
+	}
+
+	/* .tooltip-item-cost div p {
+		font-size: 60px;
+	} */
+
+	/* .tooltip-item-button button {
+		font-size: 35px;
+	} */
+
+	/* .tooltip-item-legal {
+		font-size: 35px;
+	} */
+}
+@media (min-width: 376px) {
+	.tooltip-arrow {
+		top: 81%;
+	}
+}
+
+/* query mayor or equal to 576 */
+@media (min-width: 576px) {
+	.tooltip-tittle {
+		/* font-size: 30px; */
+		padding: 25px 0px 5px 0px;
+	}
+
+  /* .tooltip-city {
+    font-size: 30px;
+  } */
+
+	.tooltip-item {
+		padding: 35px 50px;
+	}
+
+	/* .tooltip-item-content {
+		font-size: 42px;
+	} */
+	/* .tooltip-item-DescriCombo {
+		font-size: 37px;
+	} */
+
+	.tooltip-item-infoHighlight {
+		/* font-size: 37px; */
+		font-weight: 500px;
+		margin: 30px 0px;
+	}
+
+	/* .tooltip-item-cost div p {
+		font-size: 50px;
+	} */
+
+	/* .tooltip-item-button button {
+		font-size: 30px;
+	}
+
+	.tooltip-item-legal {
+		font-size: 30px;
+	} */
+}
+
+@media (min-width: 768px) {
+
+  .tooltip-tittle {
+		/* font-size: 25px; */
+		padding: 0px;
+	}
+
+  /* .tooltip-city { */
+    /* font-size: 26px; */
+  /* } */
+
+	.tooltip-item {
+		padding: 35px 50px;
+		min-width: 300px;
+	}
+
+	/* .tooltip-item-content {
+		font-size: 37px;
+	}
+	.tooltip-item-DescriCombo {
+		font-size: 32px;
+	} */
+
+	.tooltip-item-infoHighlight {
+		/* font-size: 32px; */
+		font-weight: 500px;
+		margin: 30px 0px;
+	}
+
+	/* .tooltip-item-cost div p {
+		font-size: 40px;
+	}
+
+	.tooltip-item-button button {
+		font-size: 22px;
+	}
+
+	.tooltip-item-legal {
+		font-size: 22px;
+	} */
+}
+
+@media (min-width: 992px) {
+
+  .tooltip-tittle {
+		/* font-size: 22px; */
+		padding: 0px;
+	}
+
+  /* .tooltip-city {
+    font-size: 24px;
+  } */
+
+	.tooltip-item {
+		padding: 35px 50px;
+	}
+
+	/* .tooltip-item-content {
+		font-size: 28px;
+	}
+	.tooltip-item-DescriCombo {
+		font-size: 24px;
+	} */
+
+	.tooltip-item-infoHighlight {
+		/* font-size: 24px; */
+		font-weight: 500px;
+		margin: 30px 0px;
+	}
+
+	/* .tooltip-item-cost div p {
+		font-size: 32px;
+	}
+
+	.tooltip-item-button button {
+		font-size: 17px;
+	}
+
+	.tooltip-item-legal {
+		font-size: 17px;
+	} */
+}
+
+@media (min-width: 1200px) {
+	.tooltip-item {
+		padding: 35px 20px;
+	}
+
+	/* .tooltip-item-content {
+		font-size: 18px;
+	}
+	.tooltip-item-DescriCombo {
+		font-size: 16px;
+	} */
+
+	.tooltip-item-infoHighlight {
+		/* font-size: 16px; */
+		font-weight: 500px;
+		margin: 30px 0px;
+	}
+
+	/* .tooltip-item-cost div p {
+		font-size: 22px;
+	}
+
+	.tooltip-item-button button {
+		font-size: 13px;
+	}
+
+	.tooltip-item-legal {
+		font-size: 13px;
+	} */
+}

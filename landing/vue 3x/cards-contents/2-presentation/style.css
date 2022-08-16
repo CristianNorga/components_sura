@@ -1,0 +1,51 @@
+body {
+  font-family: 'Barlow', sans-serif;
+}
+
+.card2 {
+  max-width: 378px;
+}
+
+.card2-ctn_flag {
+  top: 20px;
+  left: 25px;
+  width: 42px;
+  height: 42px;
+}
+
+.card2-ctn_profilePicture {
+  margin-top: 3rem;
+}
+
+.card2-ctn_profilePicture img{
+  background-color: #0033a0;
+  width: 85px;
+  height: 85px;
+  box-shadow: 4px 4px 12px -8px rgb(100, 100, 100);
+  overflow: hidden;
+}
+
+.card2-ctn_separator{
+  padding: 28px 0px 32px 0px;
+}
+
+.card2-ctn_separator div {
+  background-color: #F6DF67;
+  width: 24px;
+  height: 4px;
+}
+
+.card2-title {
+  font-weight: 700;
+  color: #0033a0;
+}
+
+.card2-text{
+  font-weight: 400;
+  color: #768692;
+}
+
+.card2-text--emphasis{
+  font-weight: 500;
+  color: #768692;
+}

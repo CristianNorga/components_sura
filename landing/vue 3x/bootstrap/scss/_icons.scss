@@ -1,0 +1,39 @@
+// stylelint-disable custom-property-empty-line-before
+
+//
+// Base styles
+//
+
+.icon {
+  // scss-docs-start icon-css-vars
+  --#{$prefix}icon-height: #{$icon-height};
+  --#{$prefix}icon-width: #{$icon-width};
+  --#{$prefix}icon-bg: #{$icon-bg};
+  // scss-docs-end icon-css-vars
+  background-color: var(--#{$prefix}icon-bg);
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: var(--#{$prefix}icon-height);
+  width: var(--#{$prefix}icon-width);
+}
+
+//
+// Alternate icons
+//
+
+// scss-docs-start icon-variant-loops
+// @each $color, $value in $theme-colors {
+//   .i-#{$color} {
+//     @include icon-variant($value);
+//   }
+// }
+
+@each $size, $value in $icon-sizes {
+  .i-#{$size} {
+    @include icon-size($value);
+  }
+}
+// scss-docs-end icon-variant-loops
+
+
+

@@ -1,0 +1,42 @@
+/* LOADER */
+
+.loader {
+  visibility: hidden;
+  background: #f4f6f9;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.loader > #content {
+  -webkit-box-shadow: 0px 0px 56px 1px rgb(127 127 127);
+  -moz-box-shadow: 0px 0px 56px 1px rgb(127 127 127);
+  box-shadow: 0px 0px 56px 1px rgb(127 127 127);
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 104;
+  background: white;
+}
+
+.loader > #loader--circle {
+  position: absolute;
+  z-index: 103;
+}
+
+
+.show {
+  visibility: visible;
+}
+
+
+
+/* END LOADER */

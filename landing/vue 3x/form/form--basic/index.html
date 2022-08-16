@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORM VUE@3 BOOTSTRAP@5.2</title>
+  <link href="../../bootstrap.css" rel="stylesheet">
+  
+  <!-- root -->
+  <link rel="stylesheet" href="./index.css">
+  
+</head>
+<body style="background-color: #f2f2f2;">
+  <!-- <div v-show="state.current === 'repose'"> -->
+  <div id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- formulario formSura -->
+            <form-sura p-gear-id="m5qe6tud0ei" p-on-submit-type="executeAction" p-on-submit-goto-Url="https://google.com" :p-smartcapture-form-id="439" p-source-key="dataextensiontest">
+              <template v-slot:content="{verifying, getStatus, changeFamilyData, familyData, familyListener}">
+                <div class="col-12">
+                  <input-sura p-placeholder="texto general" p-name="texto" :p-is-required="true" :p-is-verifying="verifying" @status="getStatus"></input-sura>
+                </div>
+                <div class="col-12">
+                  <input-sura p-placeholder="correo general" p-type="email" p-name="correo" :p-is-required="true"
+                    :p-is-verifying="verifying" @status="getStatus"></input-sura>
+                </div>
+                <div class="col-12">
+                  <input-sura p-placeholder="number general" p-type="number" p-name="number" :p-is-required="true" :p-is-verifying="verifying"
+                    @status="getStatus"></input-sura>
+                </div>
+                <!-- <div class="col-12">
+                  <input-sura p-placeholder="number mask phone" p-type="phone" p-name="number" :p-is-required="true" :p-is-verifying="verifying"
+                    @status="getStatus"></input-sura>
+                </div> -->
+                <div class="col-12">
+                  <input-sura p-placeholder="measures general" p-type="measures" p-name="measures" :p-is-required="true" :p-is-verifying="verifying"
+                    @status="getStatus"></input-sura>
+                </div>
+                <div class="col-12">
+                  <!-- :p-selected-option="'si'" -->
+                  <btns-group-sura p-name="ccqtn3" 
+                    :p-is-required="true" p-align="center" :p-selected-option="'si'" :p-is-status-after="false" @status="getData"></btns-group-sura>
+                </div>
+                <div class="col-12">
+                  <range-sura p-name="rangebtns" :p-is-required="true" p-align="center"></range-sura>
+                </div>
+                <div class="col-12">
+                  <select-sura p-name="typeId" :p-is-required="true" p-placeholder="tipo de identificacion"
+                    :p-is-verifying="verifying" @status="getStatus" :p-z-index="4" :p-emit-family-data="true" @change-family-data="changeFamilyData" :p-items="[{text: 'CEDULA', value: 'C'},{text: 'CEDULA EXTRANJERA', value:'E'}]"></select-sura>
+                </div>
+                <div class="col-12">
+                  <input-sura p-placeholder="id" p-type="alpha" p-name="id" :p-is-required="true"
+                    :p-is-verifying="verifying" @status="getStatus" :p-family-receive="[{from: 'typeId', change: 'type'}]" :p-family-data="familyData" :p-family-listener="familyListener"></input-sura>
+                </div>
+                <div class="col-12">
+                  <btns-group-sura :p-is-radio="false" p-name="checkbtns" :p-is-required="true" p-align="center"></btns-group-sura>
+                </div>
+                <div class="col-12 pb-3">
+                  <scale-sura :p-is-radio="false" p-name="scaleBtns" :p-is-required="true"></scale-sura>
+                </div>
+                <div class="col-12">
+                  <radio-group-sura p-value="si" p-name="radioGroup" :p-is-required="true" :p-is-verifying="verifying"
+                    @status="getStatus"></radio-group-sura>
+                </div>
+                <div class="col-12 pb-5">
+                  <checkbox-sura p-value="Si" :p-is-check="'si' != ''" p-name="checkbox" :p-is-required="true" :p-is-verifying="verifying" @status="getStatus">
+                    <!-- template -->
+                  </checkbox-sura>
+                </div>
+                <div class="col-12">
+                  <!-- p-value="1,2" -->
+                  <select-mple-sura p-name="selectMultiple" :p-is-required="true" :p-is-verifying="verifying" @status="getStatus">
+                  </select-mple-sura>
+                </div>
+                
+              </template>
+              <template v-slot:tkcomponent>
+                <!-- message of thank you for submision -->
+                <div class="col-12">
+                  <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Gracias por registrarte!</h4>
+                    <p>
+                      Tu registro ha sido exitoso, en breve recibirás un correo de confirmación.
+                    </p>
+                    <hr>
+                    <p class="mb-0">
+                      <a href="https://google.com" class="btn btn-primary">Ir a Google</a>
+                    </p>
+                  </div>
+                </div>
+              </template> 
+            </form-sura>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="./index.js"></script>
+  <script src="./form.js"></script>
+  <script>
+    app.mount('#app');
+  </script>
+  <!-- fuelTraking -->
+<!-- New Journey - March 18 2022 12.18 PM
+ 
+ -->
+</body>
+</html>

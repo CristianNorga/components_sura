@@ -1,0 +1,191 @@
+/* CARDS CONTENT COLLAPSE 3 */
+.cpse3_transmitter-itemCt {
+  width: 100%;
+  text-align: center;
+  text-align: -webkit-center;
+
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+
+}
+
+.cpse3_transmitter-itemImgCt {
+  width: 90px;
+  height: 90px;
+  background: var(--bg-tertiary);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bs-aqua);
+  overflow: hidden;
+  position: relative;
+}
+
+.cpse3_transmitter-itemImgCt img {
+  /* width: 100%; */
+  height: 102%;
+  /* border-radius: 50%; */
+  position: absolute;
+}
+
+.transmitter-itemImgCt--actived {
+  background: var(--bg-secondary);
+  /* border: 3px solid var(--txt-tertiary); */
+}
+
+.cpse3_transmitter-itemTxtP {
+  font-weight: 700;
+  margin-top: -21px;
+  /* min-height: 72px; */
+  padding: 5px 10px;
+  background-color: var(--bs-white);
+  box-shadow: -4px 0px 13px 0px rgb(0 0 0 / 28%);
+  border-radius: 0.5rem;
+  position: relative;
+  color: var(--bs-primary);
+}
+
+.cpse3_transmitter-itemTxtP::before {
+  border: 12px solid white;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 0px solid transparent;
+  content: '';
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  position: absolute;
+  top: 0px;
+  left: -8px;
+}
+
+.cpse3_transmitter-itemLk {
+  font-weight: 400;
+  margin-top: 2px;
+  background: var(--color-white1);
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 25%) 0px -1px 13px -9px;
+  border-radius: 3px;
+  color: var(--bs-primary);
+}
+
+/* cpse3_content */
+/* .cpse3-content-item { */
+/* position: absolute; */
+/* } */
+.cpse3_content-itemCt {
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+}
+
+.cpse3_content-itemImgCt {
+  background: var(--bg-quaternary);
+  width: 100%;
+  min-height: 200px;
+  border-radius: 0px 25px 25px 0px;
+  max-height: 200px;
+}
+
+.cpse3_content-itemClseCt--x {
+  position: relative;
+  width: 100%;
+}
+
+.cpse3_content-itemClse--x {
+  color: var(--color-black2);
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  cursor: pointer;
+}
+
+.cpse3_content-itemTxt--title {
+  background: #69dbe9;
+  padding: 6px 16px;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--bs-white);
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+
+.cpse3_content-itemClse--btn {
+  text-align: center;
+  background: var(--color-white2);
+  padding: 2px 0px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: var(--bs-primary);
+}
+
+/* media mayor to 1440 */
+@media (min-width: 1400px) {
+  .cpse3_content-itemImgCt {
+    border-radius: 25px 25px 25px 25px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .cpse3_content-itemCt--title {
+    background: var(--bg-secondary);
+    /* padding: 8px 30px 8px 30px; */
+    border-radius: 25px;
+    margin-right: 25px;
+    width: fit-content;
+  }
+}
+
+@media (min-width: 576px) {
+  .cpse3_content-itemTxt--title {
+    padding: 8px 41px;
+  }
+}
+
+.nested-enter-active {
+  transition: all 0.3s ease-in-out;
+  /* position: absolute; */
+}
+
+/* delay leave of parent element */
+.nested-leave-active {
+  transition: all 0.3s ease-in-out;
+  /* position: absolute; */
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+/* we can also transition nested elements using nested selectors */
+.nested-enter-active .cpse3_content-itemImgCt,
+.nested-leave-active .cpse3_content-itemImgCt {
+  transition: all 0.3s ease-in-out;
+}
+
+/* delay enter of nested element */
+.nested-enter-active .cpse3_content-itemImgCt {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from .cpse3_content-itemImgCt,
+.nested-leave-to .cpse3_content-itemImgCt {
+  transform: translateX(30px);
+  /*
+  	Hack around a Chrome 96 bug in handling nested opacity transitions.
+    This is not needed in other browsers or Chrome 99+ where the bug
+    has been fixed.
+  */
+  opacity: 0.001;
+}
+
+/* END CARDS CONTENT COLLAPSE 3 */

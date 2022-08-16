@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORM VUE@3 BOOTSTRAP@5.2</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- root -->
+  <link rel="stylesheet" href="./index.css">
+
+</head>
+
+<body style="background-color: #f2f2f2;">
+  <!-- <div v-show="state.current === 'repose'"> -->
+  <div id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- formulario formSura -->
+          <form-sura gear-id="m5qe6tud0ei" on-submit-type="executeAction" on-submit-goto-Url="https://google.com"
+            :smartcapture-form-id="439" source-key="dataextensiontest">
+            <template v-slot:content="{verifying, getStatus}">
+              <div class="col-12 col-lg-6">
+                <input-sura p-placeholder="Curso" p-name="curso" :p-required="true" :verifying="verifying"
+                  @status="getStatus"></input-sura>
+              </div>
+              <div class="col-12 col-lg-6">
+                <input-sura p-placeholder="Nombre" p-name="nombre" p-type="text" :p-required="true"
+                  :verifying="verifying" @status="getStatus"></input-sura>
+              </div>
+              <div class="col-12 col-lg-6">
+                <input-sura p-placeholder="id" p-name="id" p-type="number" :p-required="true"
+                  :verifying="verifying" @status="getStatus"></input-sura>
+              </div>
+              <div class="col-12 col-lg-6">
+                <input-sura p-placeholder="Correo" p-name="correo" p-type="email" :p-required="true"
+                  :verifying="verifying" @status="getStatus"></input-sura>
+              </div>
+            </template>
+            <template v-slot:tkcomponent>
+              <!-- message of thank you for submision -->
+              <div class="col-12">
+                <div class="alert alert-success" role="alert">
+                  <h4 class="alert-heading">Gracias por registrarte!</h4>
+                  <p>
+                    Tu registro ha sido exitoso, en breve recibirás un correo de confirmación.
+                  </p>
+                  <hr>
+                  <p class="mb-0">
+                    <a href="https://google.com" class="btn btn-primary">Ir a Google</a>
+                  </p>
+                </div>
+              </div>
+            </template>
+          </form-sura>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="./index.js"></script>
+  <script src="./form.js"></script>
+  <script>
+    app.mount('#app');
+  </script>
+  <!-- fuelTraking -->
+  <!-- New Journey - March 18 2022 12.18 PM
+ 
+ -->
+</body>
+
+</html>

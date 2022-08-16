@@ -1,0 +1,101 @@
+.panelInfoSura {
+	/* width: 240px; */
+	/* height: 80px; */
+	background: #00aec7;
+	border-radius: 10px 10px 10px 10px;
+	padding: 0px 10px 0px 10px;
+	margin: 0px 0 15px 0;
+	min-height: 147px;
+}
+
+.fillPanelSura {
+	margin-top: 65px;
+}
+
+/* .panelInfoSura:hover{
+           cursor: pointer;
+        } */
+.panelSura-inner {
+	padding: 5px 5px 10px 5px;
+}
+
+.panalSura-containerIcon {
+	padding: 10px 0 5px 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center !important;
+}
+
+.panelSura-icon {
+	/* background: yellow; */
+	/* border-radius: 50%; */
+	width: 60px;
+	height: 60px;
+	margin: 5px 0 5px 0;
+}
+
+.panelSura-tittle {
+	line-height: 1.1;
+	font-weight: 500;
+	font-size: 17px;
+	text-align: center;
+	align-self: center;
+}
+
+.panelCollapsed {
+	transition: all 0.35s;
+	overflow: hidden;
+}
+
+.collapse-enter-from,
+.collapse-leave-to {
+	/* position: relative; */
+	height: 0px !important;
+}
+
+/* .collapse-leave-from,
+.collapse-enter-to {
+	position: relative;
+	height: 100%;
+} */
+
+.panelSura-dialogue {
+	background: #00aec7;
+	border: none;
+	text-align: start;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+
+
+.panelSura-btnCollapse {
+	width: 100%;
+	/* background-color: rgba(0,0,0,.1); */
+	/* color: rgba(255,255,255,.8); */
+	display: block;
+	padding: 3px 0;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	z-index: 10;
+	align-self: flex-end;
+}
+
+
+.btnCollapse-svg {
+	display: inline;
+	width: 15px;
+	color: yellow;
+}
+
+.btnCollapse-svg[rotate="up"] {
+	transition: all 0.6s ease-out;
+	-webkit-transform: rotate(180deg) scale(1);
+	transform: rotate(180deg) scale(1);
+}
+
+.btnCollapse-svg[rotate="down"] {
+	transition: all 0.6s ease-out;
+	-webkit-transform: rotate(0) scale(1);
+	transform: rotate(0) scale(1);
+}

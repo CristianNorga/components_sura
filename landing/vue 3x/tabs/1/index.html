@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tab 1</title>
+  <link rel="stylesheet" href="../../bootstrap/scss/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <tab-1 :width-screen="screen.width">
+
+      <template #transmitters="{showDropInfo, elActived, trasnmiterItemWidth}">
+
+        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '1'" @click="showDropInfo" tied="1" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+          <div tied="1" class="tab1-transmitters_img text-center">
+            <img tied="1" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+              alt="mano con dinero">
+          </div>
+          <div tied="1" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+            Bono Exequial
+          </div>
+        </div>
+        
+        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '2'" @click="showDropInfo" tied="2" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+          <div tied="2" class="tab1-transmitters_img text-center">
+            <img tied="2" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+              alt="mano con dinero">
+          </div>
+          <div tied="2" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+            Bono Exequial
+          </div>
+        </div>
+        
+        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+          <div tied="3" class="tab1-transmitters_img text-center">
+            <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+              alt="mano con dinero">
+          </div>
+          <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+            Bono Exequial
+          </div>
+        </div>
+
+        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
+          :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+          <div tied="3" class="tab1-transmitters_img text-center">
+            <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+              alt="mano con dinero">
+          </div>
+          <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+            Bono Exequial
+          </div>
+        </div>
+
+        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
+          :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+          <div tied="3" class="tab1-transmitters_img text-center">
+            <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+              alt="mano con dinero">
+          </div>
+          <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+            Bono Exequial
+          </div>
+        </div>
+
+        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
+          :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+          <div tied="3" class="tab1-transmitters_img text-center">
+            <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+              alt="mano con dinero">
+          </div>
+          <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+            Bono Exequial
+          </div>
+        </div>
+      
+      </template>
+
+      <template #receiver="{elActived}">
+
+        <div class="tab1-receivers_item" :active="elActived == '1'">
+          <div class="px-2 py-2 border-top w-100">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus ducimus explicabo necessitatibus ab aspernatur iste
+            sequi. Assumenda vero ut aspernatur accusantium illo quisquam facilis, ullam placeat enim quasi cupiditate mollitia!
+          </div>
+        </div>
+
+        <div class="tab1-receivers_item" :active="elActived == '2'">
+          <div class="px-2 py-2 border-top w-100">
+            otra cosa :D
+          </div>
+        </div>
+
+        <div class="tab1-receivers_item" :active="elActived == '3'">
+          <div class="px-2 py-2 border-top w-100">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore velit eos fuga dolores. Natus, dolores soluta beatae itaque velit fugit consectetur accusamus. Eveniet aliquam nobis cumque repellendus atque assumenda tenetur.
+          </div>
+        </div>
+      
+      </template>
+
+    </tab-1>
+  </div>
+
+
+    
+
+
+  <script src="../../vue@3.2.36.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
+
+
+<!-- <tab-1 :width-screen="320">
+
+  <template #linksaux="{showDropInfo, elActived}">
+
+    <div @click="showDropInfo" class="col-12 col-sm-4 border rounded-start cpse1-link_item--aux" tied="1"
+      :active="elActived == 1">
+      <span tied="1">SER CORRESPONSAL</span>
+    </div>
+    <div @click="showDropInfo" class="col-12 col-sm-4 border cpse1-link_item--aux" tied="2" :active="elActived == 2">
+      <span tied="2">BENEFICIOS</span>
+    </div>
+    <div @click="showDropInfo" class="col-12 col-sm-4 border rounded-end cpse1-link_item--aux" tied="3"
+      :active="elActived == 3">
+      <span tied="3">REQUISITOS</span>
+    </div>
+
+  </template>
+
+  
+
+</cpse-1> -->

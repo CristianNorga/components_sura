@@ -1,0 +1,129 @@
+.tab1-transmitters_ctn {
+  overflow-x: auto;
+  background-color: #f2f2f2;
+  z-index: 2;
+}
+
+.tab1-transmitters_item {
+  transition: all ease-out;
+  width: 125px;
+  min-width: 125px;
+  max-width: 125px;
+  border-bottom: 2px solid transparent;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.tab1-transmitters_ctn:active {
+  cursor: ew-resize;
+}
+
+.tab1-transmitters_item[active="true"]{
+  border-bottom: 2px solid var(--bs-primary);
+  opacity: 1;
+}
+
+.tab1-transmitters_img img {
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.tab1-transmitters_text {
+  font-weight: 500;
+}
+
+.tab1-receiver_ctn {
+  background-color: #f2f2f2;
+}
+
+.tab1-receivers_item {
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+}
+
+.tab1-receivers_item[active="true"] {
+  max-height: 500px;
+  transition: max-height 0.25s ease-in;
+}
+
+.tab1-transmitters_tooltip {
+  display: flex;
+  top: 0px;
+  right: 0px;
+  background: rgb(235, 237, 237);
+  background: linear-gradient(90deg, rgba(235, 237, 237, 0) 0%, rgba(0, 51, 172, 1) 100%);
+}
+
+.tab1-transmitters_arrow {
+  display: flex;
+  opacity: 0.3;
+  cursor: pointer;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  top: 0px;
+  z-index: 3;
+}
+
+.tab1-transmitters_arrow[orientation="right"] {
+  right: 0px;
+}
+
+.tab1-transmitters_arrow[orientation="left"] {
+  left: 0px;
+  transform: rotateZ(180deg);
+}
+
+.tab1-transmitters_arrow:hover {
+  background: #7686927d;
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+
+  .tab1-transmitters_ctn {
+      overflow-x: hidden;
+    }
+  
+  /* .tab1-transmitters_ctn::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  .tab1-transmitters_ctn::-webkit-scrollbar:vertical {
+    width: 10px;
+  }
+
+  .tab1-transmitters_ctn::-webkit-scrollbar-button:increment,
+  .tab1-transmitters_ctn::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  .tab1-transmitters_ctn::-webkit-scrollbar:horizontal {
+    height: 10px;
+  }
+
+  .tab1-transmitters_ctn::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+  }
+
+  .tab1-transmitters_ctn::-webkit-scrollbar-track {
+    border-radius: 10px;
+  } */
+
+  .tab1-transmitters_item {
+    width: 205px;
+    min-width: 205px;
+    max-width: 205px;
+  }
+
+  .tab1-transmitters_img img {
+    max-width: 51px;
+    max-height: 51px;
+  }
+}
+
+/* @media (min-width: 992px) {
+  
+} */

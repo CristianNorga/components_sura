@@ -1,0 +1,75 @@
+<cpse-3>
+      <template v-slot:transmitters="{showDropInfo, actionRouter, actionForm, elActived}">
+
+        <cpse3-transmitter-item :action-change-plan="actionForm" v-bind:el-actived="elActived"
+          v-bind:transmitter-action="showDropInfo" transmitter-name="1" img-name="2"
+          text-primary="Plan Protégete"></cpse3-transmitter-item>
+    
+        <cpse3-transmitter-item :action-change-plan="actionForm" v-bind:el-actived="elActived"
+          v-bind:transmitter-action="showDropInfo" img-name="5" text-primary="Plan Accidentes"
+          transmitter-name="2" p-left-position="0px">
+        </cpse3-transmitter-item>
+
+        <cpse3-transmitter-item :action-change-plan="actionForm" v-bind:el-actived="elActived"
+          v-bind:transmitter-action="showDropInfo" img-name="4" text-primary="Plan Hospitalización" transmitter-name="3" p-left-position="-14%">
+        </cpse3-transmitter-item>
+
+        <cpse3-transmitter-item :action-change-plan="actionForm" v-bind:el-actived="elActived"
+          v-bind:transmitter-action="showDropInfo" img-name="1" text-primary="Plan Mascotas" transmitter-name="4" p-left-position="-25%">
+        </cpse3-transmitter-item>
+
+        <cpse3-transmitter-item :action-change-plan="actionForm" v-bind:el-actived="elActived"
+          v-bind:transmitter-action="showDropInfo" img-name="3" text-primary="Plan Combo Seguro" transmitter-name="5"
+          p-left-position="0px">
+        </cpse3-transmitter-item>
+      </template>
+    
+      <template v-slot:content="{actionRouter, actionForm, elActived, showDropInfo}">
+
+        <cpse3-content-item title="Plan Protégete" key="1" img-name="2"
+          v-show="elActived == '1'" v-bind:receiver-action="showDropInfo">
+          <template v-slot:content>
+            <p class="fs-5 mt-3 mt-md-4 text-primary">
+              Tus seres queridos reciben un bono Exequial por <b>$5.000.000</b> y <b>$35.000.000</b> si llegas a fallecer como consecuencia de un accidente, ayudando en su bienestar en el momento que más lo necesitan. También Recibe por invalidez por accidente <b>$35.000.000</b>, por cada día de hospitalización <b>$30.000</b> hasta 60 días por accidente o enfermedad y en caso de sufrir un accidente cuentas con hasta <b>$5.000.000</b> para cubrir los gastos de curación, dándote la facilidad para que te recuperes tranquilo.
+            </p>
+          </template>
+        </cpse3-content-item>
+    
+        <cpse3-content-item title="Plan Accidentes" key="2" img-name="5"
+          v-show="elActived == '2'" v-bind:receiver-action="showDropInfo">
+          <template v-slot:content>
+            <p class="fs-5 mt-3 mt-md-4 text-primary">
+              Tus seres queridos reciben un bono Exequial por <b>$2.000.000</b> y <b>$10.000.000</b> si llegas a fallecer como consecuencia de un accidente, ayudando en su bienestar en el momento que más lo necesitan. También Recibe por día de hospitalización <b>$30.000</b> hasta 30 días por accidente o enfermedad para cubrir los gastos y la disminución de ingresos que se presentan durante una hospitalización, dándote la facilidad para que te recuperes tranquilo.
+            </p>    
+          </template>
+        </cpse3-content-item>
+
+        <cpse3-content-item title="Plan Hospitalización" key="3" img-name="4"
+          v-show="elActived == '3'" v-bind:receiver-action="showDropInfo">
+          <template v-slot:content>
+            <p class="fs-5 mt-3 mt-md-4 text-primary">
+              Sura te paga por cada día de hospitalización <b>$40.0000</b> hasta 30 días por accidente o enfermedad, para cubrir los gastos y la disminución de ingresos que se presentan durante una hospitalización, dándote la facilidad para que te recuperes tranquilo.
+            </p>
+          </template>
+        </cpse3-content-item>
+
+        <cpse3-content-item title="Plan Mascotas" key="4" img-name="1"
+          v-show="elActived == '4'" v-bind:receiver-action="showDropInfo" p-position-y="44%">
+          <template v-slot:content>
+            <p class="fs-5 mt-3 mt-md-4 text-primary"> 
+              Protege a tu mascota (Perro y Gato) con Gastos Veterinarios, Responsabilidad Civil, protección jurídica, Auxilio Exequial y de gastos de búsqueda. Con 3 planes, que cuenta con montos diferentes en sus coberturas según tu necesidad.
+            </p>
+          </template>
+        </cpse3-content-item>
+
+        <cpse3-content-item title="Plan Combo Seguro" key="5" img-name="3"
+          v-show="elActived == '5'" v-bind:receiver-action="showDropInfo" p-position-y="21%">
+          <template v-slot:content>
+            <p class="fs-5 mt-3 mt-md-4 text-primary">
+              Tus seres queridos recibirán un monto económico por fallecimiento por enfermedad o muerte accidental. También tienes Protección por una hospitalización mayor a 48 horas por <b>$200.000</b> y en caso de sufrir un accidente recibe <b>$150.000</b>, si requieres atención de urgencias en algún servicio médico. Con 2 planes, que cuenta con montos diferentes en su cobertura de vida.
+            </p>
+          </template>
+        </cpse3-content-item>
+
+      </template>
+    </cpse-3>

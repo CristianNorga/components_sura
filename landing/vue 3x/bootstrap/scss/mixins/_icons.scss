@@ -1,0 +1,19 @@
+// stylelint-disable custom-property-empty-line-before
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+// scss-docs-start icon-variant-mixin
+// @mixin icon-variant($background) {
+//   --#{$prefix}icon-bg: #{$background};
+// }
+// scss-docs-end icon-variant-mixin
+
+// scss-docs-start icon-size-mixin
+@mixin icon-size($size) {
+  --#{$prefix}icon-height: #{$size};
+  --#{$prefix}icon-width: #{$size};
+}
+// scss-docs-end icon-size-mixin

@@ -1,0 +1,164 @@
+/* CARDS CONTENT COLLAPSE */
+.cpse_transmitter-itemCt {
+  width: 100%;
+  text-align: center;
+  text-align: -webkit-center;
+
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+
+}
+
+.cpse_transmitter-itemImgCt {
+  width: 90px;
+  height: 90px;
+  background: var(--bg-tertiary);
+  border-radius: 15px;
+  cursor: pointer;
+  /* border: 3px solid var(--txt-primary); */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cpse_transmitter-itemImgCt img {
+  width: 73%;
+  height: 73%;
+  border-radius: 10px;
+}
+
+.transmitter-itemImgCt--actived {
+  background: var(--bg-secondary);
+  /* border: 3px solid var(--txt-tertiary); */
+}
+
+.cpse_transmitter-itemTxtP {
+  font-weight: 700;
+  margin-top: 10px;
+  min-height: 72px;
+}
+
+.cpse_transmitter-itemLk {
+  font-weight: 400;
+  margin-top: 10px;
+  background: var(--color-white1);
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 25%) 0px -1px 13px -9px;
+  border-radius: 3px;
+}
+
+/* cpse_content */
+/* .cpse-content-item { */
+/* position: absolute; */
+/* } */
+.cpse_content-itemCt {
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+}
+
+.cpse_content-itemImgCt {
+  background: var(--bg-quaternary);
+  width: 100%;
+  min-height: 200px;
+  border-radius: 0px 25px 25px 0px;
+  max-height: 200px;
+}
+
+.cpse_content-itemClseCt--x {
+  position: relative;
+  width: 100%;
+}
+
+.cpse_content-itemClse--x {
+  color: var(--color-black2);
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  cursor: pointer;
+}
+
+.cpse_content-itemTxt--title {
+  background: var(--bg-secondary);
+  padding: 8px 41px;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--txt-tertiary);
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+
+.cpse_content-itemClse--btn {
+  text-align: center;
+  background: var(--color-white2);
+  padding: 2px 0px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* media mayor to 1440 */
+@media (min-width: 1400px) {
+  .cpse_content-itemImgCt {
+    border-radius: 25px 25px 25px 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cpse_content-itemCt--title {
+    background: var(--bg-secondary);
+    padding: 8px 30px 8px 30px;
+    border-radius: 25px;
+    margin-right: 25px;
+    width: fit-content;
+  }
+
+  .cpse_content-itemTxt--title {
+    padding: 0px !important;
+  }
+
+}
+
+.nested-enter-active,
+.nested-leave-active {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+}
+
+/* delay leave of parent element */
+.nested-leave-active {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+/* we can also transition nested elements using nested selectors */
+.nested-enter-active .cpse_content-itemImgCt,
+.nested-leave-active .cpse_content-itemImgCt {
+  transition: all 0.3s ease-in-out;
+}
+
+/* delay enter of nested element */
+.nested-enter-active .cpse_content-itemImgCt {
+  transition-delay: 0.25s;
+}
+
+.nested-enter-from .cpse_content-itemImgCt,
+.nested-leave-to .cpse_content-itemImgCt {
+  transform: translateX(30px);
+  /*
+  	Hack around a Chrome 96 bug in handling nested opacity transitions.
+    This is not needed in other browsers or Chrome 99+ where the bug
+    has been fixed.
+  */
+  opacity: 0.001;
+}
+
+/* CARDS CONTENT COLLAPSE */

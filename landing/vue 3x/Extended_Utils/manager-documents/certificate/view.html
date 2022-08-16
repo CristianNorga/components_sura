@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>certificado</title>
+  <link rel="stylesheet" href="../../../bootstrap/scss/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+  <script>
+    
+  </script>
+  <!-- generateCertificate -->
+  <!-- <generate-certificate> -->
+    <div id="app">
+      <div class="container-fluid genCate">
+        <div class="row">
+          <div class="col-12 col-md-8 col-lg-7 col-xl-6 position-relative">
+            <!-- <div id="origin" class="genCate-origin card text-bg-dark position-absolute" style="min-width: 210mm;min-height: 148mm;opacity: 0;"> -->
+            <!-- <div> -->
+              <!-- <canvas id="generateCertificate" width="952.44" height="671.23"></canvas> -->
+            <!-- </div> -->
+            <!-- <div id="origin" class="genCate-origin card rounded-0 text-bg-dark position-absolute">
+              <img :src="recursos64.fondo" class="card-img" alt="...">
+              <div class="card-img-overlay text-black">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+                  This content is a little bit longer.</p>
+                <p class="card-text">Last updated 3 mins ago</p>
+              </div>
+            </div> -->
+
+            <div id="sample" class="genCate-sample text-center" width="100%">
+              <!-- <img id="example2" src="" alt="" class="bd-placeholder-img"> -->
+
+              <embed id="example" src type="application/pdf" width="100%"/>
+              
+              <div v-show="false"></div>
+            </div>
+            
+          </div>
+          <div class="col-12 col-md-4 col-lg-5 col-xl-6 text-center text-md-start pt-3 pt-md-0">
+            <input type="text" id="nameOfPerson" name="nameOfPerson" placeholder="escriba un nombre" value="cristian david noreña">
+            <br>
+            positionYText
+            <input type="number" id="positionYText" name="positionYText" placeholder="escriba un numero" value="248">
+            <br>
+            horas
+            <input type="text" id="hoursOfCourse" name="positionYText" placeholder="escriba un numero" value="8">
+            <br>
+            <!-- <input type="button" class="btn btn-outline-primary" id="btnSave2" value="Descargar Certificado"> -->
+            <input type="button" class="btn btn-outline-primary" id="btnShow" value="mostrar certficado">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  <!-- </generate-certificate> -->
+
+  <!-- <script src="../../../vue@3.2.36.js"></script> -->
+  <!-- <script src="../../libUtils.js"></script>  -->
+  <!-- <script src="https://seguros.comunicaciones.sura.com/html2canvas@1.4.1-26072022"></script> -->
+  <!-- <script src="https://seguros.comunicaciones.sura.com/canvas2images@1.0.5"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script> -->
+  <script defer src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.js"></script>
+  <script defer src="https://unpkg.com/@pdf-lib/fontkit/dist/fontkit.umd.min.js"></script>
+  <script src="./resourcesForPDF.js"></script>
+  <script src="./clonePDF.js"></script>
+</body>
+</html>

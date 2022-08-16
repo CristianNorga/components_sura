@@ -1,0 +1,312 @@
+/* HEADER */
+.header-sura {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.headerSura-Ctn_brands > div {
+  min-height: 80px;
+  max-height: 80px;
+}
+
+.headerSura-Ctn_brands[position-brands=center] > div {
+  justify-content: center;
+}
+
+.headerSura-Ctn_brands .brands-img {
+  height: 32px;
+}
+
+.brands-separator {
+  padding: 0 24px;
+  height: 24px;
+}
+
+.headerSura-Ctn_descriptor > div {
+  height: 42px;
+}
+
+.headerSura-Ctn_descriptor .descriptor-business {
+  font-size: 16px;
+}
+
+/* .headerSura-Ctn_descriptor .descriptor-items {} */
+.headerSura-Ctn_descriptor .descriptor-items .item {
+  cursor: pointer;
+}
+
+.headerSura-Ctn_descriptor .descriptor-items .item:last-child {
+  margin-right: 0px !important;
+}
+
+.headerSura-Ctn_descriptor .descriptor-items .item[active="true"]::after,
+.headerSura-Ctn_descriptor .descriptor-items .item:hover::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  margin: 0px;
+  padding: 0px;
+  background-color: #FFFFFF;
+  left: 0px;
+  bottom: 0px;
+}
+
+.headerSura-Ctn_brands .ctn-btnProfile,.ctn-menu_content .ctn-btnProfile{
+  border-color: var(--bs-aqua);
+  border: 2px solid var(--bs-aqua);
+}
+
+.header-sura[is-session="false"] .ctn-btnProfile {
+  display: none !important;
+}
+
+.headerSura-Ctn_brands .ctn-btnDropdown{
+  display: none;
+}
+
+.headerSura-Ctn_brands .ctn-btnDropdown, .headerSura-Ctn_menu .ctn-btnDropdown{
+  background-color: rgba(0,0,0,0);
+  outline: none !important;
+  outline-width: 0 !important;
+}
+
+.headerSura-Ctn_brands .ctn-btnDropdown > .btn-dropdown_content, 
+.headerSura-Ctn_menu .ctn-btnDropdown {
+  outline: none;
+  outline-width: 0;
+  border-radius: 21px;
+  max-width: 200px;
+  width: 80%;
+  height: 40px;
+  background-color: #E3E829;
+}
+
+.ctn-btnDropdown:active > .btn-dropdown_content,.headerSura-Ctn_menu .ctn-btnDropdown:active{
+  background-color: #ced425;
+}
+
+.ctn-btnDropdown .icon{
+  --bs-icon-height: 0.58rem;
+  --bs-icon-width: 0.58rem;
+  margin-left: 7px;
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: transform 0.2s, -webkit-transform 0.2s, -o-transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s, -o-transform 0.2s;
+  background-color: var(--bs-primary);
+}
+
+.ctn-btnProfile .icon{
+  --bs-icon-height: 1.2rem;
+  --bs-icon-width: 1.2rem;
+  /* margin-right: 7px; */
+  background-color: var(--bs-primary);
+}
+
+.ctn-btnDropdown[status="open"] .icon, .ctn-menu_item--session[status="open"] .icon{
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.headerSura-Ctn_brands .ctn-btnDropdown > .btn-CtnDropdown_options{
+  visibility: hidden;
+  box-shadow: none;
+  -webkit-transition: box-shadow 0.3s, visibility 0.3s, opacity 0.3s, top 0.3s;
+  transition: box-shadow 0.3s, visibility 0.3s, opacity 0.3s, top 0.3s;
+  z-index: 10;
+  opacity: 0;
+  top: -moz-calc(100% + 15px);
+  top: calc(100% + 15px);
+}
+
+.ctn-menu_item--session .btn-CtnDropdown_options{
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s linear;
+  transition: max-height 0.3s linear;
+  max-height: 0;
+  z-index: 10;
+}
+
+.ctn-menu_item--session[status="open"] .btn-CtnDropdown_options {
+  overflow: auto;
+  /* max-height valor que debe cambiar manual o dinamicamente */
+  max-height: 50px;
+}
+
+.btn-CtnDropdown_options::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  margin: 0px;
+  padding: 0px;
+  left: -moz-calc(50% - 7px);
+  left: calc(50% - 7px);
+  top: -10px;
+  border-right: 7px solid rgba(255,255,255,0);
+  border-left: 7px solid rgba(255,255,255,0);
+  border-bottom: 10px solid rgba(255,255,255,1);
+}
+
+
+.ctn-btnDropdown[status="open"] .btn-CtnDropdown_options {
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0px -5px 14px -5px rgb(0,0,0,0.35);
+}
+
+.dropdown-option--session {
+  background-color: #ffffff;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  color: #53565A;
+  border-top: #ECF0F1 solid 1px;
+}
+
+.dropdown-option--session:hover {
+  color: var(--bs-blue);
+  text-decoration: underline;
+}
+
+.dropdown-option--session > a, .dropdown-option--session > span{
+  color: inherit !important;
+  font-weight: 500;
+}
+
+.ctn-btnHamburguerMenu {
+  width: 32px;
+  height: 32px;
+  outline-width: 0;
+  border: #ECF0F1 solid 1px;
+  display: block;
+  outline: none;
+}
+
+.ctn-btnHamburguerMenu:active {
+  box-shadow: 0px 0px 9px 1px var(--bs-gray-500);
+}
+
+.ctn-btnHamburguerMenu .icon {
+  --bs-icon-height: 60%;
+  --bs-icon-width: 60%;
+  vertical-align: text-bottom;
+}
+
+.ctn-btnHamburguerMenu .i-close {
+  --bs-icon-height: 46%;
+  --bs-icon-width: 46%;
+}
+
+.ctn-btnHamburguerMenu[status="closed"] .i-close {
+  display: none;
+}
+
+.ctn-btnHamburguerMenu[status="open"] .i-hamburger-menu {
+  display: none;
+}
+
+.headerSura-Ctn_menu {
+  overflow-y:auto;
+  -webkit-transition: box-shadow 0.6s,max-height 0.3s linear;
+  transition: box-shadow 0.6s,max-height 0.3s linear;
+  max-height: 0;
+  z-index: 10;
+  box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 20%);
+}
+
+.ctn-menu_content > div {
+  cursor: pointer;
+}
+
+.ctn-menu_content::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  width: calc(100% - 20px);
+  width: -moz-calc(100% - 20px);
+  height: 1.5px;
+  background-color: #ECF0F1;
+  margin: 0px;
+  padding: 0px;
+  top: 100%;
+  top: calc(100% + 12.5px);
+  top: -moz-calc(100% + 12.5px);
+  left: 10px;
+}
+
+.headerSura-Ctn_menu[status="open"] {
+  box-shadow: 0px 3px 4px 1px rgb(0 0 0 / 20%);
+  /* max-height valor que debe cambiar manual o dinamicamente */
+  max-height: 500px;
+}
+
+.headerSura-Ctn_menu > .ctn-menu_item--session {
+  margin: 0px;
+  margin-top: 25px;
+}
+
+
+
+@media (min-width: 576px) {
+  .headerSura-Ctn_descriptor .descriptor-business {
+    font-size: 18px;
+  }
+  .ctn-btnHamburguerMenu {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .headerSura-Ctn_brands .ctn-btnDropdown > .btn-dropdown_content, 
+  .headerSura-Ctn_menu .ctn-btnDropdown {
+    width: 180px;
+    height: 48px;
+  }
+
+  .headerSura-Ctn_brands .ctn-btnDropdown{
+    display: block;
+  }
+
+  .dropdown-option--session:hover {
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    border-bottom: #ECF0F1 solid 1px;
+  }
+
+  .dropdown-option--session:hover {
+    background-color: #f2f2f2;
+  }
+
+  .ctn-btnHamburguerMenu{
+    display: none;
+  }
+  .ctn-menu_item {
+    display: block;
+  }
+  .headerSura-Ctn_descriptor .descriptor-business {
+    font-size: 18px;
+  }
+
+  .headerSura-Ctn_menu {
+    box-shadow: 0px 12px 10px -5px rgb(0 0 0 / 30%);
+  }
+
+  .headerSura-Ctn_menu > .ctn-menu_item--session {
+    margin-top: 0px;
+  }
+
+}
+
+@media (min-width: 992px) {
+  .headerSura-Ctn_brands .brands-img {
+    height: 42px;
+  }
+  .headerSura-Ctn_descriptor .descriptor-business {
+    font-size: 20px;
+  }
+}
+/* HEADER END */

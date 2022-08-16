@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carousel Swiper</title>
+  <link href="https://seguros.comunicaciones.sura.com/css-btp@5.2-seguros-sura" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <carousel-swiper :p-is-navigation="false">
+      <template #slides>
+        <div class="swiper-slide">
+          <div class="slide__image" style="margin: 0px auto;">
+            <img alt="slide-onboarding-1" style="display: block;margin: 1rem auto 0px;" class="slide__image_background"
+              src="https://comunicaciones.segurossura.com.co/MercadeoPersonas/recursos/Web_y-o_landing/canales/landing%20corresponsales-04.png">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="slide__image" style="margin: 0px auto;">
+            <img alt="slide-onboarding-1" style="display: block;margin: 1rem auto 0px;" class="slide__image_background"
+              src="https://comunicaciones.segurossura.com.co/MercadeoPersonas/recursos/Web_y-o_landing/canales/landing%20corresponsales-02.png">
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="slide__image" style="margin: 0px auto;">
+            <img alt="slide-onboarding-1" style="display: block;margin: 1rem auto 0px;" class="slide__image_background"
+              src="https://comunicaciones.segurossura.com.co/MercadeoPersonas/recursos/Web_y-o_landing/canales/landing%20corresponsales-03.png">
+          </div>
+        </div>
+      </template>
+    </carousel-swiper>
+  </div>
+  <script src="https://unpkg.com/vue@3.2.36"></script>
+  <!-- <script src="https://seguros.comunicaciones.sura.com/js-swiper@7.0"></script> -->
+  <script src="./index.js"></script>
+
+</body>
+</html>

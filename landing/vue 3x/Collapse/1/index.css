@@ -1,0 +1,126 @@
+/* CARDS CONTENT COLLAPSE 1 */
+
+.cpse1-link_item--aux {
+  cursor: pointer;
+}
+
+.cpse1-link_item--aux[actived=true] {
+  background-color: var(--bs-primary);
+  color: white !important;
+  cursor: pointer;
+}
+
+.cpse1-transmitter_ctn {
+  background-color: white;
+  border: 2px solid var(--bs-white);
+  width: 145px;
+  height: 145px;
+  border-radius: 50% 50% 0px;
+  box-shadow: rgb(0 0 0 / 42%) 2px 2px 7px -1px;
+  margin: auto;
+  cursor: pointer;
+  font-weight: 700;
+  position: relative;
+}
+
+.cpse1-transmitter_ctn[theme="aqua"]:hover,
+.cpse1-transmitter_ctn[actived="true"][theme="aqua"] {
+  background-color: var(--bs-aqua);
+  border: 2px solid var(--bs-primary);
+}
+
+.cpse1-transmitter_ctn[theme="blue"]:hover,
+.cpse1-transmitter_ctn[actived="true"][theme="blue"] {
+  background-color: var(--bs-primary);
+  border: 2px solid rgb(105, 219, 233);
+}
+
+.cpse1-transmitter_ctn[theme="aqualight"]:hover,
+.cpse1-transmitter_ctn[actived="true"][theme="aqualight"] {
+  background-color: rgb(105, 219, 233);
+  border: 2px solid var(--bs-primary);
+}
+
+.cpse1-transmitter_ctn p {
+  transform: rotate(-12deg);
+  padding: 33px 0px 0px 0px;
+  text-align: center;
+  transform-origin: bottom;
+  line-height: 1.1;
+  margin: 0;
+  position: absolute;
+  left: -9%;
+}
+
+.cpse1-transmitter_ctn[theme="aqua"] .cpse1-transmitter_title {
+  color: var(--bs-aqua);
+  padding: 0px 10px;
+  border-radius: 25px;
+}
+
+.cpse1-transmitter_ctn[theme="blue"] .cpse1-transmitter_title {
+  color: var(--bs-primary);
+  padding: 0px 10px;
+  border-radius: 25px;
+}
+
+.cpse1-transmitter_ctn[theme="aqualight"] .cpse1-transmitter_title {
+  color: rgb(105, 219, 233);
+  padding: 0px 10px;
+  border-radius: 25px;
+}
+
+/* hover */
+
+.cpse1-transmitter_ctn[theme="aqua"]:hover .cpse1-transmitter_title,
+.cpse1-transmitter_ctn[actived="true"][theme="aqua"] .cpse1-transmitter_title {
+  background-color: var(--bs-white);
+}
+
+.cpse1-transmitter_ctn[theme="blue"]:hover .cpse1-transmitter_title,
+.cpse1-transmitter_ctn[actived="true"][theme="blue"] .cpse1-transmitter_title {
+  background-color: var(--bs-white);
+}
+
+.cpse1-transmitter_ctn[theme="aqualight"]:hover .cpse1-transmitter_title,
+.cpse1-transmitter_ctn[actived="true"][theme="aqualight"] .cpse1-transmitter_title {
+  background-color: var(--bs-white);
+}
+
+.cpse1-transmitter_ctn[theme="aqua"] .cpse1-transmitter_text-stroke {
+  -webkit-text-stroke: 1.2px var(--bs-aqua);
+  line-height: 1;
+}
+
+.cpse1-transmitter_ctn[theme="blue"] .cpse1-transmitter_text-stroke {
+  -webkit-text-stroke: 1.2px var(--bs-primary);
+  line-height: 1;
+}
+
+.cpse1-transmitter_ctn[theme="aqualight"] .cpse1-transmitter_text-stroke {
+  -webkit-text-stroke: 1.2px rgb(105, 219, 233);
+  line-height: 1;
+}
+
+/* joving */
+.slide-up-enter-active {
+  transition: all 0.35s ease-out;
+}
+
+.slide-up-leave-active {
+  transition: none;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* .slide-up-leave-to { */
+/* opacity: 0; */
+/* position: absolute; */
+/* transform: translateY(-40px); */
+/* transform: scale(0.2); */
+/* } */
+
+/* END CARDS CONTENT COLLAPSE 1 */

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar - toolstips</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <!-- https://seguros.comunicaciones.sura.com/css-tfm-210220222158 -->
+    <!-- https://seguros.comunicaciones.sura.com/JS-ttfm-210220222159 -->
+  <script>
+    // manual      
+    // @key {string or htmlString} resumeCombo *required;
+    // @key {string or htmlString} descriCombo *required;
+    // @key {string} cost (optional);
+    // @key {boolean} legal (optional);
+    // @key {boolean} disabled (optional);
+    // @key {string} urlBtn (optional);
+    // @key {string} button (optional);
+    // @key {boolean} isFilling (optional);
+    // @key {string(sm-xxl)} breakpointFilling (optional);
+    // @key {string(1-12)} xs (optional);
+    // @key {string(1-12)} sm (optional);
+    // @key {string(1-12)} md (optional);
+    // @key {string(1-12)} lg (optional);
+    // @key {string(1-12)} xl (optional);
+    // @key {string(1-12)} xxl (optional);
+
+    // @var {array} cities;    
+    var cities = [
+      // items {object}
+      {
+        name: "Bogotá", // @key {string} name *required; ej: "Bogotá"
+        id: 'bogota', // @key {string(sin caracteres especiales)} id *required; ej: "bogota"
+        items: [ // @key {array} items *required;
+          // items {object}
+          { 
+            resumeCombo: '<b>Combo 1</b>',
+            descriCombo: 'Alineación + balanceo + alineación de luces + diagnóstico computarizado ',
+            cost: '100 000',
+            urlBtn: 'https://bit.ly/3f2pE4U',
+          },
+          {
+            resumeCombo: '<b>Combo 2</b>',
+            descriCombo: 'Alineación, balanceo, mantenimiento de frenos y nitrógeno',
+            cost: '120 000',
+            urlBtn: 'https://bit.ly/3f2pE4U',
+          },
+          {
+            resumeCombo: '<b>Combo 3</b>',
+            descriCombo: 'Por la compra de baterías en marca Mac y Acdelco te obsequiamos el 10% de descuento en nuestra tienda boutique:',
+            urlBtn: 'https://bit.ly/3f2pE4U',
+            button: 'Compralo Aquí',
+          },
+
+        ]
+      },
+      {
+        name: "Cali",
+        id: 'cali',
+        items: [
+          {
+            resumeCombo: '<b>Combo 1</b>',
+            descriCombo: 'Alineación + balanceo + alineación de luces + diagnóstico computarizado por solo',
+            cost: '100 000',
+            urlBtn: 'https://bit.ly/2RlTrfq',
+          },
+
+        ]
+      },
+      {
+        name: "Medellín",
+        id: 'medellin',
+        items: [
+          {
+            resumeCombo: '<b>Combo 1</b>',
+            descriCombo: 'Alineación + balanceo + alineación de luces + diagnóstico computarizado por solo',
+            cost: '100 000',
+            urlBtn: 'https://bit.ly/3nKihBL',
+          },
+
+        ]
+      },
+      {
+        name: "Pereira",
+        id: 'pereira',
+        items: [
+          {
+          resumeCombo: '<b>Combo 1</b>',
+          descriCombo: 'Alineación + balanceo + alineación de luces + diagnóstico computarizado por solo',
+          cost: '100 000',
+          urlBtn: 'https://bit.ly/2Nksozx',
+          },
+        ],
+      },
+    ];
+  </script>
+</head>
+<body style="background: #c7c7c7;">
+  <div style="width: 100%;height: 800px;margin: auto;">
+    <div style="background: #ffffff;width: 100%;height: 100px;"></div>
+    <div id="nav-tooltips" v-bind:cities="cities">
+
+    </div>
+    <div style="background: #444444;width: 100%;height: 500px;"></div>
+    <div style="background: #ffffff;width: 100%;height: 200px;"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
+
+<!-- <div id="medellin-tooltip" class="row rowCity" @mouseleave="defuseTooltip" idcity="medellin"> -->
+  <!-- <tooltip-item class="col">
+    <template v-slot:content>
+      <tooltip-item-content></tooltip-item-content>
+      <tooltip-item-cost></tooltip-item-cost>
+      <tooltip-item-infoHighlight></tooltip-item-infoHighlight>
+      <tooltip-item-button></tooltip-item-button>
+    </template>
+  </tooltip-item> -->
+<!-- </div> -->
+
+<!-- <tooltip-item class="col">
+  <template v-slot:content>
+    <tooltip-item-content></tooltip-item-content>
+    <tooltip-item-cost></tooltip-item-cost>
+    <tooltip-item-infoHighlight></tooltip-item-infoHighlight>
+    <tooltip-item-button></tooltip-item-button>
+  </template>
+</tooltip-item> -->
