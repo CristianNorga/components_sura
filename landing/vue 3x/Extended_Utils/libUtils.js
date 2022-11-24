@@ -1,5 +1,6 @@
-// libUtils@2.0.0 created in base to smartCapture, adapted for graphic solutions +573125802861
+// libUtils@2.1.0 created in base to smartCapture, adapted for graphic solutions +573125802861
 // https://seguros.comunicaciones.sura.com/js-libUtils@2-02082022
+// https://seguros.comunicaciones.sura.com/js-luc-22082022 2.1
 window.libUtils = {
 	data: {
 		libs: {
@@ -22,14 +23,6 @@ window.libUtils = {
 					},
 				],
 			},
-			fontBarlow: {
-				css: [
-					{
-						url: 'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap',
-						attrs: { rel: 'stylesheet' },
-					},
-				],
-			},
 			bootstrap: {
 				css: [
 					{
@@ -40,7 +33,15 @@ window.libUtils = {
 			vue3: {
 				js: [
 					{
-						url: 'https://seguros.comunicaciones.sura.com/js-v@3.2.36-07072022',
+						url: 'https://unpkg.com/vue@3.2.36/dist/vue.global.prod.js',
+						attrs: { async: false },
+					},
+				],
+			},
+			vue3_prod: {
+				js: [
+					{
+						url: 'https://unpkg.com/vue@3.2.36/dist/vue.global.prod.js',
 						attrs: { async: false },
 					},
 				],
@@ -49,6 +50,9 @@ window.libUtils = {
 				js: [
 					{ url: 'https://seguros.comunicaciones.sura.com/js-animate@3-03082022' },
 				],
+			},
+			slick: {
+				js: [{ url: 'https://seguros.comunicaciones.sura.com/slick-v-1-8' }],
 			},
 		},
 	},
@@ -253,7 +257,9 @@ window.libUtils = {
 					})
 				);
 			}
-			callback();
+			if (callback) {
+				callback();
+			}
 		} catch (error) {
 			console.error('Error in "getLibs" ', error);
 		}

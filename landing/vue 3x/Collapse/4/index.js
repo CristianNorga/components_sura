@@ -1,3 +1,9 @@
+const { createApp } = Vue;
+
+const app = createApp({
+
+});
+
 app.component('cpse-1', {
 	props: {
 		widthScreen: {
@@ -83,3 +89,5 @@ app.component('cpse-1', {
     </div>
   `,
 });
+
+app.mount('#app')

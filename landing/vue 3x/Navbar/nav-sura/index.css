@@ -81,8 +81,12 @@
   background-color: #E3E829;
 }
 
-.ctn-btnDropdown:active > .btn-dropdown_content,.headerSura-Ctn_menu .ctn-btnDropdown:active{
-  background-color: #ced425;
+.ctn-btnDropdown:hover > .btn-dropdown_content, .headerSura-Ctn_menu .ctn-btnDropdown:hover{
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 22%);
+}
+
+.ctn-btnDropdown:active > .btn-dropdown_content, .headerSura-Ctn_menu .ctn-btnDropdown:active{
+  background-color: #f8ff2d;
 }
 
 .ctn-btnDropdown .icon{
@@ -247,7 +251,9 @@
   margin-top: 25px;
 }
 
-
+.header-sura[is-session="true"] .headerSura-Ctn_menu .ctn-menu_item--session {
+  display: none;
+}
 
 @media (min-width: 576px) {
   .headerSura-Ctn_descriptor .descriptor-business {
@@ -269,6 +275,10 @@
 
   .headerSura-Ctn_brands .ctn-btnDropdown{
     display: block;
+  }
+
+  .header-sura[is-session="true"] .headerSura-Ctn_brands .ctn-btnDropdown {
+    display: none !important;
   }
 
   .dropdown-option--session:hover {

@@ -1,0 +1,153 @@
+// libUtils@2.0.0 created in base to smartCapture, adapted for graphic solutions +573125802861
+// https://seguros.comunicaciones.sura.com/js-libUtils@2-02082022
+{/* <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"></link> */}
+let tets;
+window.libUtils = {
+ data: {
+  libs: {
+   axios: {
+    js: 'https://seguros.comunicaciones.sura.com/js-axios@0.27.2-30072022',
+   },
+   jspdf: {
+    js: 'https://seguros.comunicaciones.sura.com/jspdf@2.5.1-26072022',
+   },
+   cities: {
+    js: 'https://seguros.comunicaciones.sura.com/js-resource-const-cities-17052022',
+   },
+   fontBarlow: {
+    css: 'https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap',
+   },
+   bootstrap: {
+    css: 'https://seguros.comunicaciones.sura.com/css-btp@5.2-seguros-sura',
+   },
+   vue3: {
+    js: 'https://seguros.comunicaciones.sura.com/js-v@3.2.36-07072022',
+   },
+  },
+ },
+ createTag(tag, id, attributes) {
+  return new Promise(function (resolve, reject) {
+   let el, prop, r;
+   r = false;
+   let document = window.document;
+
+   el = document.createElement(tag);
+   el.id = id;
+
+   for (prop in attributes) {
+    if (attributes.hasOwnProperty(prop)) {
+     el[prop] = attributes[prop];
+    }
+   }
+   el.onerror = function (err) {
+    reject(err, el);
+   };
+   el.onload = el.onreadystatechange = function () {
+    // console.log(this.readyState); // uncomment this line to see which ready states are called.
+    if (!r && (!this.readyState || this.readyState == 'complete')) {
+     r = true;
+     resolve();
+    }
+   };
+   if(tag == 'link'){
+    let head = document.getElementsByTagName('head')[0];
+    head.appendChild(el);
+   } else {
+    let body = document.getElementsByTagName('body')[0];
+    body.appendChild(el);
+   }
+  });
+ },
+ getLink(id = '', href = '', $ = window.libUtils) {
+  let tagEl = document.getElementById(id);
+
+  if (!tagEl) {
+   $.createTag('link', id, {
+    rel: 'stylesheet',
+    href: href,
+   });
+  }
+ },
+ getScript(id = '', src = '', async = false, $ = window.libUtils) {
+  if (!src) {
+   src = $.data.libs[id];
+   $.data.libs[id]
+    ? (src = $.data.libs[id])
+    : console.error('src("argument") is empty or the librery does not exist');
+  }
+
+  let tagEl = document.getElementById(id);
+
+  if (!tagEl) {
+   $.createTag('script', id, {
+    src: src,
+    async: !!async,
+   });
+  }
+ },
+ getBaseUrl() {
+  var location = window.location;
+  var pathName = location.pathname.split('/')[1];
+  return location.protocol + '//' + location.host + '/' + pathName;
+ },
+ resetHref() {
+  window.history.replaceState(
+   null,
+   document.title,
+   window.location.origin + window.location.pathname
+  );
+ },
+ deleteResource(id) {
+  var resource = document.getElementById(id);
+  if (resource) {
+   resource.parentNode.removeChild(resource);
+  }
+ },
+ b64EncodeUnicode(str) {
+  // first we use encodeURIComponent to get percent-encoded UTF-8,
+  // then we convert the percent encodings into raw bytes which
+  // can be fed into btoa.
+  return btoa(
+   encodeURIComponent(str).replace(
+    /%([0-9A-F]{2})/g,
+    function toSolidBytes(match, p1) {
+     return String.fromCharCode('0x' + p1);
+    }
+   )
+  );
+ },
+ async getLibs(collection, callback, $ = window.libUtils) {
+  test = collection;
+  try {
+   // $.iterateLibs((element) => {
+   await collection.forEach(async (element, i) => {
+    switch (typeof element) {
+     case 'object':
+      $.data.libs[element.id] = {};
+      element.css ? ($.data.libs[element.id].css = element.css) : null;
+      element.js ? ($.data.libs[element.id].js = element.js) : null;
+      element = element.id;
+     case 'string':
+      console.log(element, ' queued element');
+      if ($.data.libs[element].css) {
+       await $.getLink('link-' + element, $.data.libs[element].css),
+        console.log('resuelto link');
+      }
+      if ($.data.libs[element].js) {
+       await $.getScript('script-' + element, $.data.libs[element].js),
+        console.log('resuelto script');
+       collection.length === i + 1 ? callback() : null;
+      }
+      break;
+     default:
+      new Error('invalid typeof argument');
+      break;
+    }
+   });
+  } catch (error) {
+   console.error('Error in "getLibs" ', error);
+  }
+ },
+};

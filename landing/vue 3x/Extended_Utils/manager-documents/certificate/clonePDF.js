@@ -41,13 +41,13 @@ let dataurlpdf =
 		console.log('generating');
 
 		pdfDoc = await PDFLib.PDFDocument.load(pdfData64.pdf1);
-		// pdfDoc.setTitle('🥚 The Life of an Egg 🍳');
-		// pdfDoc.setAuthor('Humpty Dumpty');
+		pdfDoc.setTitle('Congreso SURA 2022');
+		pdfDoc.setAuthor('SURA');
 		// pdfDoc.setSubject('📘 An Epic Tale of Woe 📖');
 		// pdfDoc.setKeywords(['eggs', 'wall', 'fall', 'king', 'horses', 'men']);
 		// pdfDoc.setProducer('PDF App 9000 🤖');
-		// pdfDoc.setCreator('pdf-lib (https://github.com/Hopding/pdf-lib)');
-		// pdfDoc.setCreationDate(new Date('2018-06-24T01:58:37.228Z'));
+		pdfDoc.setCreator('pdf-lib (https://github.com/Hopding/pdf-lib)');
+		pdfDoc.setCreationDate((new Date()));
 		// pdfDoc.setModificationDate(new Date('2019-12-21T07:00:11.000Z'));
 
 		pdfDoc.registerFontkit(window.fontkit);
@@ -93,11 +93,12 @@ let dataurlpdf =
 
 
 		const pdfBase64 = await pdfDoc.saveAsBase64({ dataUri: true });
-		// var link = document.createElement('a');
-		// link.href = pdfBase64;
-		// link.download = 'file.pdf';
-		// link.dispatchEvent(new MouseEvent('click'));
-		// link.remove();
+
+		var link = document.createElement('a');
+		link.href = pdfBase64;
+		link.download = 'certificado congreso sura 2022.pdf';
+		link.dispatchEvent(new MouseEvent('click'));
+		link.remove();
 
 		// console.log(pdfBase64);
 		let ctpdf = document.getElementById('example');

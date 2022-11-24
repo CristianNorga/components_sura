@@ -1,3 +1,7 @@
+const { createApp } = Vue;
+
+const app = createApp({});
+
 app.component('cpse3-transmitter-item', {
 	props: [
 		'actionChangePlan',
@@ -183,3 +187,4 @@ app.component('cpse-3', {
     </div>
   </div>`,
 });
+app.mount('#app');

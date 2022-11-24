@@ -19,9 +19,7 @@ app.component('card1-item', {
 		return {
 			isActived: true,
 			isMounted: false,
-			timeoutCollapse: null,
 			element: null,
-			rotate: 'up',
 		};
 	},
 	methods: {
@@ -37,6 +35,7 @@ app.component('card1-item', {
 				e.el.style.overflowY = 'scroll';
 			} else {
 				e.el.style.height = e.el.getBoundingClientRect().height + 'px';
+				e.el.style.overflowY = 'hidden';
 			}
 			this.isActived = this.actived ? true : false;
 			e.el.style.removeProperty('position');

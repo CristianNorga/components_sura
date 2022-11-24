@@ -1,6 +1,4 @@
-// https://seguros.comunicaciones.sura.com/scripthttps-tcde-03022022
-// retail: https://seguros.comunicaciones.sura.com/js-f@4.2-basic
-// general(personas) https://seguros.comunicaciones.sura.com/js-sf@4.2-01072022
+// https://seguros.comunicaciones.sura.com/js-form@4.2.2-rounded
 
 // Form@4.2.2 created and adapted for graphic solutions +573125802861
 //pInternalization example(BTN)
@@ -20,6 +18,10 @@ app.component('inputSura', {
 		},
 		pFamilyListener: {
 			type: Boolean,
+		},
+		pEmitFamilyData: {
+			type: Boolean,
+			default: false,
 		},
 		pInternalization: {
 			type: Object,
@@ -57,6 +59,13 @@ app.component('inputSura', {
 			type: Boolean,
 			default: true,
 		},
+		pLength: {
+			type: Object,
+			default: {
+				min: 0,
+				max: 50,
+			},
+		},
 		pIcons: {
 			type: Object,
 			default: {
@@ -79,13 +88,14 @@ app.component('inputSura', {
 		},
 		pValue: null,
 	},
-	emits: ['status'],
+	emits: ['status', 'changeFamilyData', 'blur'],
 	data() {
 		return {
 			show: false,
 			type: 'text',
 			typeField: 'text',
 			value: this.pValue || '',
+			tied: null,
 			required: false,
 			valueRaw: '',
 			placeholder: this.pPlaceholder,
@@ -139,8 +149,8 @@ app.component('inputSura', {
 	},
 	methods: {
 		changeType(type) {
-			this.limit.max = 50;
-			this.limit.min = 0;
+			this.limit.max = this.pLength.max;
+			this.limit.min = this.pLength.min;
 			switch (type) {
 				case 'text':
 					this.condition.pattern =
@@ -298,6 +308,7 @@ app.component('inputSura', {
 							this.state.isError = false;
 							this.state.errorMessage = '';
 							this.state.isValid = true;
+							if (this.pEmitFamilyData) this.sendMsgToFamily();
 						}
 						this.pIsStatusAfter ? '' : this.sendStatus(true);
 					}, 1400);
@@ -309,6 +320,7 @@ app.component('inputSura', {
 					} else {
 						this.state.isError = false;
 						this.state.errorMessage = '';
+						if (this.pEmitFamilyData) this.sendMsgToFamily();
 					}
 					this.pIsStatusAfter ? '' : this.sendStatus(true);
 					break;
@@ -323,9 +335,16 @@ app.component('inputSura', {
 				name: this.pName,
 				value: this.mask.isMasked ? this.valueRaw : this.value,
 			};
-			this.typeField == 'email' ? state.isValid = this.state.isValid : null;
+			this.typeField == 'email' ? (state.isValid = this.state.isValid) : null;
 			this.state.isWarn = this.required ? this.state.isEmpty : false;
 			this.$emit('status', state);
+		},
+		sendMsgToFamily() {
+			this.$emit('changeFamilyData', {
+				componentName: this.pName,
+				data: this.value,
+				condition: this.tied,
+			});
 		},
 	},
 	computed: {
@@ -396,7 +415,7 @@ app.component('inputSura', {
    </div>
   </transition>
     <div class="form-input_control">
-      <input v-model="value" v-bind:class="classInput" :type="type" :name="pName" class="form-input--sura" :required="required" :placeholder="placeholder">
+      <input @blur="$emit('blur')" v-model="value" v-bind:class="classInput" :type="type" :name="pName" class="form-input--sura" :required="required" :placeholder="placeholder">
    <div class="input-container-icon--md">
     <transition-group name="slide-up">
   <div key="1" class="icon-svg--error" v-show="state.verifying">
@@ -415,7 +434,7 @@ app.component('inputSura', {
       <span style="text-transform: capitalize;" class="position-absolute" :key="1" v-show="!state.isError && state.isEmpty">
        {{required ? pInternalization.auxRequired+'*' : pInternalization.descripOptional}}
       </span>
-      <span :class="{'input_auxiliary--error': state.isError}" :key="3" v-show="!state.isEmpty">
+      <span :class="{'input_auxiliary--error': state.isError}" :key="2" v-show="!state.isEmpty">
        {{ state.isError || state.isWarn ? state.errorMessage  : condition.conditionMesaage }}
       </span>
      </transition-group>
@@ -428,6 +447,8 @@ app.component('inputSura', {
     </div>
   </div>`,
 });
+
+// realizar un componente de email por aparte
 
 app.component('checkboxSura', {
 	props: {
@@ -494,7 +515,7 @@ app.component('checkboxSura', {
 		pValue(newVal) {
 			this.value = newVal;
 		},
-		pIsCheck(newVal){
+		pIsCheck(newVal) {
 			this.state.isCheck = newVal;
 		},
 	},
@@ -527,6 +548,10 @@ app.component('radioGroupSura', {
 		},
 		pFamilyListener: {
 			type: Boolean,
+		},
+		pEmitFamilyData: {
+			type: Boolean,
+			default: false,
 		},
 		pName: {
 			type: String,
@@ -563,9 +588,10 @@ app.component('radioGroupSura', {
 		},
 		pValue: {
 			type: String,
+			default: '',
 		},
 	},
-	emits: ['status'],
+	emits: ['status', 'changeFamilyData'],
 	data() {
 		return {
 			show: false,
@@ -589,19 +615,29 @@ app.component('radioGroupSura', {
 				value: this.value,
 			};
 
-			this.state.isWarn = this.pIsRequired ? this.state.isEmpty : false;
+			this.state.isWarn = this.pIsRequired ? !this.state.isSelected : false;
 			this.$emit('status', state);
 		},
-		doThis() {
-			// this.value = val;
+		doThis(value) {
+			this.value = value;
 			this.state.isSelected = true;
 			this.state.isWarn = false;
 			this.pIsStatusAfter ? null : this.sendStatus();
+			if (this.pEmitFamilyData) this.sendMsgToFamily();
 		},
 		takeValueParent(val) {
 			this.value = val;
 			this.state.isUnder = false;
 			this.state.isSelected = true;
+		},
+		sendMsgToFamily() {
+			console.log(this.value);
+			let item = this.pItems.find((comp) => comp.value == this.value);
+			this.$emit('changeFamilyData', {
+				componentName: this.pName,
+				data: this.value,
+				condition: item.condition || '',
+			});
 		},
 	},
 	beforeMount() {
@@ -632,6 +668,7 @@ app.component('radioGroupSura', {
 			this.takeValueParent(newVal);
 		},
 		pFamilyListener() {
+			console.log('pFamilyListener');
 			if (this.pFamilyReceive.length > 0) {
 				this.pFamilyReceive.forEach((item) => {
 					// pFamilyData.components or lastComponent
@@ -647,6 +684,9 @@ app.component('radioGroupSura', {
 									this.required = this.pIsRequired;
 								} else {
 									this.show = false;
+									this.value = '';
+									this.state.isSelected = false;
+									this.state.isWarn = false;
 									this.required = false;
 								}
 								break;
@@ -672,8 +712,8 @@ app.component('radioGroupSura', {
 		<div class="form-input_container--wlh" :style="'display: '+directionGroup+';'">
 		<label v-for="item in pItems" class="input_label_custom">
 			<span>{{ item.text }}</span>
-			<input :class="classInput" @click="doThis" type="radio" :name="pName" class="form-checkbox--sura" :required="required" v-model="value" :value="item.value">
-			<span class="checkmark--radio"></span>
+			<input @click="doThis(item.value)" type="radio" :name="pName" v-model="value" class="form-checkbox--sura" :required="required" :value="item.value">
+			<span :class="classInput" class="checkmark--radio"></span>
 		</label>
 		</div>
 	</div>`,
@@ -777,6 +817,7 @@ app.component('selectSura', {
 			},
 		},
 		pConfigOther: {
+			//pendiente, esta propeidad debe ser eliminada junto a participación
 			type: Object,
 			default: {
 				has: false,
@@ -839,8 +880,8 @@ app.component('selectSura', {
 		},
 		pType: {
 			type: String,
-			default: 'text'
-		}
+			default: 'text',
+		},
 	},
 	emits: ['status', 'changeFamilyData'],
 	data() {
@@ -888,11 +929,10 @@ app.component('selectSura', {
 			this.show = true;
 			this.required = this.pIsRequired;
 		}
-
 		if (this.pValue) {
 			this.options.selected.value = this.pValue;
 			this.options.selected.text = this.pItems.find(
-				(item) => item.value === this.pValue
+				(item) => item.value == this.pValue
 			);
 			this.options.selected.text = !this.options.selected.text
 				? this.pValue
@@ -1014,7 +1054,7 @@ app.component('selectSura', {
 			if (newVal) {
 				this.options.selected.value = newVal;
 				this.options.selected.text = this.pItems.find(
-					(item) => item.value === newVal
+					(item) => item.value == newVal
 				);
 				if (!this.options.selected.text) {
 					this.options.selected.text = newVal;
@@ -1697,6 +1737,18 @@ app.component('scaleSura', {
 			return this.selected.value == val;
 		},
 	},
+	beforeMount() {
+		if (this.pValue) {
+			this.selected.value = this.pValue;
+			this.selected.text = this.pItems.find((item) => item.value == this.pValue);
+			this.selected.text = !this.selected.text
+				? this.pValue
+				: this.selected.text.text;
+
+			this.state.isUnder = false;
+			this.state.isEmpty = false;
+		}
+	},
 	watch: {
 		pIsVerifying() {
 			if (this.pIsVerifying) this.sendStatus(this.pIsVerifying);
@@ -1704,7 +1756,7 @@ app.component('scaleSura', {
 		pValue(newVal) {
 			if (newVal) {
 				this.selected.value = newVal;
-				this.selected.text = this.pItems.find((item) => item.value === newVal);
+				this.selected.text = this.pItems.find((item) => item.value == newVal);
 				this.selected.text = !this.selected.text ? newVal : this.selected.text.text;
 
 				this.state.isUnder = false;
@@ -1739,7 +1791,7 @@ app.component('scaleSura', {
     </button>
    </div>
    <div v-show="state.isEmpty" :class="displayHelper" class="scale-helpers">
-    <div v-for="item in pItems" :style="objectStyle" class="text-center text-secondary">
+    <div v-for="item in pItems" :style="objectStyle" class="text-secondary pb-2 pb-sm-0 d-flex align-items-center justify-content-end justify-content-sm-center text-center">
      {{ item.text }}
     </div>
    </div>
@@ -2175,7 +2227,8 @@ app.component('formSura', {
 	},
 	mounted() {
 		if (!this.pGearId) throw new Error('gearID is required');
-		if (!this.pSmartcaptureFormId) console.warn('smartCaptureFormID is required for journey');
+		if (!this.pSmartcaptureFormId)
+			console.warn('smartCaptureFormID is required for journey');
 		if (!this.pSourceKey) throw new Error('sourceKey is required');
 		if (!window.contentDetail)
 			console.warn('contentDetail is required for the submit and tranking');
@@ -2208,6 +2261,7 @@ app.component('formSura', {
 		getStatus(status) {
 			clearTimeout(this.state.timeOut);
 			this.state.inputs.push(status);
+			// aqui se puede mejorar, creo que podriamos contar los elementos del form en el montaje y despues cuando se llame esta funcion, hasta que no haya llegado el ultimo elmento, no prosigue
 			this.state.timeOut = setTimeout(() => {
 				this.state.counting = true;
 				this.state.porcentProgress = 30;
@@ -2257,12 +2311,7 @@ app.component('formSura', {
 						this.getIpClient();
 					} else {
 						if (this.pIsPost) {
-							window.libUtils.getScript(
-								'axios',
-								'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js',
-								this.post,
-								false
-							);
+							this.post();
 						} else {
 							this.success();
 						}
@@ -2281,24 +2330,23 @@ app.component('formSura', {
 							name: 'IP',
 							value: response.data.ip,
 						});
-						if (this.pPost) {
+						if (this.pIsPost) {
 							this.post();
 						} else {
 							this.success();
 						}
 					}
 				} catch (error) {
-
 					this.error();
 				}
 			} else {
 				this.persistence.isAxios = true;
-				window.libUtils.getScript(
+				await window.libUtils.getScript(
 					'axios',
 					'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js',
-					this.getIpClient,
-					false
+					{ async: false }
 				);
+				this.getIpClient();
 			}
 		},
 		findInputs(value, key) {
@@ -2310,20 +2358,24 @@ app.component('formSura', {
 			});
 			this.pOnSubmitGotoUrl = `${this.pOnSubmitGotoUrl}?${data.join('&')}`;
 		},
-		post() {
+		async post() {
+			await window.libUtils.getScript(
+				'axios',
+				'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js',
+				{ async: false }
+			);
+
 			let url = `${window.libUtils.getBaseUrl()}/smartcapture/post`;
 			let attributes = [];
 			var emailAddresses = [];
 			let contentDetail = window.contentDetail || {};
 
+			test = this.state.inputs;
+
 			this.state.inputs.forEach((item) => {
-				attributes.push(
-					`"${item.name}":"${encodeURIComponent(item.value)}"`
-				);
+				attributes.push(`"${item.name}":"${encodeURIComponent(item.value)}"`);
 				if (item.type === 'email') {
-					emailAddresses.push(
-						`"${item.name}":"${item.value}"`
-					);
+					emailAddresses.push(`"${item.name}":"${item.value}"`);
 				}
 			});
 
@@ -2386,7 +2438,7 @@ app.component('formSura', {
 		},
 		error(x) {
 			window.alert(
-				'Hubo un error al tratar de enviar los datos, por favor intenté nuevamente. Si el error persiste, por favor contacte al administrador del sitio. +57 000-000-00-00'
+				'Hubo un error al tratar de enviar los datos, por favor verifique todos los campos e intente nuevamente. Si el error persiste, por favor contacte al administrador del sitio. +57 312 5802861'
 			);
 			console.log(x);
 		},

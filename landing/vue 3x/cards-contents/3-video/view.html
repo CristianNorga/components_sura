@@ -14,10 +14,12 @@
       <div class="col px-0">
 
         <div id="ctnVideo" class="ratio ratio-16x9 mb-3">
-          <id id="video" webkitallowfullscreen mozallowfullscreen allowfullscreen></id>
-          <!-- <iframe id="video" src="https://player.vimeo.com/video/695005101?" webkitallowfullscreen mozallowfullscreen
-            allowfullscreen></iframe> -->
-            <!-- <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe> -->
+          <!--v-if="live" youtube and vimeo -->
+          <!-- <div id="myVideo" webkitallowfullscreen mozallowfullscreen allowfullscreen></div> -->
+          <!--v-else vimdeo live autoplay; -->
+          <iframe src="https://vimeo.com/event/2389088/embed" frameborder="0" allow="fullscreen; picture-in-picture"
+            webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+         
         </div>
 
         <div class="container-fluid">
@@ -91,10 +93,32 @@
     </div>
   </div>
   
-  <script src="../../Extended_Utils/libUtils.js">
-  </script>
+  <script src="../../Extended_Utils/libUtils.js"></script>
   <script>
-    let player;
+    // 1: {
+    //   server: 'vimeo',
+    //   live: '',
+    //   player: '',
+    //   start: '',
+    //   finish
+    //   thumbnail: '',
+    //   programming: 'cartagena',//String category, number item
+    //   relationTo: [],
+    // },
+
+    let props = {
+      live: '',
+      type: 'youtube',
+      id: 'GSoIOLsFS8k',
+      start: '',
+      finished: '',
+      thumbnail: ''
+    }
+    let data = {
+      player: null,
+      // title: '',
+      urlEventLive: '',
+    }
 
     var onPlay = function (data) {
       console.log(data.duration);
@@ -103,7 +127,8 @@
     };
 
     function destroyPlayer(){
-      player.destroy();
+      data.player.destroy();
+      data.player = null;
     }
 
     function LoadVideo(id){
@@ -133,41 +158,85 @@
     // colocar o quitar subtitulos enableTextTrack
     // puntos de referencia del vídeo como una matriz cuePoint
     // manejo de capitulos
-
+    
     async function init(){
-      await window.libUtils.getScript(
-        'vimeo',
-        'https://player.vimeo.com/api/player.js',
-        { async: true },
-      );
 
-      var options = {
-        id: '695005101',
-        autoplay: true,
-        color: '#00AEC7',
-        responsive: true,
-        // url: 'https://player.vimeo.com/video/695005101',
-      };
-      // https://player.vimeo.com/video/76979871?h=8272103f6e // video private parameter
+      let libsPlayers = [{ id: 'vimeo', js: [{ url: 'https://player.vimeo.com/api/player.js', attrs: { async: false } }] }, { id: 'youtube', js: [{ url: 'https://www.youtube.com/iframe_api', attrs: { async: false } }] }];
 
-      var iframe = document.getElementById('video');
-      try {
-        player = new Vimeo.Player(iframe, options);
-        player.on('play', function () {
-          console.log('Played the video');
-        });
-        player.getVideoTitle().then(function (title) {
-          console.log('title:', title);
-          document.getElementById('titleVideo').innerText = title;
-        });
-        // player.setColor('#00AEC7')
-        
-        // player.on('progress', onPlay);listener progress video
-      } catch (error) {
-        console.log('Catch launched by player video for: ',error)
+      await window.libUtils.getLibs(libsPlayers, []);
+
+      switch (props.type) {
+        case 'youtube':
+          window.onYouTubeIframeAPIReady = () => {
+            console.log('onYouTubeIframeAPIReady');
+            mounteYoutube();
+          };
+          break;
+        case 'vimeo':
+          mounteVimeo()
+          break;
+        default:
+          break;
       }
+
+      props.componentLoaded = true;
+    }
+    // playsinline: 1,
+    // listType: 'playlist',
+    // playlist: '8CqXgd3aRuyqXHNsxnFJYpILisn_RsM_',
+    // origin: 'https://google.com',
+    // enablejsapi: 1,
+    function mounteYoutube(){
+      var options = {
+        // height: '100%',
+        width: '100%',
+        videoId: props.id,
+        playerVars: {
+          'autoplay': 0,
+          'controls': 2,
+          'loop': 1,
+          'showinfo': 0,
+          'rel': 1,
+          'modestbranding': 1,
+          'iv_load_policy': 3,
+        },
+      };
+      // SegurosSURAColombia
+      //dynamic id !!!!!!!!!!!!!!!!!
+      data.player = new YT.Player('myVideo', options);
     }
 
+    function mounteVimeo(){
+      // id: '695005101',
+      // url: '2389088',
+      if (!!props.live) {
+        data.urlEventLive = `https://vimeo.com/event/${props.live}/embed`
+      } else {
+        var options = {
+          id: props.id,
+          autoplay: true,
+          color: '#00AEC7',
+          responsive: true,
+        };
+        // https://player.vimeo.com/video/76979871?h=8272103f6e // video private parameter
+  
+        var iframe = document.getElementById('myVideo');
+        try {
+          data.player = new Vimeo.Player(iframe, options);
+          // player = new Vimeo.Player(iframe, options);
+          // player.on('play', function () {
+          //   console.log('Played the video');
+          // });
+  
+          // player.setColor('#00AEC7')
+  
+          // player.on('progress', onPlay);listener progress video
+        } catch (error) {
+          console.log('Catch launched by player video for: ', error)
+        }
+      }
+    }
+    
     init();
 
 

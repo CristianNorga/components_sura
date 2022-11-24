@@ -1,5 +1,5 @@
-/* https: //seguros.comunicaciones.sura.com/css-b52f-20052022
-retail: https://seguros.comunicaciones.sura.com/css-f@4.2-basic
+/* 
+https://seguros.comunicaciones.sura.com/css-form@4.2.2-rounded
  */
 
 /* bootstrap */
@@ -347,7 +347,7 @@ input[type=range]:focus::-ms-fill-upper {
 .select-multiple-container {
   flex: 0 0 auto;
   width: 100%;
-  display: block;
+  /* display: block; */
   box-sizing: border-box;
   margin: 0;
   position: relative;
@@ -359,8 +359,8 @@ input[type=range]:focus::-ms-fill-upper {
   /* cursor: text; */
   box-sizing: border-box;
   display: flex;
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
 }
 
 .sct-mlple-selection_rendered {
@@ -569,6 +569,10 @@ input[type=range]:focus::-ms-fill-upper {
   border: 3px solid var(--bs-secondary);
 }
 
+.checkmark--radio.radio-warn {
+  border-color: var(--bs-warning);
+}
+
 /* On mouse-over, add a grey background color */
 .input_label_custom:hover input~.checkmark--checkbox,
 .input_label_custom:hover input~.checkmark--radio {
@@ -655,30 +659,31 @@ input[type=range]:focus::-ms-fill-upper {
   transform: translateY(30px);
 }
 
-.slide-fade-enter,
+.slide-fade-enter-active, .slide-fade-leave-active {
+  transition: all .3s ease;
+}
+
+.slide-fade-enter-from,
 .slide-fade-leave-to {
   transform: translateY(10px);
   opacity: 0;
 }
 
-.slide-fade-down-enter,
+.slide-fade-down-enter-active , .slide-fade-down-leave-active {
+  transition: all .3s ease;
+}
+
+.slide-fade-down-enter-from,
 .slide-fade-down-leave-to {
   transform: translateY(-10px);
   opacity: 0;
 }
 
-.slide-fade-enter-active {
-  transition: all .3s ease;
+/* SCALE */
+@media (max-width: 576px){
+  .scale-helpers div{
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
 }
-
-.slide-fade-leave-active {
-  transition: all .3s ease;
-}
-
-.slide-fade-down-enter-active {
-  transition: all .7s ease;
-}
-
-.slide-fade-down-leave-active {
-  transition: all .3s ease;
-}
+/* END SCALE */

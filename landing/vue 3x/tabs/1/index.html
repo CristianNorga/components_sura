@@ -10,104 +10,102 @@
 </head>
 <body>
   <div id="app">
-    <tab-1 :width-screen="screen.width">
-
-      <template #transmitters="{showDropInfo, elActived, trasnmiterItemWidth}">
-
-        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '1'" @click="showDropInfo" tied="1" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
-          <div tied="1" class="tab1-transmitters_img text-center">
-            <img tied="1" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
-              alt="mano con dinero">
+    <div class="container-lg">
+      <tab-1 :width-screen="screen.width">
+  
+        <template #transmitters="{showDropInfo, elActived, trasnmiterItemWidth}">
+  
+          <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '1'" @click="showDropInfo" tied="1" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+            <div tied="1" class="tab1-transmitters_img text-center">
+              <img tied="1" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+                alt="mano con dinero">
+            </div>
+            <div tied="1" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+              Bono Exequial
+            </div>
           </div>
-          <div tied="1" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
-            Bono Exequial
+          
+          <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '2'" @click="showDropInfo" tied="2" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+            <div tied="2" class="tab1-transmitters_img text-center">
+              <img tied="2" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+                alt="mano con dinero">
+            </div>
+            <div tied="2" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+              Bono Exequial
+            </div>
           </div>
-        </div>
+          
+          <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+            <div tied="3" class="tab1-transmitters_img text-center">
+              <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+                alt="mano con dinero">
+            </div>
+            <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+              Bono Exequial
+            </div>
+          </div>
+  
+          <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
+            :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+            <div tied="3" class="tab1-transmitters_img text-center">
+              <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+                alt="mano con dinero">
+            </div>
+            <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+              Bono Exequial
+            </div>
+          </div>
+  
+          <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
+            :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+            <div tied="3" class="tab1-transmitters_img text-center">
+              <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+                alt="mano con dinero">
+            </div>
+            <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+              Bono Exequial
+            </div>
+          </div>
+  
+          <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
+            :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
+            <div tied="3" class="tab1-transmitters_img text-center">
+              <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
+                alt="mano con dinero">
+            </div>
+            <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
+              Bono Exequial
+            </div>
+          </div>
         
-        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '2'" @click="showDropInfo" tied="2" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
-          <div tied="2" class="tab1-transmitters_img text-center">
-            <img tied="2" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
-              alt="mano con dinero">
+        </template>
+  
+        <template #receiver="{elActived}">
+  
+          <div class="tab1-receivers_item" :active="elActived == '1'">
+            <div class="px-2 py-2 border-top w-100">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus ducimus explicabo necessitatibus ab aspernatur iste
+              sequi. Assumenda vero ut aspernatur accusantium illo quisquam facilis, ullam placeat enim quasi cupiditate mollitia!
+            </div>
           </div>
-          <div tied="2" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
-            Bono Exequial
+  
+          <div class="tab1-receivers_item" :active="elActived == '2'">
+            <div class="px-2 py-2 border-top w-100">
+              otra cosa :D
+            </div>
           </div>
-        </div>
+  
+          <div class="tab1-receivers_item" :active="elActived == '3'">
+            <div class="px-2 py-2 border-top w-100">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore velit eos fuga dolores. Natus, dolores soluta beatae itaque velit fugit consectetur accusamus. Eveniet aliquam nobis cumque repellendus atque assumenda tenetur.
+            </div>
+          </div>
         
-        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3" :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
-          <div tied="3" class="tab1-transmitters_img text-center">
-            <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
-              alt="mano con dinero">
-          </div>
-          <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
-            Bono Exequial
-          </div>
-        </div>
-
-        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
-          :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
-          <div tied="3" class="tab1-transmitters_img text-center">
-            <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
-              alt="mano con dinero">
-          </div>
-          <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
-            Bono Exequial
-          </div>
-        </div>
-
-        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
-          :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
-          <div tied="3" class="tab1-transmitters_img text-center">
-            <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
-              alt="mano con dinero">
-          </div>
-          <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
-            Bono Exequial
-          </div>
-        </div>
-
-        <div class="tab1-transmitters_item py-2 py-md-4" :active="elActived == '3'" @click="showDropInfo" tied="3"
-          :style="{width: trasnmiterItemWidth + 'px', maxWidth: trasnmiterItemWidth + 'px'}">
-          <div tied="3" class="tab1-transmitters_img text-center">
-            <img tied="3" src="https://www.segurossura.com.co/images/seguros/futuro/seguro-de-pension/Renta-pensional.png"
-              alt="mano con dinero">
-          </div>
-          <div tied="3" class="tab1-transmitters_text mt-2 mt-md-4 px-1 text-center text-primary">
-            Bono Exequial
-          </div>
-        </div>
-      
-      </template>
-
-      <template #receiver="{elActived}">
-
-        <div class="tab1-receivers_item" :active="elActived == '1'">
-          <div class="px-2 py-2 border-top w-100">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus ducimus explicabo necessitatibus ab aspernatur iste
-            sequi. Assumenda vero ut aspernatur accusantium illo quisquam facilis, ullam placeat enim quasi cupiditate mollitia!
-          </div>
-        </div>
-
-        <div class="tab1-receivers_item" :active="elActived == '2'">
-          <div class="px-2 py-2 border-top w-100">
-            otra cosa :D
-          </div>
-        </div>
-
-        <div class="tab1-receivers_item" :active="elActived == '3'">
-          <div class="px-2 py-2 border-top w-100">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore velit eos fuga dolores. Natus, dolores soluta beatae itaque velit fugit consectetur accusamus. Eveniet aliquam nobis cumque repellendus atque assumenda tenetur.
-          </div>
-        </div>
-      
-      </template>
-
-    </tab-1>
+        </template>
+  
+      </tab-1>
+    </div>
   </div>
-
-
-    
-
 
   <script src="../../vue@3.2.36.js"></script>
   <script src="index.js"></script>

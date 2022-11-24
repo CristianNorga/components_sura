@@ -25,16 +25,16 @@ app.component('footerExtended', {
       <div class="container-lg">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-auto">
-            <p class="text-center policies">
+            <p class="text-center policies d-block lh-base p-0">
               <a href="https://www.segurossura.com.co/Paginas/legal/politicas-uso-y-seguridad.aspx"
-                target="_blank">Políticas
+                target="_blank" class="text-primary fw-semibold mb-0 text-decoration-underline">Políticas
                 de uso y privacidad</a>
             </p>
           </div>
           <div class="col-12">
-            <p class="text-center policies">
+            <p class="text-center policies d-block lh-base p-0">
               <a href="https://www.segurossura.com.co/Paginas/legal/politica-privacidad-datos.aspx"
-                target="_blank">Políticas de
+                target="_blank" class="text-primary fw-semibold mb-0 text-decoration-underline">Políticas de
                 privacidad y ley de datos personales</a>
             </p>
           </div>
@@ -48,12 +48,12 @@ app.component('footerExtended', {
               <img class="w-100" src="https://www.sura.com//content/themes/sura-home-regional/dist/img/global/logo.svg" alt="logo sura">
             </div>
             <!-- redes -->
-            <div class="col-12 col-sm-8 col-md-7 col-lg-6 items-socialNetwork">
+            <div class="col-12 col-sm-8 col-md-7 col-lg-6 align-self-center">
               <div class="row pt-2 pb-4 py-sm-4 justify-content-center justify-content-sm-evenly">
                 <!-- blog -->
                 <div class="col-3 col-sm-1 col d-flex align-items-center justify-content-center">
-                  <p class="my-2 text-center footer-icon-ctn placeholder-glow">
-                    <a class="text-secondary" target="_blank"
+                  <p class="my-2 text-center footer-icon-ctn placeholder-glow d-block lh-base p-0">
+                    <a class="text-secondary text-decoration-none py-1" target="_blank"
                       href="https://www.segurossura.com.co/blog/?utm_source=segurossura&utm_medium=menu&utm_campaign=footer-seguros&utm_content=footer-seguros">
                       <span :class="{ placeholder:  !iconsLoad}">
                         Blog
@@ -63,8 +63,8 @@ app.component('footerExtended', {
                 </div>
                 <!-- spotify -->
                 <div class="col-3 col-sm-1 d-flex align-items-center justify-content-center">
-                  <p class="my-2 text-center footer-icon-ctn placeholder-glow">
-                    <a target="_blank"
+                  <p class="my-2 text-center footer-icon-ctn placeholder-glow d-block lh-base p-0">
+                    <a class="text-decoration-none py-1" target="_blank"
                       href="https://open.spotify.com/search/Seguros%20SURA%20Colombia%20/podcasts?utm_source=segurossura&utm_medium=menu&utm_campaign=footer-seguros&utm_content=footer-seguros">
                       <span :class="{ placeholder:  !iconsLoad}">
                         <i class="icon i-sm i-spotify bg-secondary"></i>
@@ -73,8 +73,8 @@ app.component('footerExtended', {
                 </div>
                 <!-- instagram -->
                 <div class="col-3 col-sm-1 d-flex align-items-center justify-content-center">
-                  <p class="my-2 text-center footer-icon-ctn placeholder-glow">
-                    <a target="_blank"
+                  <p class="my-2 text-center footer-icon-ctn placeholder-glow d-block lh-base p-0">
+                    <a class="text-decoration-none py-1" target="_blank"
                       href="https://www.instagram.com/segurossura/?utm_source=segurossura&utm_medium=menu&utm_campaign=footer-seguros&utm_content=footer-seguros">
                       <span :class="{ placeholder:  !iconsLoad}">
                         <i class="icon i-sm i-instagram bg-secondary"></i>
@@ -83,8 +83,8 @@ app.component('footerExtended', {
                 </div>
                 <!-- facebook -->
                 <div class="col-3 col-sm-1 d-flex align-items-center justify-content-center">
-                  <p class="my-2 text-center footer-icon-ctn placeholder-glow">
-                    <a target="_blank"
+                  <p class="my-2 text-center footer-icon-ctn placeholder-glow d-block lh-base p-0">
+                    <a class="text-decoration-none py-1" target="_blank"
                       href="https://web.facebook.com/SegurosSURAColombia?_rdc=1&_rdr&utm_source=segurossura&utm_medium=menu&utm_campaign=footer-seguros&utm_content=footer-seguros">
                       <span :class="{ placeholder:  !iconsLoad}">
                         <i class="icon i-sm i-facebook bg-secondary"></i>
@@ -94,8 +94,8 @@ app.component('footerExtended', {
                 </div>
                 <!-- twitter !!!-->
                 <div class="col-3 col-sm-1 d-flex align-items-center justify-content-center">
-                  <p class="my-2 text-center footer-icon-ctn placeholder-glow">
-                    <a target="_blank"
+                  <p class="my-2 text-center footer-icon-ctn placeholder-glow d-block lh-base p-0">
+                    <a class="text-decoration-none py-1" target="_blank"
                       href="https://twitter.com/SegurosSURAcol?utm_source=segurossura&utm_medium=menu&utm_campaign=footer-seguros&utm_content=footer-seguros">
                       <span :class="{ placeholder:  !iconsLoad}">
                         <i class="icon i-sm i-twitter bg-secondary"></i>
@@ -105,8 +105,8 @@ app.component('footerExtended', {
                 </div>
                 <!-- linkedin -->
                 <div class="col-3 col-sm-1 d-flex align-items-center justify-content-center">
-                  <p class="my-2 text-center footer-icon-ctn placeholder-glow">
-                    <a target="_blank"
+                  <p class="my-2 text-center footer-icon-ctn placeholder-glow d-block lh-base p-0">
+                    <a class="text-decoration-none py-1" target="_blank"
                       href="https://www.linkedin.com/company/seguros-sura?utm_source=segurossura&utm_medium=menu&utm_campaign=footer-seguros&utm_content=footer-seguros">
                       <span :class="{ placeholder:  !iconsLoad}">
                         <i class="icon i-sm i-linkedin bg-secondary"></i>
@@ -116,8 +116,8 @@ app.component('footerExtended', {
                 </div>
                 <!-- youtube -->
                 <div class="col-3 col-sm-1 d-flex align-items-center justify-content-center">
-                  <p class="my-2 text-center footer-icon-ctn placeholder-glow">
-                    <a target="_blank"
+                  <p class="my-2 text-center footer-icon-ctn placeholder-glow d-block lh-base p-0">
+                    <a class="text-decoration-none py-1" target="_blank"
                       href="https://www.youtube.com/channel/UC_voqvWCPExU_khvJHFbW_g?utm_source=segurossura&utm_medium=menu&utm_campaign=footer-seguros&utm_content=footer-seguros">
                       <span :class="{ placeholder:  !iconsLoad}">
                         <i class="icon i-sm i-youtube bg-secondary"></i>
@@ -127,8 +127,8 @@ app.component('footerExtended', {
                 </div>
                 <!-- APP -->
                 <div class="col-3 col-sm-1 d-flex align-items-center justify-content-center">
-                  <p class="my-2 text-center footer-icon-ctn placeholder-glow">
-                    <a class="text-secondary" target="_blank" style="font-style: italic;"
+                  <p class="my-2 text-center footer-icon-ctn placeholder-glow d-block lh-base p-0">
+                    <a class="text-secondary text-decoration-none py-1" target="_blank" style="font-style: italic;"
                       href="https://www.segurossura.com.co/landings/app/index.html?utm_source=segurossura&utm_medium=menu&utm_campaign=footer-seguros&utm_content=footer-seguros">
                       <span :class="{ placeholder:  !iconsLoad}">
                         APP
@@ -146,7 +146,7 @@ app.component('footerExtended', {
         <div class="container-lg">
           <div class="row">
             <div class="col pt-4">
-              <p class="text-center">© Copyright Seguros SURA 2022</p>
+              <p class="text-center d-block lh-base p-0">© Copyright Seguros SURA 2022</p>
             </div>
           </div>
         </div>

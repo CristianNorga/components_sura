@@ -1,3 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="app">
+    <cpse-1 :width-screen="1900">
+    
+      <template #linksaux="{showDropInfo, elActived}">
+    
+        <div @click="showDropInfo" class="col-12 col-sm-4 border rounded-start cpse1-link_item--aux" tied="1"
+          :actived="elActived == 1">
+          <span tied="1">SER CORRESPONSAL</span>
+        </div>
+        <div @click="showDropInfo" class="col-12 col-sm-4 border cpse1-link_item--aux" tied="2" :actived="elActived == 2">
+          <span tied="2">BENEFICIOS</span>
+        </div>
+        <div @click="showDropInfo" class="col-12 col-sm-4 border rounded-end cpse1-link_item--aux" tied="3"
+          :actived="elActived == 3">
+          <span tied="3">REQUISITOS</span>
+        </div>
+    
+      </template>
+    
+      <template #transmitters="{showDropInfo, elActived}">
+    
+        <transition-group name="slide-up">
+    
+          <div key="1" class="col-12 col-sm-4 py-3" v-show="elActived == null || elActived == '1'">
+    
+            <div @click="showDropInfo" tied="1" class="cpse1-transmitter_ctn" theme="aqua" :actived="(elActived == '1')">
+              <p tied="1">
+                <span class="fs-2 cpse1-transmitter_title" tied="1"> DESCUBRE </span>
+                <br>
+                <span class="fs-5 text-white cpse1-transmitter_text-stroke" tied="1">QUÉ ES SER UN<br> CORRESPONSAL </span>
+              </p>
+            </div>
+    
+          </div>
+    
+          <div key="2" class="col-12 col-sm-4 py-3" v-show="elActived == null || elActived == '2'">
+    
+            <div @click="showDropInfo" tied="2" class="cpse1-transmitter_ctn" theme="blue" :actived="(elActived == '2')">
+              <p tied="2">
+                <span class="fs-2 cpse1-transmitter_title" tied="2"> BENEFICIOS </span>
+                <br>
+                <span class="fs-5 text-white cpse1-transmitter_text-stroke" tied="2">DE SER UN<br> CORRESPONSAL </span>
+              </p>
+            </div>
+    
+          </div>
+    
+          <div key="3" class="col-12 col-sm-4 py-3" v-show="elActived == null || elActived == '3'">
+    
+            <div @click="showDropInfo" tied="3" class="cpse1-transmitter_ctn" theme="aqualight"
+              :actived="(elActived == '3')">
+              <p tied="3">
+                <span class="fs-2 cpse1-transmitter_title" tied="3"> REQUISITOS </span>
+                <br>
+                <span class="fs-5 text-white cpse1-transmitter_text-stroke" tied="3">PARA SER UN<br> CORRESPONSAL
+                  SURA</span>
+              </p>
+            </div>
+    
+          </div>
+    
+        </transition-group>
+    
+    
+      </template>
+    
+      <template #receiver="{elActived}">
+    
+        <div v-show="elActived == '1'" class="row">
+          <div class="col-12 col-sm-8 col-md-7 col-lg-6">
+            <div class="d-flex m-0 p-0" style="width: 100%;height: auto;overflow: hidden;">
+              <div id="myVideo"></div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-4 col-lg-6 text-primary">
+            Un corresponsal es una persona natural o jurídica que al firmar un contrato no <b>vinculante</b> de
+            corresponsalía (contrato comercial) queda habilitada para la comercialización de seguros que tengan las
+            siguientes características:
+            <br>
+            <span class="text-center">
+              <b>
+                Universalidad, Sencillez, Masividad y Estandarización
+              </b>
+            </span>
+          </div>
+        </div>
+    
+        <div v-show="elActived == '2'" class="row fs-6">
+          <div class="col-6 col-lg-4 text-center">
+            <p class="mb-0" style="color: var(--bs-aqua);"><b>Comisón por ventas</b></p>
+            <p class="text-primary">Gana comisión por cada seguro que vendas entre el 15% y el 20% según el producto.</p>
+          </div>
+          <div class="col-6 col-lg-4 text-center">
+            <p class="mb-0" style="color: var(--bs-aqua);"><b>Comisión por recarga</b></p>
+            <p class="text-primary">Gana comisión cada vez que tus clientes paguen la cuota de tu seguro .</p>
+          </div>
+          <div class="col-6 col-lg-4 text-center">
+            <p class="mb-0" style="color: var(--bs-aqua);"><b>Plan de reconocimientos</b></p>
+            <p class="text-primary">Gana puntos para redimir en premios en Mundo SURA .</p>
+          </div>
+          <div class="col-6 col-lg-4 text-center">
+            <p class="mb-0" style="color: var(--bs-aqua);"><b>Formación y reconocimiento</b></p>
+            <p class="text-primary">Certificación en seguros encuentros de formación.</p>
+          </div>
+          <div class="col-6 col-lg-4 text-center">
+            <p class="mb-0" style="color: var(--bs-aqua);"><b>+ Beneficios</b></p>
+            <p class="text-primary">Tu carrera comercial SURA (procesos deselección con la Compañía luego de un
+              año*).Asistencias y beneficios comerciales .Apoyo en recaudo de cartera .Desarrollo de habilidades
+              comerciales.Acompañamiento y respaldo de lamarca SURA.
+              <br>
+              *Aplican términos y condiciones.
+            </p>
+          </div>
+          <div class="col-6 col-lg-4 text-center">
+            <p class="mb-0" style="color: var(--bs-aqua);"><b>Bienestar</b></p>
+            <p class="text-primary">Al generar bienestar y protección tienes otra fuente de generación de ingresos .</p>
+          </div>
+        </div>
+    
+        <div v-show="elActived == '3'" class="row fs-6">
+    
+          <div class="col-12 col-lg-6">
+            <p class="mb-0 fs-5" style="color: var(--bs-aqua);">
+              <b>Si quieres ser Corresponsal Móvil</b>
+              <br>
+              <span>(persona natural)</span>
+            </p>
+    
+            <p class="text-primary">
+              <b>
+                Ser mayor de edad, con cédula colombiana
+              </b><br>
+              Formato Hoja de vida Corresponsal (escaneado o en cuerpo de correo) <br>
+              Foto de cédula <br>
+              Certificación de cuenta bancaria <br>
+              Soporte de consulta de procuraduría <a target="_blank"
+                href="https://www.procuraduria.gov.co/portal/Certificado-de-Antecedentes.page"
+                style="text-decoration: none;color: var(--bs-primary);"><b>aquí</b></a>
+            </p>
+    
+    
+            <p class="text-primary"><a target="_blank"
+                href="https://suramericana-my.sharepoint.com/personal/sgiraldot_sura_com_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsgiraldot%5Fsura%5Fcom%5Fco%2FDocuments%2FDesktop%2FCorresponsales%202022%2F5%2EDocumentaci%C3%B3ne%20enlaces%20Drive%2FInscripci%C3%B3n%20Corresponsal%20M%C3%B3vil%2Emsg&parent=%2Fpersonal%2Fsgiraldot%5Fsura%5Fcom%5Fco%2FDocuments%2FDesktop%2FCorresponsales%202022%2F5%2EDocumentaci%C3%B3ne%20enlaces%20Drive&ga=1"
+                style="text-decoration: none;color: var(--bs-primary);"><b>Descarga aquí documentos requeridos para la
+                  inscripción</b></a></p>
+          </div>
+    
+          <div class="col-12 col-lg-6">
+            <p class="mb-0 fs-5" style="color: var(--bs-aqua);">
+              <b>Si quieres ser Corresponsal Empresarial</b>
+              <br>
+              <span>(persona jurídica)</span>
+            </p>
+            <p class="text-primary">
+              Cámara de comercio (no superior a 3 meses)
+              <br>
+              RUT
+              <br>
+              Foto de documento de identidad por ambos lados (del representante legal)
+              <br>
+              Certificación cuenta bancaria
+              <br>
+              Composición Accionaria (solo para sociedades S.A y S.A.S)
+              <br>
+              Soporte de consulta de procuraduría de cada uno de los socios accionistas y representante legal <a
+                target="_blank" href="https://www.procuraduria.gov.co/portal/Certificado-de-Antecedentes.page"
+                style="text-decoration: none;color: var(--bs-primary);"><b>aquí</b></a>
+              <br>
+              Plantilla de acceso o retiro de usuarios
+              <br>
+              Ficha técnica
+            </p>
+            <p class="text-primary"><a target="_blank"
+                href="https://suramericana-my.sharepoint.com/personal/sgiraldot_sura_com_co/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fsgiraldot%5Fsura%5Fcom%5Fco%2FDocuments%2FDesktop%2FCorresponsales%202022%2F5%2EDocumentaci%C3%B3ne%20enlaces%20Drive%2FInscripci%C3%B3n%20Corresponsal%20Empresarial%20SURA%2Emsg&parent=%2Fpersonal%2Fsgiraldot%5Fsura%5Fcom%5Fco%2FDocuments%2FDesktop%2FCorresponsales%202022%2F5%2EDocumentaci%C3%B3ne%20enlaces%20Drive&ga=1"
+                style="text-decoration: none;color: var(--bs-primary);"><b>Descarga aquí documentos requeridos para la
+                  inscripción</b></a>
+            </p>
+          </div>
+    
+        </div>
+    
+      </template>
+    
+    </cpse-1>
+  </div>
+  <script src="../../vue@3.2.36.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
+
 <cpse-1 :width-screen="screen.width">
 
   <template #linksaux="{showDropInfo, elActived}">

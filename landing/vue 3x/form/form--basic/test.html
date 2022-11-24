@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORM VUE@3 BOOTSTRAP@5.2</title>
+  <link href="../../bootstrap/scss/bootstrap.css" rel="stylesheet">
+
+  <!-- root -->
+  <link rel="stylesheet" href="./index.css">
+
+</head>
+
+<body style="background-color: #f2f2f2;">
+  <!-- <div v-show="state.current === 'repose'"> -->
+  <div id="app">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <!-- formulario formSura -->
+          <form-sura p-gear-id="m5qe6tud0ei" p-on-submit-type="executeAction" p-on-submit-goto-Url="https://google.com"
+            :p-smartcapture-form-id="439" p-source-key="dataextensiontest">
+            <template v-slot:content="{verifying, getStatus, changeFamilyData, familyData, familyListener}">
+
+              <div class="col-12">
+                <radio-group-sura :p-items="[{text: 'Si', value: 'Si', condition: 1},{text: 'No', value: 'No', condition: 0}]"
+                  :p-emit-family-data="true" @change-family-data="changeFamilyData" p-name="hearing_problem" :p-is-required="true"
+                  :p-is-verifying="verifying" @status="getStatus">
+                  <template #default>
+                    <div class="text-muted fs-6 fw-medium ms-2 mb-2">
+                      ¿Tienes discapacidad auditiva?
+                    </div>
+                  </template>
+                </radio-group-sura>
+              </div>
+              <div class="col-12">
+                <radio-group-sura :p-family-receive="[{from: 'hearing_problem', change: 'visible', parameter: 1}]"
+                  :p-family-data="familyData" :p-family-listener="familyListener" p-name="sign_language_user" :p-is-required="true"
+                  :p-is-verifying="verifying" @status="getStatus">
+                  <template #default>
+                    <div class="text-muted fs-6 fw-medium ms-2 mb-2">
+                      ¿Eres usuario de lengua de señas colombiana?
+                    </div>
+                  </template>
+                </radio-group-sura>
+              </div>
+
+            </template>
+            <template v-slot:tkcomponent>
+              <!-- message of thank you for submision -->
+              <div class="col-12">
+                <div class="alert alert-success" role="alert">
+                  <h4 class="alert-heading">Gracias por registrarte!</h4>
+                  <p>
+                    Tu registro ha sido exitoso, en breve recibirás un correo de confirmación.
+                  </p>
+                  <hr>
+                  <p class="mb-0">
+                    <a href="https://google.com" class="btn btn-primary">Ir a Google</a>
+                  </p>
+                </div>
+              </div>
+            </template>
+          </form-sura>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="./index.js"></script>
+  <script src="./form.js"></script>
+  <script>
+    app.mount('#app');
+  </script>
+  <!-- fuelTraking -->
+  <!-- New Journey - March 18 2022 12.18 PM
+ 
+ -->
+</body>
+
+</html>
