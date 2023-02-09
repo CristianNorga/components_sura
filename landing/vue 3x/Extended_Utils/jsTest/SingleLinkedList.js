@@ -56,6 +56,8 @@ class MySinglyLinkedList {
     if (index < 0) throw "negative numbers are not allowed"
 		if (index >= this.length) {
 			return this.append(value);
+		} else if (index == 0) {
+			return this.prepend(value);
 		}
 
 		const newNode = new Node(value);
@@ -67,6 +69,26 @@ class MySinglyLinkedList {
 		this.length++;
 
 		return this;
+	}
+
+	remove(index){
+		if (index < 0 || index >= this.length) throw 'index are not allowed';
+
+		let nodeToDelete;
+
+		if (index > 0){		
+			const nodePrev = this.getTheIndex(index-1);
+			nodeToDelete = nodePrev.next;
+			const nodeNext = nodePrev.next.next;
+			nodePrev.next = nodeNext;
+		} else {
+			nodeToDelete = this.getTheIndex(index);
+			this.head = nodeToDelete.next;
+		}
+
+		this.length--;
+
+		return nodeToDelete.value;
 	}
 
 	getTheIndex(index) {
@@ -83,3 +105,9 @@ class MySinglyLinkedList {
 }
 
 let myLinkedList = new MySinglyLinkedList(1);
+myLinkedList.append(2);
+myLinkedList.append(3);
+myLinkedList.append(4);
+myLinkedList.append(5);
+console.log(`node value deleted = ${myLinkedList.remove(1)}`)
+console.log(myLinkedList.head);
